@@ -1,2 +1,3 @@
-# sqlalchemy-omnisci
-OmniSci Driver for SQLAlchemy
+# SQLAlchemy
+
+OmniSci SQLAlchemy Driver
