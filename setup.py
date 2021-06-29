@@ -8,7 +8,7 @@ with open("README.md") as readme_file:
 with open("HISTORY.md") as history_file:
     history = history_file.read()
 
-requirements = ["sqlalchemy", "pyomniscidb>=5.5.2", "pyomnisci>=0.27.0"]
+requirements = ["sqlalchemy==1.*", "pyomniscidb>=5.5.2", "pyomnisci>=0.27.0"]
 
 setup_requirements = ["pytest-runner"]
 
@@ -39,12 +39,12 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     keywords="sqlalchemy_omnisci",
-    name="sqlalchemy_omnisci",
+    name="sqlalchemy-omnisci",
     packages=find_packages(include=["sqlalchemy_omnisci"]),
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/omnisci/sqlalchemy_omnisci",
+    url="https://github.com/omnisci/sqlalchemy-omnisci",
     version="0.1.0",
     zip_safe=False,
     entry_points={
