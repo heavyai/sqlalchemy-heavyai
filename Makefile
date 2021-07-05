@@ -1,6 +1,8 @@
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 
+DOCKER=docker-compose --file docker/docker-compose.yaml
+
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
 
@@ -76,14 +78,6 @@ docs: ## generate Sphinx HTML documentation, including API docs
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
-release: dist ## package and upload a release
-	twine upload dist/*
-
-dist: clean ## builds source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
-	ls -l dist
-
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
@@ -91,3 +85,13 @@ develop: clean ## install the package in development mode
 	pip install -e '.[dev]'
 	git init  # it is safe to run it more than one time
 	pre-commit install
+
+docker-start-superset:
+	$(DOCKER) build superset
+	$(DOCKER) up -d superset
+	@sleep 5
+	$(DOCKER) exec superset bash /opt/sqlalchemy-omnisci/docker/setup-superset.sh
+	$(DOCKER) logs -f superset
+
+docker-run-superset:
+	$(DOCKER) exec superset bash
