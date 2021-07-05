@@ -10,6 +10,24 @@ services:
     volumes:
       - ./omnisci.conf:/omnisci-storage/omnisci.conf
 
+  superset:
+    # docs: https://hub.docker.com/r/apache/superset
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    hostname: superset
+    ports:
+      - 8088:8088
+    environment:
+      - DISPLAY=${DISPLAY}
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+    volumes:
+      - ..:/opt/sqlalchemy-omnisci
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
   waiter:
     image: jwilder/dockerize
     command: |
