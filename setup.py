@@ -8,7 +8,11 @@ with open("README.md") as readme_file:
 with open("HISTORY.md") as history_file:
     history = history_file.read()
 
-requirements = ["sqlalchemy==1.*", "pyomniscidb>=5.5.2", "pyomnisci>=0.27.0"]
+requirements = [
+    "sqlalchemy==1.*",
+    "pyomniscidb>=5.5.2",
+    "pyomnisci>=0.27.0",
+]
 
 setup_requirements = ["pytest-runner"]
 
