@@ -1,4 +1,6 @@
-FROM apache/superset
+# using version 1.1.0 to keep consistency with pyomnisci
+FROM apache/superset:1.1.0
+
 # Switching to root to install the required packages
 USER root
 

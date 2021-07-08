@@ -24,9 +24,10 @@ if TYPE_CHECKING:
     from superset.models.core import Database  # noqa: F401
 
 
-class OmnisciEngineSpecs(BaseEngineSpec):
+class OmniSciEngineSpec(BaseEngineSpec):
 
     engine = "omnisci"
+    engine_name = "OmniSci"
 
     _time_grain_functions = {
         None: "{col}",
@@ -39,6 +40,11 @@ class OmnisciEngineSpecs(BaseEngineSpec):
         "P0.25Y": "DATE_TRUNC(quarter, {col})",
         "P1Y": "DATE_TRUNC(year, {col})",
     }
+
+    def __init__(self, *args, **kwargs):
+        print("using omnisci backend")
+        print(args, kwargs)
+        super().__init__(*args, **kwargs)
 
     @classmethod
     def fetch_data(cls, cursor, limit: int) -> List[Tuple]:

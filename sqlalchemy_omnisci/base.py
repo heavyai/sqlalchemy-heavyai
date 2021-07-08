@@ -296,8 +296,9 @@ class OmnisciDialect(default.DefaultDialect):
     def _check_unicode_returns(self, connection):
         return
 
+    @property
     def _dialect_specific_select_one(self):
-        return str("1")
+        return "SELECT 1"
 
     def do_rollback(self, connection):
         # Omnisci hasnt transaction implemented so it cannot rollback changes
@@ -305,6 +306,7 @@ class OmnisciDialect(default.DefaultDialect):
 
     def create_connect_args(self, url):
         opts = url.translate_connect_args(username="user", database="dbname")
+        opts.update(url.query)
         return ([], opts)
 
     def get_tables(self):
