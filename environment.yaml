@@ -1,4 +1,4 @@
-name: sqlalchemy-omnisci
+name: sqla-omnisci
 channels:
   - conda-forge
 dependencies:
