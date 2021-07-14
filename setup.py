@@ -22,6 +22,8 @@ with open("requirements_dev.txt", "r") as f:
     dev_requirements = [line for line in f.read().split("\n") if line.strip()]
 dev_requirements += requirements
 
+sqla_dialect = "sqlalchemy_omnisci.pyomnisci:OmniSciDialect_pyomnisci"
+
 setup(
     author="OmniSci",
     author_email="community@omnisci.com",
@@ -53,7 +55,8 @@ setup(
     zip_safe=False,
     entry_points={
         "sqlalchemy.dialects": [
-            "omnisci = sqlalchemy_omnisci:OmnisciDialect",
+            f"omnisci = {sqla_dialect}",
+            f"omnisci.pyomnisci = {sqla_dialect}",
         ]
     },
 )

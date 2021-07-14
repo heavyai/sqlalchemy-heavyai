@@ -17,14 +17,15 @@
 from datetime import datetime
 from typing import TYPE_CHECKING, List, Tuple
 
-from superset.db_engine_specs.base import BaseEngineSpec, LimitMethod
+from superset.db_engine_specs.base import LimitMethod
+from superset.db_engine_specs.postgres import PostgresBaseEngineSpec
 
 if TYPE_CHECKING:
     # prevent circular imports
     from superset.models.core import Database  # noqa: F401
 
 
-class OmniSciEngineSpec(BaseEngineSpec):
+class OmniSciEngineSpec(PostgresBaseEngineSpec):
 
     engine = "omnisci"
     engine_name = "OmniSci"

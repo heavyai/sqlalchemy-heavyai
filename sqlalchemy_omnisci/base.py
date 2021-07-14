@@ -93,8 +93,6 @@ RESERVED_WORDS = frozenset(
     ]
 )
 
-colspecs: dict = {}
-
 
 class ARRAY(sqltypes.TypeEngine):
     __visit_name__ = "ARRAY"
@@ -220,7 +218,10 @@ class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
         return "ARRAY"
 
 
-class OmnisciDialect(default.DefaultDialect):
+colspecs: dict = {}
+
+
+class OmniSciDialect(default.DefaultDialect):
     name = "omnisci"
     max_identifier_length = 32768
 
@@ -309,15 +310,11 @@ class OmnisciDialect(default.DefaultDialect):
         opts.update(url.query)
         return ([], opts)
 
-    def get_tables(self):
-        # TODO
-        return []
-
     def has_table(self, connection, table_name, schema=None):
         """
         Checks if the table exists
         """
-        return table_name in self.get_tables()
+        return table_name in self.get_table_names(connection, schema)
 
     def has_sequence(self, connection, sequence_name, schema=None):
         """
@@ -415,6 +412,9 @@ class OmnisciDialect(default.DefaultDialect):
         Return all database as schemas. Maybe it would be better to return
         the database we are connected to
         """
+        import pdb
+
+        pdb.set_trace()
         schemas = []
         conn_api = connection.raw_connection()
         for i in conn_api.connection._client.get_databases(
@@ -479,6 +479,7 @@ class OmnisciDialect(default.DefaultDialect):
         return []
 
 
-dialect = OmnisciDialect
+dialect = OmniSciDialect
+
 
 construct_arguments = [(Table, {"clusterby": None})]
