@@ -115,3 +115,21 @@ def engine_testaccount(request):
     engine, _ = get_engine()
     request.addfinalizer(engine.dispose)
     return engine
+
+
+# TODO: check a better way to do it
+XFAIL_UNSUPPORTED = [
+    "test_special_type",
+]
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
+    """Dynamically add an xfail marker for specific backends."""
+    outcome = yield
+    try:
+        outcome.get_result()
+    except NotImplementedError as e:
+        if pyfuncitem.originalname not in XFAIL_UNSUPPORTED:
+            raise e
+        pytest.xfail(reason=repr(e))

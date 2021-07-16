@@ -86,18 +86,25 @@ develop: clean ## install the package in development mode
 	git init  # it is safe to run it more than one time
 	pre-commit install
 
-docker-start-superset:
+
+docker-superset-build:
 	$(DOCKER) build superset
+
+docker-superset-start: docker-superset-build
 	$(DOCKER) up -d superset
 	@sleep 5
 	$(DOCKER) exec superset bash /opt/sqlalchemy-omnisci/docker/setup-superset.sh
 	$(DOCKER) logs -f superset
 
-docker-run-superset:
+docker-superset-run:
 	$(DOCKER) exec superset bash
 
-
-docker-start-omnisci:
+docker-omnisci-build:
 	$(DOCKER) build omniscidb
+
+docker-omnisci-start: docker-omnisci-build
 	$(DOCKER) up -d omniscidb
 	$(DOCKER) logs -f omniscidb
+
+docker-omnisci-run:
+	$(DOCKER) run omniscidb
