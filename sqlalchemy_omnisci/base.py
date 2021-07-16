@@ -14,7 +14,6 @@ from sqlalchemy.sql.elements import quoted_name
 from sqlalchemy.types import (
     BIGINT,
     BINARY,
-    BOOLEAN,
     CHAR,
     DATE,
     DATETIME,
@@ -27,8 +26,7 @@ from sqlalchemy.types import (
     TIMESTAMP,
     VARCHAR,
 )
-
-# from ..connector.constants import UTF8
+from sqlalchemy.types import Boolean as BooleanBase
 
 RESERVED_WORDS = frozenset(
     [
@@ -80,6 +78,7 @@ RESERVED_WORDS = frozenset(
         "UNION",
         "UNIQUE",
         "UPDATE",
+        "VALUE",
         "VALUES",
         "WHENEVER",
         "WHERE",
@@ -98,10 +97,29 @@ class ARRAY(sqltypes.TypeEngine):
     __visit_name__ = "ARRAY"
 
 
+class Boolean(BooleanBase):
+    def bind_processor(self, dialect):
+        _strict_as_bool = self._strict_as_bool
+
+        def process(value):
+            # import pdb; pdb.set_trace()
+            value = _strict_as_bool(value)
+            if value is not None:
+                value = "'1'" if value else "'0'"
+            return value
+
+        return process
+
+
+class BOOLEAN(Boolean):
+    __visit_name__ = "BOOLEAN"
+
+
 ischema_names = {
     "BIGINT": BIGINT,
     "BINARY": BINARY,
     # 'BIT': BIT,
+    "Boolean": Boolean,
     "BOOLEAN": BOOLEAN,
     "CHAR": CHAR,
     "CHARACTER": CHAR,
@@ -164,8 +182,32 @@ class OmnisciCompiler(compiler.SQLCompiler):
     def default_from(selft):
         return " FROM DUAL"
 
+    def visit_true(self, expr, **kw):
+        return "'1'"
+
+    def visit_false(self, expr, **kw):
+        return "'0'"
+
 
 class OmnisciExecutionContext(default.DefaultExecutionContext):
+    def pre_exec(self):
+        parameters = []
+        for i, line in enumerate(self.parameters):
+            if not isinstance(line, dict):
+                parameters.append(line)
+                continue
+
+            _line = {}
+            for k, v in dict(line).items():
+                _line[k] = v
+                _v = self.compiled_parameters[i][k]
+                if isinstance(_v, bool):
+                    _line[k] = "true" if _v is True else "false"
+
+            parameters.append(_line)
+
+        self.parameters = self.parameters.__class__(parameters)
+
     def should_autocommit_text(self, statement):
         return AUTOCOMMIT_REGEXP.match(statement)
 
@@ -211,6 +253,10 @@ class OmnisciDDLCompiler(compiler.DDLCompiler):
             colspec.append("NOT NULL")
 
         return " ".join(colspec)
+
+    def visit_primary_key_constraint(self, constraint, **kw):
+        # NOTE: OmniSciDB doesn't implement primary key
+        return ""
 
 
 class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
@@ -258,7 +304,7 @@ class OmniSciDialect(default.DefaultDialect):
     # The dialect supports a native boolean construct.
     # This will prevent types.Boolean from generating a CHECK
     # constraint when that type is used.
-    supports_native_boolean = True
+    supports_native_boolean = False
 
     # The dialect supports ``ALTER TABLE``.
     supports_alter = True
@@ -412,11 +458,8 @@ class OmniSciDialect(default.DefaultDialect):
         Return all database as schemas. Maybe it would be better to return
         the database we are connected to
         """
-        import pdb
-
-        pdb.set_trace()
         schemas = []
-        conn_api = connection.raw_connection()
+        conn_api = connection.engine.raw_connection()
         for i in conn_api.connection._client.get_databases(
             conn_api.connection._session
         ):
@@ -429,7 +472,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Gets all table names.
         """
-        conn_api = connection.raw_connection()
+        conn_api = connection.engine.raw_connection()
         return [
             table_name
             for table_name in conn_api.connection._client.get_physical_tables(
@@ -443,7 +486,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Gets all view names
         """
-        conn_api = connection.raw_connection()
+        conn_api = connection.engine.raw_connection()
         return [
             view_name
             for view_name in conn_api.connection._client.get_views(
@@ -457,7 +500,7 @@ class OmniSciDialect(default.DefaultDialect):
         Gets the view definition
         """
         view_definition = None
-        conn_api = connection.raw_connection()
+        conn_api = connection.engine.raw_connection()
 
         # TODO
         table_name = ""

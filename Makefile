@@ -95,3 +95,9 @@ docker-start-superset:
 
 docker-run-superset:
 	$(DOCKER) exec superset bash
+
+
+docker-start-omnisci:
+	$(DOCKER) build omniscidb
+	$(DOCKER) up -d omniscidb
+	$(DOCKER) logs -f omniscidb
