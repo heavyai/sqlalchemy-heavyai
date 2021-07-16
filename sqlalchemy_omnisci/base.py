@@ -132,7 +132,7 @@ ischema_names = {
     "FLOAT": FLOAT,
     "INT": INTEGER,
     "INTEGER": INTEGER,
-    "NUMBER": DECIMAL,
+    "NUMERIC": DECIMAL,
     #    'OBJECT': ?,
     "REAL": REAL,
     "BYTEINT": SMALLINT,
@@ -187,6 +187,22 @@ class OmnisciCompiler(compiler.SQLCompiler):
 
     def visit_false(self, expr, **kw):
         return "'0'"
+
+    def visit_cast(self, cast, **kwargs):
+        cast_target = cast.typeclause._compiler_dispatch(self, **kwargs)
+
+        if any(
+            [t in cast_target.lower() for t in ["string", "varchar", "text"]]
+        ):
+            raise NotImplementedError(
+                (
+                    "Casting to {} not implemented. See "
+                    "See https://docs.omnisci.com/sql/data-manipulation-dml/"
+                    "sql-capabilities#type-cast-support"
+                ).format(cast_target)
+            )
+
+        return super().visit_cast(cast, **kwargs)
 
 
 class OmnisciExecutionContext(default.DefaultExecutionContext):
@@ -262,6 +278,9 @@ class OmnisciDDLCompiler(compiler.DDLCompiler):
 class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
     def visit_ARRAY(selfself, type, **kw):
         return "ARRAY"
+
+    def visit_numeric(self, type_, **kw):
+        return self.visit_DECIMAL(type_, **kw)
 
 
 colspecs: dict = {}
@@ -442,6 +461,17 @@ class OmniSciDialect(default.DefaultDialect):
                 raise Exception(
                     "Didn't recognize type '{0}' of "
                     "column '{1}'".format(column_row[1], column_row[0])
+                )
+
+            if isinstance(col_type(), sqltypes.DECIMAL):
+                col_type = sqltypes.DECIMAL(
+                    precision=column_row.precision, scale=column_row.scale
+                )
+
+            elif isinstance(col_type(), sqltypes.VARCHAR):
+                # import pdb; pdb.set_trace()
+                col_type = sqltypes.VARCHAR(
+                    length=(column_row.comp_param - 6) * 2
                 )
 
             cdict = {
