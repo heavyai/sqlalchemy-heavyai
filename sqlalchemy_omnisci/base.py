@@ -9,7 +9,7 @@ from sqlalchemy import util as sa_util
 from sqlalchemy.engine import default, reflection
 from sqlalchemy.pool import NullPool
 from sqlalchemy.schema import Table
-from sqlalchemy.sql import compiler, expression
+from sqlalchemy.sql import compiler, expression, selectable
 from sqlalchemy.sql.elements import quoted_name
 from sqlalchemy.types import (
     BIGINT,
@@ -161,6 +161,11 @@ ischema_names = {
 AUTOCOMMIT_REGEXP = re.compile(r"\s*(?:INSERT)", re.I | re.UNICODE)
 
 
+COMPOUND_KEYWORDS = {
+    selectable.CompoundSelect.UNION_ALL: "UNION ALL",
+}
+
+
 class OmnisciIdentifierPreparer(compiler.IdentifierPreparer):
     reserved_words = set([x.lower() for x in RESERVED_WORDS])
 
@@ -179,6 +184,8 @@ class OmnisciIdentifierPreparer(compiler.IdentifierPreparer):
 
 
 class OmnisciCompiler(compiler.SQLCompiler):
+    compound_keywords = COMPOUND_KEYWORDS
+
     def default_from(selft):
         return " FROM DUAL"
 
@@ -203,6 +210,21 @@ class OmnisciCompiler(compiler.SQLCompiler):
             )
 
         return super().visit_cast(cast, **kwargs)
+
+    def visit_index(self, *args, **kwargs):
+        return
+
+    def visit_compound_select(
+        self, cs, asfrom=False, compound_index=None, **kwargs
+    ):
+        if cs.keyword not in self.compound_keywords:
+            raise NotImplementedError(
+                "Given CompoundSelect {} not found.".format(cs.keyword)
+            )
+
+        super().visit_compound_select(
+            cs, asfrom=False, compound_index=None, **kwargs
+        )
 
 
 class OmnisciExecutionContext(default.DefaultExecutionContext):
@@ -272,7 +294,18 @@ class OmnisciDDLCompiler(compiler.DDLCompiler):
 
     def visit_primary_key_constraint(self, constraint, **kw):
         # NOTE: OmniSciDB doesn't implement primary key
-        return ""
+        return
+
+    def visit_foreign_key_constraint(self, constraint, **kw):
+        # NOTE: OmniSciDB doesn't implement primary key
+        return
+
+    def visit_unique_constraint(self, constraint, **kw):
+        # NOTE: OmniSciDB doesn't implement primary key
+        return
+
+    def visit_create_index(self, *args, **kwargs):
+        return
 
 
 class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
@@ -281,6 +314,9 @@ class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
 
     def visit_numeric(self, type_, **kw):
         return self.visit_DECIMAL(type_, **kw)
+
+    def visit_datetime(self, type_, **kw):
+        return self.visit_TIMESTAMP(type_, **kw)
 
 
 colspecs: dict = {}
@@ -437,6 +473,14 @@ class OmniSciDialect(default.DefaultDialect):
         return []
 
     @reflection.cache
+    def get_pk_constraint(self, connection, table_name, schema=None, **kw):
+        return []
+
+    @reflection.cache
+    def get_unique_constraint(self, connection, table_name, schema=None, **kw):
+        return []
+
+    @reflection.cache
     def get_foreign_keys(self, connection, table_name, schema=None, **kw):
         """
         Gets all foreign keys
@@ -456,6 +500,7 @@ class OmniSciDialect(default.DefaultDialect):
         columns = []
         for column_row in columns_details:
             col_type = self.ischema_names.get(column_row[1])
+            extra_setting = {"default": None}
             if col_type is None:
                 col_type = sqltypes.NULLTYPE
                 raise Exception(
@@ -479,6 +524,7 @@ class OmniSciDialect(default.DefaultDialect):
                 "type": col_type,
                 "nullable": column_row[2],
             }
+            cdict.update(extra_setting)
             columns.append(cdict)
         return columns
 
