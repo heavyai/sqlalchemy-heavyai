@@ -1,5 +1,6 @@
 from sqlalchemy.dialects import registry  # noqa: F401
 
+from . import provision  # noqa: F401
 from .base import ARRAY  # noqa: F401
 from .pyomnisci import OmniSciDialect_pyomnisci  # noqa: F401
 from .util import _url as URL  # noqa: F401

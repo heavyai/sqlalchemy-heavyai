@@ -3,6 +3,7 @@ import os
 import uuid
 
 import pytest
+import sqlalchemy
 from sqlalchemy import (
     BigInteger,
     Boolean,
@@ -113,13 +114,47 @@ def table2():
 @pytest.fixture()
 def engine_testaccount(request):
     engine, _ = get_engine()
+    import pdb
+
+    pdb.set_trace()
+    engine.connection
     request.addfinalizer(engine.dispose)
     return engine
 
 
 # TODO: check a better way to do it
 XFAIL_UNSUPPORTED = [
-    "test_special_type",
+    "CastTypeDecoratorTest_omnisci+pyomnisci.test_special_type",
+    "ComponentReflectionTest_omnisci+pyomnisci.test_get_indexes[False-_exclusions0]",
+    "test_get_schema_names",
+    # exception about union
+    "CompoundSelectTest_omnisci+pyomnisci.test_distinct_selectable_in_unions",
+    "CompoundSelectTest_omnisci+pyomnisci.test_limit_offset_aliased_selectable_in_unions",
+    "CompoundSelectTest_omnisci+pyomnisci.test_plain_union",
+    "CompoundSelectTest_omnisci+pyomnisci.test_select_from_plain_union",
+    "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_distinct_selectable_in_unions",
+    "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_limit_offset_aliased_selectable_in_unions",
+    "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_plain_union",
+]
+
+EXPECTED_DBAPI_ERROR = [
+    # exception: Insert into a subset of columns is not supported yet
+    "DateTest_omnisci+pyomnisci.test_null",
+    "DateTest_omnisci+pyomnisci.test_null_bound_comparison",
+    "DateTest_omnisci+pyomnisci.test_round_trip",
+    "DateTest_omnisci+pyomnisci.test_round_trip_decorated",
+    "DateTimeCoercedToDateTimeTest_omnisci+pyomnisci.test_null",
+    "DateTimeCoercedToDateTimeTest_omnisci+pyomnisci.test_null_bound_comparison",
+    "DateTimeCoercedToDateTimeTest_omnisci+pyomnisci.test_round_trip",
+    "DateTimeCoercedToDateTimeTest_omnisci+pyomnisci.test_round_trip_decorated",
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_null",
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_null_bound_comparison",
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip",
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip_decorated",
+    "DateTimeTest_omnisci+pyomnisci.test_null",
+    "DateTimeTest_omnisci+pyomnisci.test_null_bound_comparison",
+    "DateTimeTest_omnisci+pyomnisci.test_round_trip",
+    "DateTimeTest_omnisci+pyomnisci.test_round_trip_decorated",
 ]
 
 
@@ -129,7 +164,14 @@ def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
     outcome = yield
     try:
         outcome.get_result()
-    except NotImplementedError as e:
-        if pyfuncitem.originalname not in XFAIL_UNSUPPORTED:
+    except (
+        NotImplementedError,
+        AssertionError,
+    ) as e:
+        if pyfuncitem.location[-1] not in XFAIL_UNSUPPORTED:
+            raise e
+        pytest.xfail(reason=repr(e))
+    except sqlalchemy.exc.DBAPIError as e:
+        if pyfuncitem.location[-1] not in EXPECTED_DBAPI_ERROR:
             raise e
         pytest.xfail(reason=repr(e))
