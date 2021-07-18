@@ -10,6 +10,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     env:
       COMPOSE_FILE: docker/docker-compose.yml
