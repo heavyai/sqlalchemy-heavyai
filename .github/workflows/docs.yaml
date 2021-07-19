@@ -1,36 +1,44 @@
-# This is a basic workflow to help you get started with Actions
 
 name: docs
 
-# Controls when the workflow will run
+# Only run this when the "main" branch changes
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  deploy-book:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniconda-version: "latest"
+        mamba-version: "*"
+        environment-file: environment.yml
+        channels: conda-forge
+        activate-environment: scrape
+        use-mamba: true
+        miniforge-variant: Mambaforge
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    # Install the pre-release of jupyter book for now until it is "officially" released
+    - name: Install Jupyter Book
+      run: |
+        pip install -r requirements_dev.txt
+
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build docs/
+
+    # Push the book's HTML to github-pages
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.5.9
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_build/html
