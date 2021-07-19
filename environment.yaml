@@ -13,3 +13,4 @@ dependencies:
   - twine
   - pytest
   - pre-commit
+  - pydocstyle

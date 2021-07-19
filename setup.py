@@ -17,10 +17,22 @@ requirements = [
 setup_requirements = ["pytest-runner"]
 
 test_requirements = ["pytest"]
+lint_requirements = [
+    "black",
+    "pip",
+    "flake8",
+    "pre-commit",
+]
+docs_requirements = ["sphinx"]
+release_requirements = ["twine", "re-ver"]
 
-with open("requirements_dev.txt", "r") as f:
-    dev_requirements = [line for line in f.read().split("\n") if line.strip()]
-dev_requirements += requirements
+dev_requirements = (
+    requirements
+    + test_requirements
+    + docs_requirements
+    + lint_requirements
+    + release_requirements
+)
 
 sqla_dialect = "sqlalchemy_omnisci.pyomnisci:OmniSciDialect_pyomnisci"
 
@@ -39,7 +51,12 @@ setup(
     ],
     description="OmniSciDB driver for SQLAlchemy",
     install_requires=requirements,
-    extras_require={"dev": dev_requirements},
+    extras_require={
+        "dev": dev_requirements,
+        "lint": lint_requirements,
+        "docs": docs_requirements,
+        "release": release_requirements,
+    },
     license="Apache 2.0",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/markdown",

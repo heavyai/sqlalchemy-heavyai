@@ -1,6 +1,0 @@
-pip
-flake8
-Sphinx
-twine
-pytest
-pre-commit
