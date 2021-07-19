@@ -27,9 +27,9 @@ jobs:
       with:
         miniconda-version: "latest"
         mamba-version: "*"
-        environment-file: environment.yml
+        environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: sqlalchemy-omnisci
+        activate-environment: sqla-omnisci
         use-mamba: true
         miniforge-variant: Mambaforge
 
@@ -68,7 +68,7 @@ jobs:
         mamba-version: "*"
         environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: sqlalchemy-omnisci
+        activate-environment: sqla-omnisci
         use-mamba: true
         miniforge-variant: Mambaforge
 
