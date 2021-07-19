@@ -4,4 +4,3 @@ Sphinx
 twine
 pytest
 pre-commit
-jupyter-book

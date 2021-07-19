@@ -20,9 +20,9 @@ jobs:
       with:
         miniconda-version: "latest"
         mamba-version: "*"
-        environment-file: environment.yml
+        environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: scrape
+        activate-environment: sqla-omnisci
         use-mamba: true
         miniforge-variant: Mambaforge
 
@@ -34,7 +34,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build docs/
+        make docs
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
