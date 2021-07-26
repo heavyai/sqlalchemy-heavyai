@@ -7,10 +7,11 @@ dependencies:
   - pyomniscidb>=5.5.2
   # dev
   - black
-  - pip
   - flake8
+  - mypy
+  - pip
+  - pydocstyle
+  - pre-commit
+  - pytest
   - sphinx
   - twine
-  - pytest
-  - pre-commit
-  - pydocstyle

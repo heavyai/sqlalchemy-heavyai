@@ -226,6 +226,14 @@ class OmnisciCompiler(compiler.SQLCompiler):
             cs, asfrom=False, compound_index=None, **kwargs
         )
 
+    def limit_clause(self, select, **kw):
+        text = ""
+        if select._limit_clause is not None:
+            text += " \n LIMIT " + self.process(select._limit_clause, **kw)
+        if select._offset_clause is not None:
+            text += " OFFSET " + self.process(select._offset_clause, **kw)
+        return text
+
 
 class OmnisciExecutionContext(default.DefaultExecutionContext):
     def pre_exec(self):

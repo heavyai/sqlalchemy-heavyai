@@ -1,6 +1,7 @@
 import copy
 import os
 import uuid
+import warnings
 
 import pytest
 import sqlalchemy
@@ -175,3 +176,11 @@ def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
         if pyfuncitem.location[-1] not in EXPECTED_DBAPI_ERROR:
             raise e
         pytest.xfail(reason=repr(e))
+    finally:
+        try:
+            # force a rollback action
+            if "connection" in pyfuncitem.funcargs:
+                pyfuncitem.funcargs["connection"].get_transaction().rollback()
+                warnings.warn("Rollback done.")
+        except Exception as e:
+            warnings.warn(e)

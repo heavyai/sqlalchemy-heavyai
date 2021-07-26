@@ -23,6 +23,11 @@ repos:
             - python
           exclude: ^docs/
 
+    - repo: https://github.com/pycqa/pydocstyle
+      rev: 6.1.1
+      hooks:
+        - id: pydocstyle
+
     - repo: https://github.com/pre-commit/mirrors-mypy
       rev: 'master'
       hooks:
