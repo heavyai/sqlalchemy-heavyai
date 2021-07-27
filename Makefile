@@ -124,6 +124,7 @@ not (\
 	or IsOrIsNotDistinctFromTest and test_is_or_is_not_distinct_from \
 	or JoinTest \
 	or UnicodeVarcharTesta and test_round_trip_executemany \
+	or UnicodeTextTest \
 )
 endef
 
