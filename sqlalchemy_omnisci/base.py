@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+"""The base module for the OmniSci engine."""
 import re
 
 import sqlalchemy.types as sqltypes
@@ -88,21 +87,27 @@ RESERVED_WORDS = frozenset(
         "SOME",  # Snowflake Reserved words
         "MINUS",
         "INCREMENT",  # Oracle reserved words
-        "COUNT",  # Omnisci reserved word
+        "COUNT",  # OmniSci reserved word
     ]
 )
 
 
 class ARRAY(sqltypes.TypeEngine):
+    """Custom array SQL type."""
+
     __visit_name__ = "ARRAY"
 
 
 class Boolean(BooleanBase):
+    """Custom Boolean type."""
+
     def bind_processor(self, dialect):
+        """Bind processor for boolean type."""
+        # noqa
         _strict_as_bool = self._strict_as_bool
 
         def process(value):
-            # import pdb; pdb.set_trace()
+            """Process boolean value."""
             value = _strict_as_bool(value)
             if value is not None:
                 value = "'1'" if value else "'0'"
@@ -112,6 +117,8 @@ class Boolean(BooleanBase):
 
 
 class BOOLEAN(Boolean):
+    """Custom Boolean type."""
+
     __visit_name__ = "BOOLEAN"
 
 
@@ -156,7 +163,7 @@ ischema_names = {
     "MULTIPOLYGON": VARCHAR,
 }
 
-# Omnisci DML:
+# OmniSci DML:
 # - INSERT
 AUTOCOMMIT_REGEXP = re.compile(r"\s*(?:INSERT)", re.I | re.UNICODE)
 
@@ -166,36 +173,41 @@ COMPOUND_KEYWORDS = {
 }
 
 
-class OmnisciIdentifierPreparer(compiler.IdentifierPreparer):
+class OmniSciIdentifierPreparer(compiler.IdentifierPreparer):
+    """OmniSci Identifier Preparer."""
+
     reserved_words = set([x.lower() for x in RESERVED_WORDS])
 
     def __init__(self, dialect, **kw):
+        """Create an instance for OmniSciIdentifierPreparer."""
         quote = '"'
 
-        super(OmnisciIdentifierPreparer, self).__init__(
-            dialect, initial_quote=quote, escape_quote=quote
-        )
+        super().__init__(dialect, initial_quote=quote, escape_quote=quote)
 
     def _quote_free_identifiers(self, *ids):
-        """
-        Unilaterally identifier-quote any number of strings.
-        """
+        """Unilaterally identifier-quote any number of strings."""
         return tuple([self.quote(i) for i in ids if i is not None])
 
 
-class OmnisciCompiler(compiler.SQLCompiler):
+class OmniSciCompiler(compiler.SQLCompiler):
+    """SQLCompiler for OmniSci."""
+
     compound_keywords = COMPOUND_KEYWORDS
 
     def default_from(selft):
+        """Return the default FROM."""
         return " FROM DUAL"
 
     def visit_true(self, expr, **kw):
+        """Return the value for TRUE."""
         return "'1'"
 
     def visit_false(self, expr, **kw):
+        """Return the value for FALSE."""
         return "'0'"
 
     def visit_cast(self, cast, **kwargs):
+        """Override the default CAST."""
         cast_target = cast.typeclause._compiler_dispatch(self, **kwargs)
 
         if any(
@@ -212,11 +224,16 @@ class OmnisciCompiler(compiler.SQLCompiler):
         return super().visit_cast(cast, **kwargs)
 
     def visit_index(self, *args, **kwargs):
+        """Override the default INDEX.
+
+        OmniSci doesn't implement INDEX yet.
+        """
         return
 
     def visit_compound_select(
         self, cs, asfrom=False, compound_index=None, **kwargs
     ):
+        """Override the default COMPOUND SELECT."""
         if cs.keyword not in self.compound_keywords:
             raise NotImplementedError(
                 "Given CompoundSelect {} not found.".format(cs.keyword)
@@ -227,6 +244,7 @@ class OmnisciCompiler(compiler.SQLCompiler):
         )
 
     def limit_clause(self, select, **kw):
+        """Override the default LIMIT CLAUSE."""
         text = ""
         if select._limit_clause is not None:
             text += " \n LIMIT " + self.process(select._limit_clause, **kw)
@@ -235,8 +253,11 @@ class OmnisciCompiler(compiler.SQLCompiler):
         return text
 
 
-class OmnisciExecutionContext(default.DefaultExecutionContext):
+class OmniSciExecutionContext(default.DefaultExecutionContext):
+    """OmniSci Execution Context."""
+
     def pre_exec(self):
+        """Define the pre-execution step."""
         parameters = []
         for i, line in enumerate(self.parameters):
             if not isinstance(line, dict):
@@ -255,10 +276,12 @@ class OmnisciExecutionContext(default.DefaultExecutionContext):
         self.parameters = self.parameters.__class__(parameters)
 
     def should_autocommit_text(self, statement):
+        """Check if autocommit should be executed."""
         return AUTOCOMMIT_REGEXP.match(statement)
 
     @sa_util.memoized_property
     def should_autocommit(self):
+        """Check if autocommit should be executed."""
         autocommit = self.execution_options.get(
             "autocommit",
             not self.compiled
@@ -273,8 +296,11 @@ class OmnisciExecutionContext(default.DefaultExecutionContext):
             return autocommit and not self.isddl
 
 
-class OmnisciDDLCompiler(compiler.DDLCompiler):
+class OmniSciDDLCompiler(compiler.DDLCompiler):
+    """OmniSciDDL Compiler."""
+
     def denormalize_column_name(self, name):
+        """Denormalize the given column name."""
         if name is None:
             return None
         elif name.lower() == name and not self.preparer._requires_quotes(
@@ -285,9 +311,7 @@ class OmnisciDDLCompiler(compiler.DDLCompiler):
         return self.preparer.quote(name)
 
     def get_column_specification(self, column, **kwargs):
-        """
-        Gets Column specifications
-        """
+        """Get column specifications."""
         colspec = [
             self.preparer.format_column(column),
             self.dialect.type_compiler.process(
@@ -301,29 +325,47 @@ class OmnisciDDLCompiler(compiler.DDLCompiler):
         return " ".join(colspec)
 
     def visit_primary_key_constraint(self, constraint, **kw):
-        # NOTE: OmniSciDB doesn't implement primary key
+        """Override the primary key constraint implementation.
+
+        NOTE: OmniSciDB doesn't implement primary key
+        """
         return
 
     def visit_foreign_key_constraint(self, constraint, **kw):
-        # NOTE: OmniSciDB doesn't implement primary key
+        """Override the foreign key constraint implementation.
+
+        NOTE: OmniSciDB doesn't implement foreign key
+        """
         return
 
     def visit_unique_constraint(self, constraint, **kw):
-        # NOTE: OmniSciDB doesn't implement primary key
+        """Override the unique key constraint implementation.
+
+        NOTE: OmniSciDB doesn't implement unique key
+        """
         return
 
     def visit_create_index(self, *args, **kwargs):
+        """Override the index constraint implementation.
+
+        NOTE: OmniSciDB doesn't implement index
+        """
         return
 
 
-class OmnisciTypeCompiler(compiler.GenericTypeCompiler):
+class OmniSciTypeCompiler(compiler.GenericTypeCompiler):
+    """OmniSci Type Compiler."""
+
     def visit_ARRAY(selfself, type, **kw):
+        """Define the ARRAY compilation."""
         return "ARRAY"
 
     def visit_numeric(self, type_, **kw):
+        """Override the Numeric compilation."""
         return self.visit_DECIMAL(type_, **kw)
 
     def visit_datetime(self, type_, **kw):
+        """Override the Date Time compilation."""
         return self.visit_TIMESTAMP(type_, **kw)
 
 
@@ -331,6 +373,8 @@ colspecs: dict = {}
 
 
 class OmniSciDialect(default.DefaultDialect):
+    """OmniSci Dialect."""
+
     name = "omnisci"
     max_identifier_length = 32768
 
@@ -378,11 +422,11 @@ class OmniSciDialect(default.DefaultDialect):
     # The dialect supports a native ENUM construct.
     supports_native_enum = False
 
-    preparer = OmnisciIdentifierPreparer
-    ddl_compiler = OmnisciDDLCompiler
-    type_compiler = OmnisciTypeCompiler
-    statement_compiler = OmnisciCompiler
-    execution_ctx_cls = OmnisciExecutionContext
+    preparer = OmniSciIdentifierPreparer
+    ddl_compiler = OmniSciDDLCompiler
+    type_compiler = OmniSciTypeCompiler
+    statement_compiler = OmniSciCompiler
+    execution_ctx_cls = OmniSciExecutionContext
 
     # indicates symbol names are
     # UPPERCASEd if they are case insensitive
@@ -392,15 +436,18 @@ class OmniSciDialect(default.DefaultDialect):
     requires_name_normalize = True
 
     def __init__(self, pool=NullPool, **kwargs):
+        """Create an instance for the OmniSci Dialect."""
         default.DefaultDialect.__init__(self, **kwargs)
 
     @classmethod
     def dbapi(cls):
+        """Return the database api."""
         import pyomnisci
 
         return pyomnisci
 
     def set_connection_execution_options(self, connection, opts):
+        """Set connection execution options."""
         connection.schema_for_object = None
 
     def _check_unicode_returns(self, connection):
@@ -411,28 +458,32 @@ class OmniSciDialect(default.DefaultDialect):
         return "SELECT 1"
 
     def do_rollback(self, connection):
-        # Omnisci hasnt transaction implemented so it cannot rollback changes
+        """Override the rollback method.
+
+        Note: OmniSci hasn't transaction implemented so it cannot rollback
+        changes.
+        """
         return
 
     def create_connect_args(self, url):
+        """Create a connect arguments from given url."""
         opts = url.translate_connect_args(username="user", database="dbname")
         opts.update(url.query)
         return ([], opts)
 
     def has_table(self, connection, table_name, schema=None):
-        """
-        Checks if the table exists
-        """
+        """Check if the table exists."""
         return table_name in self.get_table_names(connection, schema)
 
     def has_sequence(self, connection, sequence_name, schema=None):
+        """Check if the sequence exists.
+
+        Note: OmniSci hasnt sequence objects.
         """
-        Checks if the sequence exists
-        """
-        # Omnisci hasnt sequence objects
         return
 
     def normalize_name(self, name):
+        """Normalize given name."""
         if name is None:
             return None
         if (
@@ -446,6 +497,7 @@ class OmniSciDialect(default.DefaultDialect):
             return name
 
     def denormalize_name(self, name):
+        """Denormalize given name."""
         if name is None:
             return None
         elif (
@@ -469,38 +521,51 @@ class OmniSciDialect(default.DefaultDialect):
 
     @reflection.cache
     def get_indexes(self, connection, table_name, schema=None, **kw):
+        """Get all indexes.
+
+        Note: index is not supported by OmniSci.
         """
-        Gets all indexes
-        """
-        # no index is supported by Omnisci
         return []
 
     @reflection.cache
     def get_primary_keys(self, connection, table_name, schema=None, **kw):
-        # primary keys arent supported by Omnisci
+        """
+        Override function that return the list of primary keys.
+
+        Note: primary keys aren't supported by OmniSci.
+        """
         return []
 
     @reflection.cache
     def get_pk_constraint(self, connection, table_name, schema=None, **kw):
+        """
+        Override function that return the list of constraints.
+
+        Note: constraints aren't supported by OmniSci.
+        """
         return []
 
     @reflection.cache
     def get_unique_constraint(self, connection, table_name, schema=None, **kw):
+        """
+        Override function that return the list of unique keys.
+
+        Note: unique keys arent supported by OmniSci.
+        """
         return []
 
     @reflection.cache
     def get_foreign_keys(self, connection, table_name, schema=None, **kw):
         """
-        Gets all foreign keys
+        Override function that return the list of foreign keys.
+
+        Note: foreign keys arent supported by OmniSci.
         """
-        # foreign keys arent supported by Omnisci
         return []
 
     @reflection.cache
     def get_columns(self, connection, table_name, schema=None, **kw):
-        """
-        Gets all column info given the table info
-        """
+        """Get all column info given the table info."""
         conn_api = connection.connect()
         columns_details = conn_api.connection.get_table_details(table_name)
         conn_api.close()
@@ -522,7 +587,6 @@ class OmniSciDialect(default.DefaultDialect):
                 )
 
             elif isinstance(col_type(), sqltypes.VARCHAR):
-                # import pdb; pdb.set_trace()
                 col_type = sqltypes.VARCHAR(
                     length=(column_row.comp_param - 6) * 2
                 )
@@ -539,8 +603,10 @@ class OmniSciDialect(default.DefaultDialect):
     @reflection.cache
     def get_schema_names(self, connection, **kw):
         """
-        Return all database as schemas. Maybe it would be better to return
-        the database we are connected to
+        Return all database as schemas.
+
+        Note: Maybe it would be better to return the database we are
+        connected to.
         """
         schemas = []
         conn_api = connection.engine.raw_connection()
@@ -553,9 +619,7 @@ class OmniSciDialect(default.DefaultDialect):
 
     @reflection.cache
     def get_table_names(self, connection, schema=None, **kw):
-        """
-        Gets all table names.
-        """
+        """Get all table names."""
         conn_api = connection.engine.raw_connection()
         return [
             table_name
@@ -566,10 +630,7 @@ class OmniSciDialect(default.DefaultDialect):
 
     @reflection.cache
     def get_view_names(self, connection, schema=None, **kw):
-        # there isnt support on API to
-        """
-        Gets all view names
-        """
+        """Get all view names."""
         conn_api = connection.engine.raw_connection()
         return [
             view_name
@@ -580,9 +641,7 @@ class OmniSciDialect(default.DefaultDialect):
 
     @reflection.cache
     def get_view_definition(self, connection, view_name, schema=None, **kw):
-        """
-        Gets the view definition
-        """
+        """Get the view definition."""
         view_definition = None
         conn_api = connection.engine.raw_connection()
 
@@ -602,7 +661,8 @@ class OmniSciDialect(default.DefaultDialect):
         return view_definition
 
     def get_temp_table_names(self, connection, schema=None, **kw):
-        # there arent temp tables in Mpad
+        """Override function that return the list of temporary tables name."""
+        # TODO: check a way to get the name of the temporary tables.
         return []
 
 

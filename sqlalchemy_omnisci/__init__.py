@@ -1,3 +1,4 @@
+"""OmniSci sqlalchemy dialect."""
 from sqlalchemy.dialects import registry  # noqa: F401
 
 from . import provision  # noqa: F401

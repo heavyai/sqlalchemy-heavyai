@@ -1,15 +1,14 @@
+"""Collection of utils functions for the tests."""
 from werkzeug.routing import MethodNotAllowed, NotFound, RequestRedirect
 
 
 def get_view_function(url, app, method="GET"):
-    """Match a url and return the view and arguments
-    it will be called with, or None if there is no view.
+    """Match a url and return the view and arguments.
+
+    It will be called with, or None if there is no view.
+
     """
-
     adapter = app.url_map.bind("localhost")
-    import pdb
-
-    pdb.set_trace()
 
     try:
         match = adapter.match(url, method=method)

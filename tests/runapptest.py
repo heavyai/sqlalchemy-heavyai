@@ -1,3 +1,4 @@
+"""Start an Apache Superset for testing."""
 import superset
 
 app = superset.create_app()

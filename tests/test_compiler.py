@@ -1,3 +1,4 @@
+"""Test compiler from expressions to SQL statement."""
 import pytest
 from sqlalchemy import func, select
 from sqlalchemy.sql import column, quoted_name, table
@@ -9,7 +10,10 @@ class _TestCompilerOmniSci(AssertsCompiledSQL):
 
 
 class TestCompilerSelect(_TestCompilerOmniSci):
+    """Test compiler for select statement."""
+
     def test_select_datatype_table(self, table_datatype):
+        """Test compilation for different datatypes."""
         stmt = table_datatype.select().where(table_datatype.c._int == 1)
         self.assert_compile(
             stmt,
@@ -39,6 +43,7 @@ class TestCompilerSelect(_TestCompilerOmniSci):
         ],
     )
     def test_select_datatype_table_avg(self, table_datatype, sql_func):
+        """Test compilation for average function."""
         expr = getattr(func, sql_func)(table_datatype.c._int)
         stmt = select(expr)
 
@@ -53,7 +58,10 @@ class TestCompilerSelect(_TestCompilerOmniSci):
 
 
 class TestCompilerDelete(_TestCompilerOmniSci):
+    """Compilation test for delete statement."""
+
     def test_table_delete(self, table1):
+        """Test compilatino for delete statement."""
         stmt = table1.delete().where(table1.c.id == 1)
         self.assert_compile(
             stmt,
@@ -63,7 +71,10 @@ class TestCompilerDelete(_TestCompilerOmniSci):
 
 
 class TestCompilerUpdate(_TestCompilerOmniSci):
+    """Compilation test for update statement."""
+
     def test_table_update(self, table1):
+        """Test compilation for update statement."""
         stmt = table1.update().values(name="name1").where(table1.c.name == 1)
         self.assert_compile(
             stmt,
@@ -74,6 +85,7 @@ class TestCompilerUpdate(_TestCompilerOmniSci):
 
 
 def test_quoted_name_label():
+    """Test quoted name label."""
     test_cases = [
         # quote name
         {

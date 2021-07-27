@@ -1,3 +1,4 @@
+"""Pytest configuration module."""
 import copy
 import os
 import uuid
@@ -40,9 +41,7 @@ DEFAULT_PARAMETERS = {
 
 
 def get_db_parameters():
-    """
-    Sets the db connection parameters
-    """
+    """Set the db connection parameters."""
     ret = copy.copy(DEFAULT_PARAMETERS)
 
     # a unique table name
@@ -52,9 +51,7 @@ def get_db_parameters():
 
 
 def get_engine(user=None, password=None):
-    """
-    Creates a connection using the parameters defined in JDBC connect string
-    """
+    """Create a connection using the given parameters."""
     ret = get_db_parameters()
 
     if user is not None:
@@ -79,6 +76,7 @@ def get_engine(user=None, password=None):
 
 @pytest.fixture(autouse=True)
 def table_datatype():
+    """Create a table expression for handle different datatypes."""
     return table(
         "table_datatype",
         column("_bigint", BigInteger),
@@ -94,6 +92,7 @@ def table_datatype():
 
 @pytest.fixture(autouse=True)
 def table1():
+    """Create a table expression for table1."""
     return table(
         "table1",
         column("id", Integer),
@@ -104,6 +103,7 @@ def table1():
 
 @pytest.fixture(autouse=True)
 def table2():
+    """Create a table expression for table2."""
     return table(
         "table2",
         column("id", Integer),
@@ -114,10 +114,8 @@ def table2():
 
 @pytest.fixture()
 def engine_testaccount(request):
+    """Create an engine for tests."""
     engine, _ = get_engine()
-    import pdb
-
-    pdb.set_trace()
     engine.connection
     request.addfinalizer(engine.dispose)
     return engine

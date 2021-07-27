@@ -85,7 +85,3 @@ jobs:
 
     - name: pre-commit check
       run: pre-commit run --all-files
-
-    - name: pydocstyle
-      run: pydocstyle .
-      if: always()

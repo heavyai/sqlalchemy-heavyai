@@ -1,17 +1,17 @@
+"""Util functions used by OmniSci Dialect."""
 from urllib.parse import quote_plus
 
 
 def IS_STR(v):
+    """Check if the given parameter is an instance of ``str``."""
     return isinstance(v, str)
 
 
 def _url(**db_parameters):
-    """
-    Composes a SQLAlchemy connect string from the given database connection
-    parameters.
-    """
+    """Compose a connect string from the given parameters."""
 
     def sep(is_first):
+        """Return the appropiated separator."""
         return "?" if is_first else "&"
 
     specified_parameters = []

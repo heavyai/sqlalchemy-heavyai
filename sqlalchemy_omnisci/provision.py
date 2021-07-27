@@ -1,3 +1,4 @@
+"""Override some methods for the provision module."""
 from sqlalchemy.testing.provision import temp_table_keyword_args
 
 

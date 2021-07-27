@@ -1,8 +1,11 @@
+"""Requirements/Restrictions for the Dialect tests."""
 from sqlalchemy.testing import exclusions
 from sqlalchemy.testing.requirements import SuiteRequirements
 
 
 class Requirements(SuiteRequirements):
+    """Define dialect restrictions for the tests."""
+
     # foreign key
     foreign_key_constraint_reflection = exclusions.closed()
     cross_schema_fk_reflection = exclusions.closed()
