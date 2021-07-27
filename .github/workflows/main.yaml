@@ -50,7 +50,7 @@ jobs:
       run: conda list
 
     - name: run tests
-      run: python -m pytest
+      run: make run-tests
 
   lint:
     name: Lint
