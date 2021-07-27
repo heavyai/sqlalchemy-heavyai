@@ -122,7 +122,7 @@ not (\
 	FetchLimitOffsetTest \
 	or IsOrIsNotDistinctFromTest and nottest_is_or_is_not_distinct_from \
 	or IsOrIsNotDistinctFromTest and test_is_or_is_not_distinct_from \
-	or JoinTest_omnisci and test_outer_join_fk \
+	or JoinTest \
 	or UnicodeVarcharTesta and test_round_trip_executemany \
 )
 endef
