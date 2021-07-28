@@ -134,6 +134,8 @@ XFAIL_UNSUPPORTED = [
     "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_distinct_selectable_in_unions",
     "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_limit_offset_aliased_selectable_in_unions",
     "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_plain_union",
+    # missing microseconds
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip",
 ]
 
 EXPECTED_DBAPI_ERROR = [

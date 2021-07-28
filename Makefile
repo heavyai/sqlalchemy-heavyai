@@ -102,16 +102,14 @@ docker-superset-run:
 	$(DOCKER) exec superset bash
 
 docker-omnisci-build:
-	$(DOCKER) build omniscidb
+	$(DOCKER) pull omniscidb
 
-docker-omnisci-start: docker-omnisci-build
+docker-omnisci-start:
 	$(DOCKER) up -d omniscidb
 	$(DOCKER) logs -f omniscidb
 
 docker-omnisci-run:
 	$(DOCKER) run omniscidb
-
-
 
 
 # tests
@@ -123,7 +121,7 @@ not (\
 	or IsOrIsNotDistinctFromTest and nottest_is_or_is_not_distinct_from \
 	or IsOrIsNotDistinctFromTest and test_is_or_is_not_distinct_from \
 	or JoinTest \
-	or UnicodeVarcharTesta and test_round_trip_executemany \
+	or UnicodeVarcharTest \
 	or UnicodeTextTest \
 )
 endef
