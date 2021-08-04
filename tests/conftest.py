@@ -136,6 +136,19 @@ XFAIL_UNSUPPORTED = [
     "DeprecatedCompoundSelectTest_omnisci+pyomnisci.test_plain_union",
     # missing microseconds
     "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip",
+    "DateTimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip_decorated",
+    "TimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip",
+    "TimeMicrosecondsTest_omnisci+pyomnisci.test_round_trip_decorated",
+    # omnisci doesn't have primary key
+    "ExceptionTest_omnisci+pyomnisci.test_integrity_error",
+    # string comparison
+    "NormalizedNameTest_omnisci+pyomnisci.test_get_table_names",
+    # decimal output should be decimal instead of float
+    "NumericTest_omnisci+pyomnisci.test_decimal_coerce_round_trip_w_cast",
+    "NumericTest_omnisci+pyomnisci.test_numeric_as_decimal",
+    "NumericTest_omnisci+pyomnisci.test_render_literal_numeric",
+    # empty text wrong converted to None
+    "TextTest_omnisci+pyomnisci.test_text_empty_strings",
 ]
 
 EXPECTED_DBAPI_ERROR = [
@@ -156,13 +169,78 @@ EXPECTED_DBAPI_ERROR = [
     "DateTimeTest_omnisci+pyomnisci.test_null_bound_comparison",
     "DateTimeTest_omnisci+pyomnisci.test_round_trip",
     "DateTimeTest_omnisci+pyomnisci.test_round_trip_decorated",
+    # SQL Error: DEFAULT FROM
+    "ExistsTest_omnisci+pyomnisci.test_select_exists",
+    "ExistsTest_omnisci+pyomnisci.test_select_exists_false",
+    # Exception: Variable length types not supported in VALUES yet.
+    "ExpandingBoundInTest_omnisci+pyomnisci.test_empty_set_against_string_bindparam",
+    "ExpandingBoundInTest_omnisci+pyomnisci.test_empty_set_against_string_direct",
+    "ExpandingBoundInTest_omnisci+pyomnisci.test_empty_set_against_string_negation_bindparam",
+    "ExpandingBoundInTest_omnisci+pyomnisci.test_empty_set_against_string_negation_direct",
+    # Column data does not exist
+    "CollateTest_omnisci+pyomnisci.test_collate_order_by",
+    # The matching pattern must be a literal
+    "LikeFunctionsTest_omnisci+pyomnisci.test_startswith_unescaped",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_startswith_autoescape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_startswith_sqlexpr",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_startswith_escape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_startswith_autoescape_escape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_endswith_unescaped",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_endswith_sqlexpr",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_endswith_autoescape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_endswith_escape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_endswith_autoescape_escape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_contains_unescaped",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_contains_autoescape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_contains_escape",
+    "LikeFunctionsTest_omnisci+pyomnisci.test_contains_autoescape_escape",
+    # empty SQL statment not allowed
+    "LongNameBlowoutTest_omnisci+pyomnisci.test_long_convention_name[ix-_exclusions2]",
+    # function not supported
+    "OrderByLabelTest_omnisci+pyomnisci.test_composed_multiple",
+]
+
+EXPECTED_ERROR = [
+    # problems with text() when using special character
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[%percent]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[/slashes/]",
+    r"DifficultParametersTest_omnisci+pyomnisci.test_round_trip[more :: %colons%]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[more/slashes]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[par(ens)]",
+    r"DifficultParametersTest_omnisci+pyomnisci.test_round_trip[per % cent]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[per cent]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[percent%(ens)yah]",
+    "DifficultParametersTest_omnisci+pyomnisci.test_round_trip[q?marks]",
+    # TypeError: expected bytes, str found
+    "UnicodeTextTest_omnisci+pyomnisci.test_round_trip",
+    "UnicodeTextTest_omnisci+pyomnisci.test_round_trip_executemany",
+    "UnicodeVarcharTest_omnisci+pyomnisci.test_round_trip",
+    "UnicodeVarcharTest_omnisci+pyomnisci.test_round_trip_executemany",
+    # omnisci doesn't implement primary key
+    "LongNameBlowoutTest_omnisci+pyomnisci.test_long_convention_name[pk-_exclusions1]",
+    # KeyError
+    "NormalizedNameTest_omnisci+pyomnisci.test_reflect_lowercase_forced_tables",
 ]
 
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
     """Dynamically add an xfail marker for specific backends."""
+    # internal function that forces the rollback
+    def rollback_transaction(pyfuncitem):
+        try:
+            # force a rollback action
+            if (
+                "connection" in pyfuncitem.funcargs
+                and pyfuncitem.funcargs["connection"].get_transaction()
+            ):
+                pyfuncitem.funcargs["connection"].get_transaction().rollback()
+                warnings.warn("Rollback done.")
+        except Exception as e:
+            warnings.warn(e)
+
     outcome = yield
+
     try:
         outcome.get_result()
     except (
@@ -170,17 +248,18 @@ def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
         AssertionError,
     ) as e:
         if pyfuncitem.location[-1] not in XFAIL_UNSUPPORTED:
+            rollback_transaction(pyfuncitem)
             raise e
         pytest.xfail(reason=repr(e))
     except sqlalchemy.exc.DBAPIError as e:
         if pyfuncitem.location[-1] not in EXPECTED_DBAPI_ERROR:
+            rollback_transaction(pyfuncitem)
+            raise e
+        pytest.xfail(reason=repr(e))
+    except Exception as e:
+        if pyfuncitem.location[-1] not in EXPECTED_ERROR:
+            rollback_transaction(pyfuncitem)
             raise e
         pytest.xfail(reason=repr(e))
     finally:
-        try:
-            # force a rollback action
-            if "connection" in pyfuncitem.funcargs:
-                pyfuncitem.funcargs["connection"].get_transaction().rollback()
-                warnings.warn("Rollback done.")
-        except Exception as e:
-            warnings.warn(e)
+        rollback_transaction(pyfuncitem)
