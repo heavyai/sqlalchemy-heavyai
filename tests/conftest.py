@@ -240,6 +240,7 @@ def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
             warnings.warn(e)
 
     outcome = yield
+    success = True
 
     try:
         outcome.get_result()
@@ -261,5 +262,3 @@ def pytest_pyfunc_call(pyfuncitem, XFAIL_UNSUPPORTED=XFAIL_UNSUPPORTED):
             rollback_transaction(pyfuncitem)
             raise e
         pytest.xfail(reason=repr(e))
-    finally:
-        rollback_transaction(pyfuncitem)
