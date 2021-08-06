@@ -144,8 +144,83 @@ not (\
 		test_delete \
 		or test_update \
 	) \
-	or UnicodeVarcharTest \
+	or CollateTest and test_collate_order_by \
+	or DateTest and (\
+		test_null \
+		or test_null_bound_comparison \
+		or test_round_trip \
+		or test_round_trip_decorated \
+	) \
+	or DateTimeCoercedToDateTimeTest and ( \
+		test_null \
+		or test_null_bound_comparison \
+		or test_round_trip \
+		or test_round_trip_decorated \
+	) \
+	or DateTimeMicrosecondsTest and (\
+		test_null \
+		or test_null_bound_comparison \
+		or test_round_trip \
+		or test_round_trip_decorated \
+	) \
+	or DateTimeTest and (\
+		test_null \
+		or test_null_bound_comparison \
+		or test_round_trip \
+		or test_round_trip_decorated \
+	) \
+	or DifficultParametersTest and test_round_trip \
+	or ExistsTest and ( \
+		test_select_exists \
+		or test_select_exists_false \
+	) \
+	or ExpandingBoundInTest and ( \
+		test_empty_set_against_string_bindparam \
+		or test_empty_set_against_string_direct \
+		or test_empty_set_against_string_negation_bindparam \
+		or test_empty_set_against_string_negation_direct \
+	) \
+	or LikeFunctionsTest and (\
+		test_contains_autoescape \
+		or test_contains_autoescape_escape \
+		or test_contains_escape \
+		or test_contains_unescaped \
+		or test_endswith_autoescape \
+		or test_endswith_autoescape_escape \
+		or test_endswith_escape \
+		or test_endswith_sqlexpr \
+		or test_endswith_unescaped \
+		or test_startswith_autoescape \
+		or test_startswith_autoescape_escape \
+		or test_startswith_escape \
+		or test_startswith_sqlexpr \
+		or test_startswith_unescaped \
+	) \
+	or LongNameBlowoutTest and test_long_convention_name \
+	or NormalizedNameTest and test_reflect_lowercase_forced_tables \
+	or OrderByLabelTest and test_composed_multiple \
 	or UnicodeTextTest \
+	or UnicodeVarcharTest \
+	or CastTypeDecoratorTest and test_special_type \
+    or ComponentReflectionTest\
+    or test_get_schema_names \
+    or CompoundSelectTest and test_distinct_selectable_in_unions \
+    or CompoundSelectTest and test_limit_offset_aliased_selectable_in_unions \
+    or CompoundSelectTest and test_plain_union \
+    or CompoundSelectTest and test_select_from_plain_union \
+    or DeprecatedCompoundSelectTest and test_distinct_selectable_in_unions \
+    or DeprecatedCompoundSelectTest and test_limit_offset_aliased_selectable_in_unions \
+    or DeprecatedCompoundSelectTest and test_plain_union \
+    or DateTimeMicrosecondsTest and test_round_trip \
+    or DateTimeMicrosecondsTest and test_round_trip_decorated \
+    or TimeMicrosecondsTest and test_round_trip \
+    or TimeMicrosecondsTest and test_round_trip_decorated \
+    or ExceptionTest and test_integrity_error \
+    or NormalizedNameTest and test_get_table_names \
+    or NumericTest and test_decimal_coerce_round_trip_w_cast \
+    or NumericTest and test_numeric_as_decimal \
+    or NumericTest and test_render_literal_numeric \
+    or TextTest and test_text_empty_strings \
 )
 endef
 

@@ -50,10 +50,7 @@ jobs:
       run: conda list
 
     - name: run tests
-      run: |
-        # run it twice to avoid empty sql error
-        make run-tests | true
-        make run-tests
+      run: make run-tests
 
   lint:
     name: Lint
