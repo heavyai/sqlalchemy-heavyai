@@ -1,8 +1,12 @@
-# SQLAlchemy
+# SQLAlchemy OmniSci
 
 OmniSci SQLAlchemy Driver
 
-This repository is based on https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
+The code here was initially developed and published at
+https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
+
+This SQLAlchemy dialect is still in **beta** version.
+
 
 ### Tests
 
