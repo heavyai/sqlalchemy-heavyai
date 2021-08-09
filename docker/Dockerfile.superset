@@ -1,0 +1,16 @@
+# using version 1.1.0 to keep consistency with pyomnisci
+FROM apache/superset:1.1.0
+
+# Switching to root to install the required packages
+USER root
+
+RUN apt-get -qq update --yes \
+  && apt-get -qq install --yes --no-install-recommends \
+    sudo \
+    vim \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN echo "superset ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/superset && \
+    chmod 0440 /etc/sudoers.d/superset
+
+USER superset

@@ -1,0 +1,35 @@
+repos:
+    - repo: https://github.com/asottile/seed-isort-config
+      rev: v2.2.0
+      hooks:
+        - id: seed-isort-config
+    - repo: https://github.com/timothycrosley/isort
+      rev: 5.9.1
+      hooks:
+        - id: isort
+          exclude: ^docs/
+
+    - repo: https://github.com/psf/black
+      rev: 21.5b2
+      hooks:
+        - id: black
+          exclude: ^docs/
+
+    - repo: https://gitlab.com/pycqa/flake8
+      rev: 3.9.2
+      hooks:
+        - id: flake8
+          types:
+            - python
+          exclude: ^docs/
+
+    - repo: https://github.com/pycqa/pydocstyle
+      rev: 6.1.1
+      hooks:
+        - id: pydocstyle
+
+    - repo: https://github.com/pre-commit/mirrors-mypy
+      rev: 'master'
+      hooks:
+      -   id: mypy
+          files: sqlalchemy_omnisci/

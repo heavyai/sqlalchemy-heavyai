@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  omniscidb:
+    image: omnisci/core-os-cpu:v5.6.4
+    hostname: omniscidb
+    ports:
+      - 6274:6274
+      - 6278:6278
+    volumes:
+      - ./omnisci.conf:/omnisci-storage/omnisci.conf
+
+  superset:
+    # docs: https://hub.docker.com/r/apache/superset
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    hostname: superset
+    ports:
+      # - 8088:8088  # used for superset >1.2
+      - 8080:8080  # used for supserset =1.1
+      - 5000:5000  # for testing
+    environment:
+      - DISPLAY=${DISPLAY}
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+    volumes:
+      - ..:/opt/sqlalchemy-omnisci
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+  waiter:
+    image: jwilder/dockerize
+    command: |
+      dockerize -wait tcp://omniscidb:6274
+        -wait-retry-interval 5s
+        -timeout 1m

@@ -1,0 +1,18 @@
+name: sqla-omnisci
+channels:
+  - conda-forge
+dependencies:
+  - sqlalchemy
+  - pyomnisci>=0.27.0
+  - pyomniscidb>=5.5.2
+  # dev
+  - black
+  - flake8
+  - mypy
+  - pip
+  - pydocstyle
+  - pre-commit
+  - pytest
+  - sphinx
+  - toml
+  - twine
