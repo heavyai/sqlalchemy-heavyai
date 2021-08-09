@@ -1,0 +1,7 @@
+sqlalchemy_omnisci
+==================
+
+.. toctree::
+   :maxdepth: 4
+
+   sqlalchemy_omnisci
