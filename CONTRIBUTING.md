@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/omnisci/sqlalchemy_omnisci/issues.
+Report bugs at https://github.com/omnisci/sqlalchemy-omnisci/issues.
 
 If you are reporting a bug, please include:
 
@@ -35,7 +35,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/omnisci/sqlalchemy_omnisci/issues.
+The best way to send feedback is to file an issue at https://github.com/omnisci/sqlalchemy-omnisci/issues.
 
 If you are proposing a feature:
 
@@ -46,18 +46,19 @@ If you are proposing a feature:
 
 ### Get Started!
 
-Ready to contribute? Here's how to set up `sqlalchemy_omnisci` for local development.
+Ready to contribute? Here's how to set up `sqlalchemy-omnisci` for local development.
 
-1. Fork the `sqlalchemy_omnisci` repo on GitHub.
+1. Fork the `sqlalchemy-omnisci` repo on GitHub.
 2. Clone your fork locally::
 ```sh
-    $ git clone git@github.com:your_name_here/sqlalchemy_omnisci.git
+    $ git clone git@github.com:your_name_here/sqlalchemy-omnisci.git
 ```
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+1. Create a conda environment and set up your fork for local development::
 ```sh
-    $ mkvirtualenv sqlalchemy_omnisci
-    $ cd sqlalchemy_omnisci/
-    $ python setup.py develop
+    $ cd sqlalchemy-omnisci/
+    $ conda env create --file environment.yaml
+    $ conda activate sqla-omnisci
+    $ make develop
 ```
 4. Create a branch for local development::
 ```sh
@@ -65,21 +66,13 @@ Ready to contribute? Here's how to set up `sqlalchemy_omnisci` for local develop
 ```
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox::
-```sh
-    $ flake8 sqlalchemy_omnisci tests
-    $ python setup.py test or py.test
-```
-   To get flake8 and tox, just pip install them into your virtualenv.
-
-6. Commit your changes and push your branch to GitHub::
+5. Commit your changes and push your branch to GitHub (this runs pre-commit hooks automatically)::
 ```
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 ```
-7. Submit a pull request through the GitHub website.
+6. Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
@@ -88,17 +81,8 @@ Before you submit a pull request, check that it meets these guidelines:
 1. The pull request should include tests.
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 3.6, 3.7 and 3.8, and for PyPy. Check
-   https://travis-ci.org/omnisci/sqlalchemy_omnisci/pull_requests
-   and make sure that the tests pass for all supported Python versions.
+   feature to the list in README.md.
 
-## Tips
-
-To run a subset of tests::
-```sh
-    $ py.test tests.test_sqlalchemy_omnisci
-```
 
 ## Deploying
 
@@ -107,8 +91,4 @@ Make sure all your changes are committed (including an entry in HISTORY.md).
 
 Then run:
 
-```sh
-$ bumpversion patch # possible: major / minor / patch
-$ git push
-$ git push --tags
-```
+**TBD**

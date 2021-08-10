@@ -85,7 +85,6 @@ install: clean ## install the package to the active Python's site-packages
 
 develop: clean ## install the package in development mode
 	pip install -e '.[dev]'
-	git init  # it is safe to run it more than one time
 	pre-commit install
 
 
