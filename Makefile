@@ -105,10 +105,14 @@ docker-omnisci-build:
 
 docker-omnisci-start:
 	$(DOCKER) up -d omniscidb
-	$(DOCKER) logs -f omniscidb
+	$(DOCKER) logs -f --tail=100 omniscidb
 
 docker-omnisci-run:
 	$(DOCKER) run omniscidb
+
+
+docker-omnisci-bash:
+	$(DOCKER) exec omniscidb bash
 
 
 # tests
@@ -224,4 +228,4 @@ not (\
 endef
 
 run-tests:
-	pytest -vv -k "${PYTEST_EXPR}" ${TEST_PARAMS} tests/test_suite.py
+	pytest -vv -k "${PYTEST_EXPR}" ${TEST_PARAMS} tests/

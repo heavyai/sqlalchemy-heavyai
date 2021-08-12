@@ -16,21 +16,38 @@ from sqlalchemy import (
     SmallInteger,
     String,
     create_engine,
+    testing,
 )
 from sqlalchemy.sql import column, table
 
 from sqlalchemy_omnisci import URL
 
-# registry.register("omnisci", "sqlalchemy_omnisci", "OmniSciDialect")
+URI_TEMPLATE = (
+    "omnisci://{user}:{password}@{database}:{port}/{database}"
+    "?protocol={protocol}"
+)
 
-os.environ["SQLALCHEMY_WARN_20"] = "true"
-
-pytest.register_assert_rewrite("sqlalchemy.testing.assertions")
-
-# this happens after pytest.register_assert_rewrite to avoid pytest warning
-from sqlalchemy.testing.plugin.pytestplugin import *  # noqa: F401, E402, F403
+DATABASE_TESTING = "sqla_testing"
 
 DEFAULT_PARAMETERS = {
+    "user": "admin",
+    "password": "HyperInteractive",
+    "database": DATABASE_TESTING,
+    "protocol": "binary",
+    "host": "localhost",
+    "port": "6274",
+}
+
+SETUP_PARAMETERS = {
+    "user": "admin",
+    "password": "HyperInteractive",
+    "database": "omnisci",
+    "protocol": "binary",
+    "host": "localhost",
+    "port": "6274",
+}
+
+METIS_PARAMETERS = {
     "user": "demouser",
     "password": "HyperInteractive",
     "database": "mapd",
@@ -40,9 +57,9 @@ DEFAULT_PARAMETERS = {
 }
 
 
-def get_db_parameters():
+def get_db_parameters(db_params=DEFAULT_PARAMETERS):
     """Set the db connection parameters."""
-    ret = copy.copy(DEFAULT_PARAMETERS)
+    ret = copy.copy(db_params)
 
     # a unique table name
     ret["name"] = ("sqlalchemy_tests_" + str(uuid.uuid4())).replace("-", "_")
@@ -50,9 +67,9 @@ def get_db_parameters():
     return ret
 
 
-def get_engine(user=None, password=None):
+def get_engine(user=None, password=None, db_params=DEFAULT_PARAMETERS):
     """Create a connection using the given parameters."""
-    ret = get_db_parameters()
+    ret = get_db_parameters(db_params)
 
     if user is not None:
         ret["user"] = user
@@ -72,6 +89,18 @@ def get_engine(user=None, password=None):
 
     engine = create_engine(uri, poolclass=NullPool)
     return engine, ret
+
+
+@pytest.fixture(autouse=True, scope="session")
+def uri_metis():
+    """Return a URI for metis server."""
+    return URI_TEMPLATE.format(**METIS_PARAMETERS)
+
+
+@pytest.fixture(autouse=True, scope="session")
+def uri_local():
+    """Return a URI for local server."""
+    return URI_TEMPLATE.format(**DEFAULT_PARAMETERS)
 
 
 @pytest.fixture(autouse=True)
@@ -121,13 +150,28 @@ def engine_testaccount(request):
     return engine
 
 
-@pytest.hookimpl(hookwrapper=True)
-def pytest_pyfunc_call(pyfuncitem):
-    """Add dynamically an xfail marker for specific backends."""
-    outcome = yield
-    success = True
+os.environ["SQLALCHEMY_WARN_20"] = "true"
 
+# registry.register("omnisci", "sqlalchemy_omnisci.pyomnisci", "OmniSciDialect_pyomnisci")
+pytest.register_assert_rewrite("sqlalchemy.testing.assertions")
+
+# this happens after pytest.register_assert_rewrite to avoid pytest warning
+from sqlalchemy.testing.plugin.pytestplugin import *  # noqa: F401, E402, F403
+
+
+def pytest_sessionstart(session):
+    """Run a hook for pytest sessionstart."""
+    engine, _ = get_engine(db_params=SETUP_PARAMETERS)
     try:
-        outcome.get_result()
-    except Exception as e:
-        pytest.xfail(reason=repr(e))
+        engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
+    except:
+        ...
+    engine.execute(f"CREATE DATABASE {DATABASE_TESTING};")
+    testing.plugin.pytestplugin.pytest_sessionstart(session)
+
+
+def pytest_sessionfinish(session, exitstatus):
+    """Run a hook for pytest sessionfinish."""
+    engine, _ = get_engine(db_params=SETUP_PARAMETERS)
+    # engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
+    testing.plugin.pytestplugin.pytest_sessionfinish(session)
