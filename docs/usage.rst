@@ -11,3 +11,5 @@ To use SQLAlchemy OmniSci to connect to a local OmniSci server::
         "omnisci://admin:HyperInteractive@"
         "localhost:6274/omnisci?protocol=binary"
     )
+    con = engine.connect()
+    con.close()

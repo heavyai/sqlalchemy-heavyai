@@ -23,8 +23,7 @@ from sqlalchemy.sql import column, table
 from sqlalchemy_omnisci import URL
 
 URI_TEMPLATE = (
-    "omnisci://{user}:{password}@{database}:{port}/{database}"
-    "?protocol={protocol}"
+    "omnisci://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
 )
 
 DATABASE_TESTING = "sqla_testing"

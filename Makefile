@@ -87,7 +87,7 @@ develop: clean ## install the package in development mode
 	pip install -e '.[dev]'
 	pre-commit install
 
-
+# apache superset
 docker-superset-build:
 	$(DOCKER) build superset
 
@@ -97,19 +97,16 @@ docker-superset-start: docker-superset-build
 	$(DOCKER) exec superset bash /opt/sqlalchemy-omnisci/docker/setup-superset.sh
 	$(DOCKER) logs -f superset
 
-docker-superset-run:
+docker-superset-bash:
 	$(DOCKER) exec superset bash
 
+# omnisci
 docker-omnisci-build:
 	$(DOCKER) pull omniscidb
 
 docker-omnisci-start:
 	$(DOCKER) up -d omniscidb
 	$(DOCKER) logs -f --tail=100 omniscidb
-
-docker-omnisci-run:
-	$(DOCKER) run omniscidb
-
 
 docker-omnisci-bash:
 	$(DOCKER) exec omniscidb bash
