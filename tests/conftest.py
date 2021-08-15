@@ -152,7 +152,6 @@ def engine_testaccount(request):
 
 os.environ["SQLALCHEMY_WARN_20"] = "true"
 
-# registry.register("omnisci", "sqlalchemy_omnisci.pyomnisci", "OmniSciDialect_pyomnisci")
 pytest.register_assert_rewrite("sqlalchemy.testing.assertions")
 
 # this happens after pytest.register_assert_rewrite to avoid pytest warning
