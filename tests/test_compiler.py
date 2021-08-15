@@ -2,10 +2,10 @@
 import pytest
 from sqlalchemy import func, select
 from sqlalchemy.sql import column, quoted_name, table
-from sqlalchemy.testing import AssertsCompiledSQL
+from sqlalchemy.testing import AssertsCompiledSQL, fixtures
 
 
-class _TestCompilerOmniSci(AssertsCompiledSQL):
+class _TestCompilerOmniSci(fixtures.TestBase, AssertsCompiledSQL):
     __dialect__ = "omnisci"
 
 
@@ -56,6 +56,40 @@ class TestCompilerSelect(_TestCompilerOmniSci):
             dialect="omnisci",
         )
 
+    def test_quoted_name_label(self):
+        """Test quoted name label."""
+        test_cases = [
+            # quote name
+            {
+                "label": quoted_name("alias", True),
+                "output": (
+                    'SELECT colname AS "alias" \nFROM abc GROUP BY colname'
+                ),
+            },
+            # not quote label
+            {
+                "label": "alias",
+                "output": (
+                    "SELECT colname AS alias \nFROM abc GROUP BY colname"
+                ),
+            },
+            # not quote mixed case label
+            {
+                "label": "Alias",
+                "output": (
+                    'SELECT colname AS "Alias" \nFROM abc GROUP BY colname'
+                ),
+            },
+        ]
+
+        for t in test_cases:
+            col = column("colname").label(t["label"])
+            sel_from_tbl = (
+                select([col]).group_by(col).select_from(table("abc"))
+            )
+            compiled_result = sel_from_tbl.compile()
+            assert str(compiled_result) == t["output"]
+
 
 class TestCompilerDelete(_TestCompilerOmniSci):
     """Compilation test for delete statement."""
@@ -82,30 +116,3 @@ class TestCompilerUpdate(_TestCompilerOmniSci):
             "WHERE table1.name = %(name_1)s",
             dialect="omnisci",
         )
-
-
-def test_quoted_name_label():
-    """Test quoted name label."""
-    test_cases = [
-        # quote name
-        {
-            "label": quoted_name("alias", True),
-            "output": 'SELECT colname AS "alias" \nFROM abc GROUP BY colname',
-        },
-        # not quote label
-        {
-            "label": "alias",
-            "output": "SELECT colname AS alias \nFROM abc GROUP BY colname",
-        },
-        # not quote mixed case label
-        {
-            "label": "Alias",
-            "output": 'SELECT colname AS "Alias" \nFROM abc GROUP BY colname',
-        },
-    ]
-
-    for t in test_cases:
-        col = column("colname").label(t["label"])
-        sel_from_tbl = select([col]).group_by(col).select_from(table("abc"))
-        compiled_result = sel_from_tbl.compile()
-        assert str(compiled_result) == t["output"]
