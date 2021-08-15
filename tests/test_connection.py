@@ -17,3 +17,9 @@ class ConnectionTest(fixtures.TestBase):
         engine = sqlalchemy.create_engine(uri_local)
         con = engine.connect()
         con.close()
+
+    def test_local_setup_connection(self, uri_local_setup):
+        """Test connection to local server using binary protocol."""
+        engine = sqlalchemy.create_engine(uri_local_setup)
+        con = engine.connect()
+        con.close()

@@ -102,6 +102,12 @@ def uri_local():
     return URI_TEMPLATE.format(**DEFAULT_PARAMETERS)
 
 
+@pytest.fixture(autouse=True, scope="session")
+def uri_local_setup():
+    """Return a URI for local server."""
+    return URI_TEMPLATE.format(**SETUP_PARAMETERS)
+
+
 @pytest.fixture(autouse=True)
 def table_datatype():
     """Create a table expression for handle different datatypes."""

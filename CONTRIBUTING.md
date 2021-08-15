@@ -84,6 +84,48 @@ Before you submit a pull request, check that it meets these guidelines:
    feature to the list in README.md.
 
 
+## Development
+
+This sections aims to explain the structure of the project an how to
+prepare your development environment locally.
+
+Main of the useful commands are grouped at Makefile, so you can easily
+run the make targets to prepare your environment and run tests.
+
+
+
+## Tests
+
+Tests were created using `pytest`. Additionally, `/tests/test_suite.py`
+uses `sqlalchemy.testing.suite`, a convinient way to re-use the
+`sqlalchemy` tests designed for any dialect. For more information
+about that, check it out in its
+[official documentation](https://github.com/sqlalchemy/sqlalchemy/blob/master/README.unittests.rst)
+
+For the tests here, it is important to have **OmniSci** server running.
+It will create a new database for tests called `sqla_testing`.
+
+A common workflow for unit testing could be described as follows:
+
+```sh
+# in a terminal (let's call it terminal 1)
+make docker-omnisci-start
+```
+
+```sh
+# in anoter terminal (let's call it terminal 2)
+make run-tests
+```
+
+If you are adding a new feature or changing an existent feature and
+you want to create a new test file at `/tests/`, check how
+`/tests/test_compiler.py` and `/tests/test_connection.py` implement
+the tests.
+
+**Tip: the class used for testing should inherit
+`sqlalchemy.testing.fixtures.TestBase`!**
+
+
 ## Deploying
 
 A reminder for the maintainers on how to deploy.
