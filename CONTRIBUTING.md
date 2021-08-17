@@ -30,7 +30,7 @@ and "help wanted" is open to whoever wants to implement it.
 ### Write Documentation
 
 SQLAlchemy OmniSci could always use more documentation, whether as part of the
-official SQLAlchemy OmniSci docs, in docstrings, or even on the web in blog posts,
+official **SQLAlchemy OmniSci** docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
@@ -86,17 +86,29 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Development
 
-This sections aims to explain the structure of the project an how to
+This section aims to explain the structure of the project an how to
 prepare your development environment locally.
 
-Main of the useful commands are grouped at Makefile, so you can easily
-run the make targets to prepare your environment and run tests.
+### Structure for the project
+
+The basic structure of the project follows the specification provided by **SQLAlchemy**. You can check the specification out in the
+[official documentation](https://github.com/sqlalchemy/sqlalchemy/blob/master/README.dialects.rst).
+
+Additionally, there are some folders and files that help the development process, which are:
+
+* `/docker/`, that includes the files and scripts used for tests and CI.
+* `/environment.yaml`, a conda environment file used to create the environment for development.
+* `/.pre-commit-config.yaml`, that is used for the installation of `git` pre-commit hooks.
+* `/Makefile`, that groups main useful commands for development, for example, **docker-compose** commands and tests.
+
+This is not an exhaustive list of useful files for development,
+instead, it mentions some files that you should keep in mind
+that can help you here.
 
 
+### Tests
 
-## Tests
-
-Tests were created using `pytest`. Additionally, `/tests/test_suite.py`
+Tests were created using `pytest`. One specific test, `/tests/,test_suite.py`
 uses `sqlalchemy.testing.suite`, a convinient way to re-use the
 `sqlalchemy` tests designed for any dialect. For more information
 about that, check it out in its
@@ -125,6 +137,44 @@ the tests.
 **Tip: the class used for testing should inherit
 `sqlalchemy.testing.fixtures.TestBase`!**
 
+### Apache Superset connector
+
+Additionally, this repository provides a connector module for
+**OmniSci** on **Apache Superset**, available at `/docker/superset-omnisci.py`.
+
+If you are doing the process manually, copy `/docker/superset-omnisci.py`
+into the engine folder inside the **Apache Superset** directory
+(e.g. `superset/db_engine_specs/`) and rename it to `omnisci.py`. For more information, check `/docker/setup-superset.sh` out to see the steps used to prepare the **Apache Superset** with the **OmniSci** connector for tests on docker.
+
+If you want to use the docker container provided here, run:
+
+```sh
+$ make docker-superset-start
+```
+
+This command should build the image for the container and will prepare
+everything needed to run the **Apache Superset** with the **OmniSci** connector.
+
+To try it, open your web browser and enter the followin **URL**: `localhost:8080`.
+
+**NOTE**: Due dependencies conflict with **apache-arrow**, the
+**Apache Superset** version recommended is `1.1.0`.
+
+To connect the **Apache Superset** instance to your
+**OmniSci** server, assuming you are running both using their respective `make` targets
+(`make docker-superset-start` and `make docker-omnisci-start`),
+do:
+
+- click on `Data/Databases` menu.
+- in the **Databases** page, click on the `+ DATABASE` button.
+- in the **Add database** popup window, add a new database
+with the following **URI**: `omnisci://admin:HyperInteractive@omniscidb:6274/omnisci?protocol=binary`.
+
+For debugging purpose, you can connect to the **Apache Superset** container using:
+
+```sh
+$ make docker-superset-bash
+```
 
 ## Deploying
 
