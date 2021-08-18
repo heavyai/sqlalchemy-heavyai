@@ -22,13 +22,10 @@ services:
       - 5000:5000  # for testing
     environment:
       - DISPLAY=${DISPLAY}
-    tmpfs:
-      - /run
-      - /run/lock
-      - /tmp
     volumes:
       - ..:/opt/sqlalchemy-omnisci
-      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: |
+      flask run -p 8080 --with-threads --reload --debugger --host=0.0.0.0
 
   waiter:
     image: jwilder/dockerize

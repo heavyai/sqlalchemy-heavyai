@@ -1,5 +1,5 @@
-# using version 1.1.0 to keep consistency with pyomnisci
-FROM apache/superset:1.1.0
+# using version 1.1.0 to keep consistency with pyarrow used by pyomnisci
+FROM apache/superset:1.1.0-dev
 
 # Switching to root to install the required packages
 USER root

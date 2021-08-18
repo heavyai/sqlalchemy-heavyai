@@ -23,8 +23,7 @@ from sqlalchemy.sql import column, table
 from sqlalchemy_omnisci import URL
 
 URI_TEMPLATE = (
-    "omnisci://{user}:{password}@{database}:{port}/{database}"
-    "?protocol={protocol}"
+    "omnisci://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
 )
 
 DATABASE_TESTING = "sqla_testing"
@@ -101,6 +100,12 @@ def uri_metis():
 def uri_local():
     """Return a URI for local server."""
     return URI_TEMPLATE.format(**DEFAULT_PARAMETERS)
+
+
+@pytest.fixture(autouse=True, scope="session")
+def uri_local_setup():
+    """Return a URI for local server."""
+    return URI_TEMPLATE.format(**SETUP_PARAMETERS)
 
 
 @pytest.fixture(autouse=True)
