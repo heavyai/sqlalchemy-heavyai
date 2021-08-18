@@ -188,6 +188,11 @@ To try it, open your web browser and enter the following **URL**: `localhost:500
 
 Use the port 5000 because it is already exposed by **docker-compose**.
 
+**NOTE:** **Apache Superset** listening on port 8080 doens't work right now
+but if you run it using the command above it should work. The problem is
+being investigated.
+
+
 ## Deploying
 
 A reminder for the maintainers on how to deploy.

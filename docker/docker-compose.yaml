@@ -24,6 +24,8 @@ services:
       - DISPLAY=${DISPLAY}
     volumes:
       - ..:/opt/sqlalchemy-omnisci
+    command: |
+      flask run -p 8080 --with-threads --reload --debugger --host=0.0.0.0
 
   waiter:
     image: jwilder/dockerize
