@@ -92,7 +92,7 @@ docker-superset-build:
 	$(DOCKER) build superset
 
 docker-superset-start: docker-superset-build
-	$(DOCKER) up -d superset
+	$(DOCKER) up -d --renew-anon-volumes --force-recreate superset
 	@sleep 5
 	$(DOCKER) exec superset bash /opt/sqlalchemy-omnisci/docker/setup-superset.sh
 	$(DOCKER) logs -f superset

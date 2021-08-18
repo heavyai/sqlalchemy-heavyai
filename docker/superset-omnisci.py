@@ -19,17 +19,16 @@ specific language governing permissions and limitations
 under the License.
 """
 from datetime import datetime
-from typing import TYPE_CHECKING, List, Tuple
+from typing import TYPE_CHECKING, List, Optional, Tuple
 
-from superset.db_engine_specs.base import LimitMethod
-from superset.db_engine_specs.postgres import PostgresBaseEngineSpec
+from superset.db_engine_specs.base import BaseEngineSpec, LimitMethod
 
 if TYPE_CHECKING:
     # prevent circular imports
     from superset.models.core import Database  # noqa: F401
 
 
-class OmniSciEngineSpec(PostgresBaseEngineSpec):
+class OmniSciEngineSpec(BaseEngineSpec):
     """Apache Superset Engine for OmniSci."""
 
     engine = "omnisci"
@@ -54,7 +53,7 @@ class OmniSciEngineSpec(PostgresBaseEngineSpec):
         super().__init__(*args, **kwargs)
 
     @classmethod
-    def fetch_data(cls, cursor, limit: int) -> List[Tuple]:
+    def fetch_data(cls, cursor, limit: Optional[int] = None) -> List[Tuple]:
         """Fetch data."""
         if not cursor.description:
             return []

@@ -22,13 +22,8 @@ services:
       - 5000:5000  # for testing
     environment:
       - DISPLAY=${DISPLAY}
-    tmpfs:
-      - /run
-      - /run/lock
-      - /tmp
     volumes:
       - ..:/opt/sqlalchemy-omnisci
-      - /tmp/.X11-unix:/tmp/.X11-unix
 
   waiter:
     image: jwilder/dockerize

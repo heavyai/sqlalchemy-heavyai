@@ -155,7 +155,8 @@ $ make docker-superset-start
 This command should build the image for the container and will prepare
 everything needed to run the **Apache Superset** with the **OmniSci** connector.
 
-To try it, open your web browser and enter the followin **URL**: `localhost:8080`.
+To try it, open your web browser and enter the following
+**URL**: `localhost:8080`.
 
 **NOTE**: Due dependencies conflict with **apache-arrow**, the
 **Apache Superset** version recommended is `1.1.0`.
@@ -175,6 +176,17 @@ For debugging purpose, you can connect to the **Apache Superset** container usin
 ```sh
 $ make docker-superset-bash
 ```
+
+If you need another instance of **Apache Superset** for testing/debugging
+purpose, run:
+
+´´´sh
+flask run -p 5000 --with-threads --reload --debugger --host=0.0.0.0
+´´´
+
+To try it, open your web browser and enter the following **URL**: `localhost:5000`
+
+Use the port 5000 because it is already exposed by **docker-compose**.
 
 ## Deploying
 
