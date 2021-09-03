@@ -13,4 +13,4 @@ except PackageNotFoundError:
     # package is not installed
     _version = "0.0.0"
 
-VERSION = tuple(int(v) for v in _version.split(".")) + (None,)
+VERSION = tuple(int(v) for v in _version.split(".")[:3]) + (None,)
