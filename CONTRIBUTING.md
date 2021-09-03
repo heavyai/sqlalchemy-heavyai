@@ -193,11 +193,15 @@ but if you run it using the command above it should work. The problem is
 being investigated.
 
 
-## Deploying
+## Releasing
 
-A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.md).
+The releasing is based on the GitHub tag. So all you need to do is create a
+tag and push it. The CI is responsible for the GitHub release creation
+and PyPi publishing.
 
-Then run:
+For example, if you want to create a release for the version `0.0.1`:
 
-**TBD**
+```sh
+$ git tag 0.0.1
+$ git push upstream --tags
+```
