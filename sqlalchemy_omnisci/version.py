@@ -5,4 +5,12 @@ Note:
     Update this for the versions
     Don't change the forth version number from None
 """
-VERSION = (0, 0, 1, None)
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    _version = version("sqlalchemy_omnisci")
+except PackageNotFoundError:
+    # package is not installed
+    _version = "0.0.0"
+
+VERSION = tuple(v for v in _version.split(".")[:3]) + (None,)

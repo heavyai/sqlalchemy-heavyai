@@ -4,13 +4,13 @@ repos:
       hooks:
         - id: seed-isort-config
     - repo: https://github.com/timothycrosley/isort
-      rev: 5.9.1
+      rev: 5.9.3
       hooks:
         - id: isort
           exclude: ^docs/
 
     - repo: https://github.com/psf/black
-      rev: 21.5b2
+      rev: 21.8b0
       hooks:
         - id: black
           exclude: ^docs/
@@ -29,7 +29,7 @@ repos:
         - id: pydocstyle
 
     - repo: https://github.com/pre-commit/mirrors-mypy
-      rev: 'master'
+      rev: 'v0.910'
       hooks:
       -   id: mypy
           files: sqlalchemy_omnisci/

@@ -225,4 +225,4 @@ not (\
 endef
 
 run-tests:
-	pytest -vv -k "${PYTEST_EXPR}" ${TEST_PARAMS} tests/
+	pytest -vv -s -k "${PYTEST_EXPR}" ${TEST_PARAMS} tests/
