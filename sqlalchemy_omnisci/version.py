@@ -8,9 +8,9 @@ Note:
 from importlib.metadata import PackageNotFoundError, version
 
 try:
-    __version__ = version("sqlalchemy_omnisci")
+    _version = version("sqlalchemy_omnisci")
 except PackageNotFoundError:
     # package is not installed
-    __version__ = "0.0.0"
+    _version = "0.0.0"
 
-VERSION = tuple(__version__.split(".")) + (None,)
+VERSION = tuple(int(v) for v in _version.split(".")) + (None,)

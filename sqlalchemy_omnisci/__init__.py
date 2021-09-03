@@ -9,6 +9,4 @@ from .version import VERSION  # noqa: F401
 
 registry.register("omnisci", "sqlalchemy_omnisci", "OmniSciDialect_pyomnisci")
 
-OMNISCI_CONNECTOR_VERSION = ".".join(chr(v) for v in VERSION[0:3])
-
-__version__ = OMNISCI_CONNECTOR_VERSION
+__version__ = ".".join(str(v) for v in VERSION[0:3])
