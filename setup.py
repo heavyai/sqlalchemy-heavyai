@@ -14,7 +14,7 @@ requirements = [
     "pyomnisci>=0.27.0",
 ]
 
-setup_requirements = ["pytest-runner"]
+setup_requirements = ["setuptools-scm"]
 
 test_requirements = ["pytest"]
 lint_requirements = [
@@ -24,7 +24,7 @@ lint_requirements = [
     "pre-commit",
 ]
 docs_requirements = ["sphinx"]
-release_requirements = ["twine", "re-ver"]
+release_requirements = ["twine", "wheel", "build"]
 
 dev_requirements = (
     requirements
