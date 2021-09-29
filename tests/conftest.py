@@ -177,5 +177,8 @@ def pytest_sessionstart(session):
 def pytest_sessionfinish(session, exitstatus):
     """Run a hook for pytest sessionfinish."""
     engine, _ = get_engine(db_params=SETUP_PARAMETERS)
-    # engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
-    testing.plugin.pytestplugin.pytest_sessionfinish(session)
+    try:
+        testing.plugin.pytestplugin.pytest_sessionfinish(session)
+        engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
+    except Exception:
+        ...
