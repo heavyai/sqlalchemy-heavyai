@@ -114,6 +114,5 @@ docker-omnisci-bash:
 
 # tests
 
-# note: test_get_schema_names
 run-tests:
 	pytest -vv -s ${TEST_PARAMS} tests/
