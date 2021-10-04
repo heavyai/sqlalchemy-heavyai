@@ -9,7 +9,7 @@ dependencies:
   - black
   - flake8
   - jupyter-book
-  - jupyter-lab
+  - jupyterlab
   - sphinx
   - mypy
   - pip
