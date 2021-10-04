@@ -8,16 +8,19 @@ dependencies:
   # dev
   - black
   - flake8
-  - jupyter-book
   - jupyterlab
+  - sphinx
   - mypy
   - pip
   - pydocstyle
   - pre-commit
   - pytest
   - sphinx
-  - sphinx-autoapi
-  - sphinx-external-toc
-  - sphinx-jupyterbook-latex
   - toml
   - twine
+  - pip:
+    # docs
+    - jupyter-book
+    - sphinx-autoapi
+    - sphinx-external-toc
+    - sphinx-jupyterbook-latex
