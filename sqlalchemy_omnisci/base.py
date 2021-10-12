@@ -465,6 +465,7 @@ ischema_names = {
     "BINARY": BINARY,
     # 'BIT': BIT,
     "Boolean": Boolean,
+    "BOOL": BOOLEAN,
     "BOOLEAN": BOOLEAN,
     "CHAR": CHAR,
     "CHARACTER": CHAR,
