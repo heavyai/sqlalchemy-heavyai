@@ -1,0 +1,1363 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sqlalchemy_omnisci.base &#8212; SQLAlchemy OmniSci</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SQLAlchemy OmniSci</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   SQLAlchemy OmniSci
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../api.html">
+   API Documentation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../tutorials/Introduction.html">
+   Getting started with SQLAlchemy OmniSci
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/autoapi/sqlalchemy_omnisci/base/index.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/omnisci/sqlalchemy-omnisci"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/omnisci/sqlalchemy-omnisci/issues/new?title=Issue%20on%20page%20%2Fautoapi/sqlalchemy_omnisci/base/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.RESERVED_WORDS">
+       RESERVED_WORDS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.ARRAY">
+       ARRAY
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.ARRAY.__visit_name__">
+         __visit_name__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.Boolean">
+       Boolean
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.Boolean.bind_processor">
+         bind_processor
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.BOOLEAN">
+       BOOLEAN
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.BOOLEAN.__visit_name__">
+         __visit_name__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.ischema_names">
+       ischema_names
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP">
+       AUTOCOMMIT_REGEXP
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.COMPOUND_KEYWORDS">
+       COMPOUND_KEYWORDS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer">
+       OmniSciIdentifierPreparer
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer.reserved_words">
+         reserved_words
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer._quote_free_identifiers">
+         _quote_free_identifiers
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler">
+       OmniSciCompiler
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.compound_keywords">
+         compound_keywords
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_true">
+         visit_true
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_false">
+         visit_false
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_cast">
+         visit_cast
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_index">
+         visit_index
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_compound_select">
+         visit_compound_select
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciCompiler.limit_clause">
+         limit_clause
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext">
+       OmniSciExecutionContext
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.pre_exec">
+         pre_exec
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit_text">
+         should_autocommit_text
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit">
+         should_autocommit
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler">
+       OmniSciDDLCompiler
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.denormalize_column_name">
+         denormalize_column_name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.get_column_specification">
+         get_column_specification
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_primary_key_constraint">
+         visit_primary_key_constraint
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_foreign_key_constraint">
+         visit_foreign_key_constraint
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_unique_constraint">
+         visit_unique_constraint
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_create_index">
+         visit_create_index
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler">
+       OmniSciTypeCompiler
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_ARRAY">
+         visit_ARRAY
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_numeric">
+         visit_numeric
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_datetime">
+         visit_datetime
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.colspecs">
+       colspecs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect">
+       OmniSciDialect
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.max_identifier_length">
+         max_identifier_length
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.default_paramstyle">
+         default_paramstyle
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.colspecs">
+         colspecs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.ischema_names">
+         ischema_names
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.convert_unicode">
+         convert_unicode
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_statements">
+         supports_unicode_statements
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_binds">
+         supports_unicode_binds
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.returns_unicode_strings">
+         returns_unicode_strings
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.description_encoding">
+         description_encoding
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.postfetch_lastrowid">
+         postfetch_lastrowid
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_rowcount">
+         supports_sane_rowcount
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_multi_rowcount">
+         supports_sane_multi_rowcount
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_decimal">
+         supports_native_decimal
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_boolean">
+         supports_native_boolean
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_alter">
+         supports_alter
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sequences">
+         supports_sequences
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_enum">
+         supports_native_enum
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_empty_insert">
+         supports_empty_insert
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_values">
+         supports_default_values
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_metavalue">
+         supports_default_metavalue
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.preparer">
+         preparer
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.ddl_compiler">
+         ddl_compiler
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.type_compiler">
+         type_compiler
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.statement_compiler">
+         statement_compiler
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.execution_ctx_cls">
+         execution_ctx_cls
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.requires_name_normalize">
+         requires_name_normalize
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.dbapi">
+         dbapi
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.set_connection_execution_options">
+         set_connection_execution_options
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect._check_unicode_returns">
+         _check_unicode_returns
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect._dialect_specific_select_one">
+         _dialect_specific_select_one
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.do_rollback">
+         do_rollback
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.create_connect_args">
+         create_connect_args
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.has_table">
+         has_table
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.has_sequence">
+         has_sequence
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.normalize_name">
+         normalize_name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.denormalize_name">
+         denormalize_name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect._denormalize_quote_join">
+         _denormalize_quote_join
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect._map_name_to_idx">
+         _map_name_to_idx
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_indexes">
+         get_indexes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_primary_keys">
+         get_primary_keys
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_pk_constraint">
+         get_pk_constraint
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_unique_constraint">
+         get_unique_constraint
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_foreign_keys">
+         get_foreign_keys
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_columns">
+         get_columns
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_schema_names">
+         get_schema_names
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_table_names">
+         get_table_names
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_view_names">
+         get_view_names
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_view_definition">
+         get_view_definition
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_temp_table_names">
+         get_temp_table_names
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.dialect">
+       dialect
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_omnisci.base.construct_arguments">
+       construct_arguments
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-sqlalchemy_omnisci.base">
+<span id="sqlalchemy-omnisci-base"></span><h1><a class="reference internal" href="#module-sqlalchemy_omnisci.base" title="sqlalchemy_omnisci.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlalchemy_omnisci.base</span></code></a><a class="headerlink" href="#module-sqlalchemy_omnisci.base" title="Permalink to this headline">¶</a></h1>
+<p>The base module for the OmniSci engine.</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.ARRAY" title="sqlalchemy_omnisci.base.ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARRAY</span></code></a></p></td>
+<td><p>Custom array SQL type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.Boolean" title="sqlalchemy_omnisci.base.Boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code></a></p></td>
+<td><p>Custom Boolean type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.BOOLEAN" title="sqlalchemy_omnisci.base.BOOLEAN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOOLEAN</span></code></a></p></td>
+<td><p>Custom Boolean type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer" title="sqlalchemy_omnisci.base.OmniSciIdentifierPreparer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciIdentifierPreparer</span></code></a></p></td>
+<td><p>OmniSci Identifier Preparer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciCompiler" title="sqlalchemy_omnisci.base.OmniSciCompiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciCompiler</span></code></a></p></td>
+<td><p>SQLCompiler for OmniSci.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext" title="sqlalchemy_omnisci.base.OmniSciExecutionContext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciExecutionContext</span></code></a></p></td>
+<td><p>OmniSci Execution Context.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler" title="sqlalchemy_omnisci.base.OmniSciDDLCompiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciDDLCompiler</span></code></a></p></td>
+<td><p>OmniSciDDL Compiler.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler" title="sqlalchemy_omnisci.base.OmniSciTypeCompiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciTypeCompiler</span></code></a></p></td>
+<td><p>OmniSci Type Compiler.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.OmniSciDialect" title="sqlalchemy_omnisci.base.OmniSciDialect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OmniSciDialect</span></code></a></p></td>
+<td><p>OmniSci Dialect.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.RESERVED_WORDS" title="sqlalchemy_omnisci.base.RESERVED_WORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RESERVED_WORDS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.ischema_names" title="sqlalchemy_omnisci.base.ischema_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ischema_names</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP" title="sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AUTOCOMMIT_REGEXP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.COMPOUND_KEYWORDS" title="sqlalchemy_omnisci.base.COMPOUND_KEYWORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMPOUND_KEYWORDS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.colspecs" title="sqlalchemy_omnisci.base.colspecs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colspecs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.dialect" title="sqlalchemy_omnisci.base.dialect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialect</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_omnisci.base.construct_arguments" title="sqlalchemy_omnisci.base.construct_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct_arguments</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.RESERVED_WORDS">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">RESERVED_WORDS</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#RESERVED_WORDS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.RESERVED_WORDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.ARRAY">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">ARRAY</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#ARRAY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.ARRAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.types.TypeEngine</span></code></p>
+<p>Custom array SQL type.</p>
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.ARRAY.__visit_name__">
+<code class="sig-name descname"><span class="pre">__visit_name__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">ARRAY</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#ARRAY.__visit_name__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.ARRAY.__visit_name__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.Boolean">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">Boolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">create_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_create_events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#Boolean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.Boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.types.Boolean</span></code></p>
+<p>Custom Boolean type.</p>
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.Boolean.bind_processor">
+<code class="sig-name descname"><span class="pre">bind_processor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#Boolean.bind_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.Boolean.bind_processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind processor for boolean type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.BOOLEAN">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">BOOLEAN</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">create_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_create_events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#BOOLEAN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.BOOLEAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sqlalchemy_omnisci.base.Boolean" title="sqlalchemy_omnisci.base.Boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code></a></p>
+<p>Custom Boolean type.</p>
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.BOOLEAN.__visit_name__">
+<code class="sig-name descname"><span class="pre">__visit_name__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">BOOLEAN</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#BOOLEAN.__visit_name__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.BOOLEAN.__visit_name__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.ischema_names">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">ischema_names</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#ischema_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.ischema_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">AUTOCOMMIT_REGEXP</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#AUTOCOMMIT_REGEXP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.COMPOUND_KEYWORDS">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">COMPOUND_KEYWORDS</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#COMPOUND_KEYWORDS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.COMPOUND_KEYWORDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciIdentifierPreparer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciIdentifierPreparer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialect</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciIdentifierPreparer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.sql.compiler.IdentifierPreparer</span></code></p>
+<p>OmniSci Identifier Preparer.</p>
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciIdentifierPreparer.reserved_words">
+<code class="sig-name descname"><span class="pre">reserved_words</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciIdentifierPreparer.reserved_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer.reserved_words" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciIdentifierPreparer._quote_free_identifiers">
+<code class="sig-name descname"><span class="pre">_quote_free_identifiers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciIdentifierPreparer._quote_free_identifiers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer._quote_free_identifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unilaterally identifier-quote any number of strings.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciCompiler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_executemany</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NO_LINTING</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.sql.compiler.SQLCompiler</span></code></p>
+<p>SQLCompiler for OmniSci.</p>
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.compound_keywords">
+<code class="sig-name descname"><span class="pre">compound_keywords</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.compound_keywords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.compound_keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.visit_true">
+<code class="sig-name descname"><span class="pre">visit_true</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.visit_true"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for TRUE.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.visit_false">
+<code class="sig-name descname"><span class="pre">visit_false</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.visit_false"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_false" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for FALSE.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.visit_cast">
+<code class="sig-name descname"><span class="pre">visit_cast</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cast</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.visit_cast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the default CAST.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.visit_index">
+<code class="sig-name descname"><span class="pre">visit_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.visit_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the default INDEX.</p>
+<p>OmniSci doesn’t implement INDEX yet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.visit_compound_select">
+<code class="sig-name descname"><span class="pre">visit_compound_select</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compound_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.visit_compound_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.visit_compound_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the default COMPOUND SELECT.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciCompiler.limit_clause">
+<code class="sig-name descname"><span class="pre">limit_clause</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciCompiler.limit_clause"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciCompiler.limit_clause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the default LIMIT CLAUSE.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciExecutionContext">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciExecutionContext</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciExecutionContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.engine.default.DefaultExecutionContext</span></code></p>
+<p>OmniSci Execution Context.</p>
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciExecutionContext.pre_exec">
+<code class="sig-name descname"><span class="pre">pre_exec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciExecutionContext.pre_exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.pre_exec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the pre-execution step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit_text">
+<code class="sig-name descname"><span class="pre">should_autocommit_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statement</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciExecutionContext.should_autocommit_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if autocommit should be executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit">
+<code class="sig-name descname"><span class="pre">should_autocommit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciExecutionContext.should_autocommit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if autocommit should be executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciDDLCompiler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_translate_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_schema_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compile_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">util.immutabledict()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.sql.compiler.DDLCompiler</span></code></p>
+<p>OmniSciDDL Compiler.</p>
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.denormalize_column_name">
+<code class="sig-name descname"><span class="pre">denormalize_column_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.denormalize_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.denormalize_column_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Denormalize the given column name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.get_column_specification">
+<code class="sig-name descname"><span class="pre">get_column_specification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.get_column_specification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.get_column_specification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get column specifications.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_primary_key_constraint">
+<code class="sig-name descname"><span class="pre">visit_primary_key_constraint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.visit_primary_key_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_primary_key_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the primary key constraint implementation.</p>
+<p>NOTE: OmniSciDB doesn’t implement primary key</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_foreign_key_constraint">
+<code class="sig-name descname"><span class="pre">visit_foreign_key_constraint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.visit_foreign_key_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_foreign_key_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the foreign key constraint implementation.</p>
+<p>NOTE: OmniSciDB doesn’t implement foreign key</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_unique_constraint">
+<code class="sig-name descname"><span class="pre">visit_unique_constraint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.visit_unique_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_unique_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the unique key constraint implementation.</p>
+<p>NOTE: OmniSciDB doesn’t implement unique key</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_create_index">
+<code class="sig-name descname"><span class="pre">visit_create_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDDLCompiler.visit_create_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_create_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the index constraint implementation.</p>
+<p>NOTE: OmniSciDB doesn’t implement index</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciTypeCompiler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciTypeCompiler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciTypeCompiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.sql.compiler.GenericTypeCompiler</span></code></p>
+<p>OmniSci Type Compiler.</p>
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_ARRAY">
+<code class="sig-name descname"><span class="pre">visit_ARRAY</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selfself</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciTypeCompiler.visit_ARRAY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_ARRAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the ARRAY compilation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_numeric">
+<code class="sig-name descname"><span class="pre">visit_numeric</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciTypeCompiler.visit_numeric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_numeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the Numeric compilation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_datetime">
+<code class="sig-name descname"><span class="pre">visit_datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciTypeCompiler.visit_datetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the Date Time compilation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.colspecs">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">colspecs</span></code><em class="property"> <span class="pre">:dict</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#colspecs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.colspecs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">OmniSciDialect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NullPool</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.engine.default.DefaultDialect</span></code></p>
+<p>OmniSci Dialect.</p>
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.name">
+<code class="sig-name descname"><span class="pre">name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">omnisci</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.max_identifier_length">
+<code class="sig-name descname"><span class="pre">max_identifier_length</span></code><em class="property"> <span class="pre">=</span> <span class="pre">32768</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.max_identifier_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.max_identifier_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.default_paramstyle">
+<code class="sig-name descname"><span class="pre">default_paramstyle</span></code><em class="property"> <span class="pre">=</span> <span class="pre">pyformat</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.default_paramstyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.default_paramstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.colspecs">
+<code class="sig-name descname"><span class="pre">colspecs</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.colspecs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.colspecs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.ischema_names">
+<code class="sig-name descname"><span class="pre">ischema_names</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.ischema_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.ischema_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.convert_unicode">
+<code class="sig-name descname"><span class="pre">convert_unicode</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.convert_unicode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.convert_unicode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_statements">
+<code class="sig-name descname"><span class="pre">supports_unicode_statements</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_unicode_statements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_statements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_binds">
+<code class="sig-name descname"><span class="pre">supports_unicode_binds</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_unicode_binds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_binds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.returns_unicode_strings">
+<code class="sig-name descname"><span class="pre">returns_unicode_strings</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.returns_unicode_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.returns_unicode_strings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.description_encoding">
+<code class="sig-name descname"><span class="pre">description_encoding</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.description_encoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.description_encoding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.postfetch_lastrowid">
+<code class="sig-name descname"><span class="pre">postfetch_lastrowid</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.postfetch_lastrowid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.postfetch_lastrowid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_rowcount">
+<code class="sig-name descname"><span class="pre">supports_sane_rowcount</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_sane_rowcount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_rowcount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_multi_rowcount">
+<code class="sig-name descname"><span class="pre">supports_sane_multi_rowcount</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_sane_multi_rowcount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_multi_rowcount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_native_decimal">
+<code class="sig-name descname"><span class="pre">supports_native_decimal</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_native_decimal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_decimal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_native_boolean">
+<code class="sig-name descname"><span class="pre">supports_native_boolean</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_native_boolean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_boolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_alter">
+<code class="sig-name descname"><span class="pre">supports_alter</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_alter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_alter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_sequences">
+<code class="sig-name descname"><span class="pre">supports_sequences</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_sequences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_sequences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_native_enum">
+<code class="sig-name descname"><span class="pre">supports_native_enum</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_native_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_enum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_empty_insert">
+<code class="sig-name descname"><span class="pre">supports_empty_insert</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_empty_insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_empty_insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_default_values">
+<code class="sig-name descname"><span class="pre">supports_default_values</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_default_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.supports_default_metavalue">
+<code class="sig-name descname"><span class="pre">supports_default_metavalue</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.supports_default_metavalue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_metavalue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.preparer">
+<code class="sig-name descname"><span class="pre">preparer</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.preparer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.preparer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.ddl_compiler">
+<code class="sig-name descname"><span class="pre">ddl_compiler</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.ddl_compiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.ddl_compiler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.type_compiler">
+<code class="sig-name descname"><span class="pre">type_compiler</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.type_compiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.type_compiler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.statement_compiler">
+<code class="sig-name descname"><span class="pre">statement_compiler</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.statement_compiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.statement_compiler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.execution_ctx_cls">
+<code class="sig-name descname"><span class="pre">execution_ctx_cls</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.execution_ctx_cls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.execution_ctx_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.requires_name_normalize">
+<code class="sig-name descname"><span class="pre">requires_name_normalize</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.requires_name_normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.requires_name_normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.dbapi">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">dbapi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.dbapi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.dbapi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the database api.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.set_connection_execution_options">
+<code class="sig-name descname"><span class="pre">set_connection_execution_options</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.set_connection_execution_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.set_connection_execution_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set connection execution options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect._check_unicode_returns">
+<code class="sig-name descname"><span class="pre">_check_unicode_returns</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect._check_unicode_returns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect._check_unicode_returns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect._dialect_specific_select_one">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">_dialect_specific_select_one</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect._dialect_specific_select_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect._dialect_specific_select_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.do_rollback">
+<code class="sig-name descname"><span class="pre">do_rollback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.do_rollback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.do_rollback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the rollback method.</p>
+<p>Note: OmniSci hasn’t transaction implemented so it cannot rollback
+changes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.create_connect_args">
+<code class="sig-name descname"><span class="pre">create_connect_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.create_connect_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.create_connect_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connect arguments from given url.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.has_table">
+<code class="sig-name descname"><span class="pre">has_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.has_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.has_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the table exists.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.has_sequence">
+<code class="sig-name descname"><span class="pre">has_sequence</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.has_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.has_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the sequence exists.</p>
+<p>Note: OmniSci hasnt sequence objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.normalize_name">
+<code class="sig-name descname"><span class="pre">normalize_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.normalize_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.normalize_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize given name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.denormalize_name">
+<code class="sig-name descname"><span class="pre">denormalize_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.denormalize_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.denormalize_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Denormalize given name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect._denormalize_quote_join">
+<code class="sig-name descname"><span class="pre">_denormalize_quote_join</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">idents</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect._denormalize_quote_join"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect._denormalize_quote_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect._map_name_to_idx">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_map_name_to_idx</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect._map_name_to_idx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect._map_name_to_idx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_indexes">
+<code class="sig-name descname"><span class="pre">get_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_indexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all indexes.</p>
+<p>Note: index is not supported by OmniSci.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_primary_keys">
+<code class="sig-name descname"><span class="pre">get_primary_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_primary_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_primary_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override function that return the list of primary keys.</p>
+<p>Note: primary keys aren’t supported by OmniSci.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_pk_constraint">
+<code class="sig-name descname"><span class="pre">get_pk_constraint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_pk_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_pk_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override function that return the list of constraints.</p>
+<p>Note: constraints aren’t supported by OmniSci.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_unique_constraint">
+<code class="sig-name descname"><span class="pre">get_unique_constraint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_unique_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_unique_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override function that return the list of unique keys.</p>
+<p>Note: unique keys arent supported by OmniSci.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_foreign_keys">
+<code class="sig-name descname"><span class="pre">get_foreign_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_foreign_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_foreign_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override function that return the list of foreign keys.</p>
+<p>Note: foreign keys arent supported by OmniSci.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_columns">
+<code class="sig-name descname"><span class="pre">get_columns</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all column info given the table info.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_schema_names">
+<code class="sig-name descname"><span class="pre">get_schema_names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_schema_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_schema_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all database as schemas.</p>
+<p>Note: Maybe it would be better to return the database we are
+connected to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_table_names">
+<code class="sig-name descname"><span class="pre">get_table_names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_table_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_table_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all table names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_view_names">
+<code class="sig-name descname"><span class="pre">get_view_names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_view_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_view_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all view names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_view_definition">
+<code class="sig-name descname"><span class="pre">get_view_definition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_view_definition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_view_definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the view definition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sqlalchemy_omnisci.base.OmniSciDialect.get_temp_table_names">
+<code class="sig-name descname"><span class="pre">get_temp_table_names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#OmniSciDialect.get_temp_table_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.OmniSciDialect.get_temp_table_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override function that return the list of temporary tables name.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.dialect">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">dialect</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#dialect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.dialect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="sqlalchemy_omnisci.base.construct_arguments">
+<code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.base.</span></code><code class="sig-name descname"><span class="pre">construct_arguments</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[None]</span></em><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/base.html#construct_arguments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.base.construct_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./autoapi/sqlalchemy_omnisci/base"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By OmniSci Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
