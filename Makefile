@@ -4,18 +4,6 @@
 DOCKER=docker-compose --file docker/docker-compose.yaml
 TEST_PARAMS=
 
-define BROWSER_PYSCRIPT
-import os, webbrowser, sys
-
-try:
-	from urllib import pathname2url
-except:
-	from urllib.request import pathname2url
-
-webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
-endef
-export BROWSER_PYSCRIPT
-
 define PRINT_HELP_PYSCRIPT
 import re, sys
 
@@ -26,8 +14,6 @@ for line in sys.stdin:
 		print("%-20s %s" % (target, help))
 endef
 export PRINT_HELP_PYSCRIPT
-
-BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
@@ -59,26 +45,17 @@ lint: ## check style with flake8
 test: ## run tests quickly with the default Python
 	py.test
 
+
+# report available at htmlcov/index.html
 coverage: ## check code coverage quickly with the default Python
 	coverage run --source sqlalchemy_omnisci -m pytest
 	coverage report -m
 	coverage html
 
-watch-coverage:
-	$(BROWSER) htmlcov/index.html
-
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/sqlalchemy_omnisci.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ sqlalchemy_omnisci
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-
-watch-docs:
-	$(BROWSER) docs/_build/html/index.html
-
-servedocs: docs ## compile the docs watching for changes
-	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
+docs: ## generate documentation
+	rm -rf docs/_build/*
+	python docs/patch.py
+	jupyter-book build docs/
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install

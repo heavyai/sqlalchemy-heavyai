@@ -1,0 +1,10 @@
+format: jb-book
+root: intro
+parts:
+- caption: General
+  chapters:
+  - file: contributing
+  - file: api.rst
+- caption: Tutorials
+  chapters:
+  - file: tutorials/Introduction

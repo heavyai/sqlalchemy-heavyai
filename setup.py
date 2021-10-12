@@ -23,7 +23,13 @@ lint_requirements = [
     "flake8",
     "pre-commit",
 ]
-docs_requirements = ["sphinx"]
+
+docs_requirements = [
+    "sphinx",
+    "jupyter-book",
+    "sphinx-external-toc",
+    "sphinx-autoapi",
+]
 release_requirements = ["twine", "wheel", "build"]
 
 dev_requirements = (
@@ -32,6 +38,7 @@ dev_requirements = (
     + docs_requirements
     + lint_requirements
     + release_requirements
+    + ["jupyterlab"]
 )
 
 sqla_dialect = "sqlalchemy_omnisci.pyomnisci:OmniSciDialect_pyomnisci"
