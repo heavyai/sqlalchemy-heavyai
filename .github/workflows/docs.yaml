@@ -30,6 +30,10 @@ jobs:
         use-mamba: true
         miniforge-variant: Mambaforge
 
+    - name: install dependencies
+      run: |
+        python -m pip install --no-deps .
+
     # Build the book
     - name: Build the book
       run: |
