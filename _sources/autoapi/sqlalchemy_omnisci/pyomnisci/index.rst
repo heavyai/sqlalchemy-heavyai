@@ -22,7 +22,7 @@ Classes
 
 
 
-.. py:class:: OmniSciDialect_pyomnisci
+.. py:class:: OmniSciDialect_pyomnisci(pool=NullPool, **kwargs)
 
    Bases: :py:obj:`sqlalchemy_omnisci.base.OmniSciDialect`
 
