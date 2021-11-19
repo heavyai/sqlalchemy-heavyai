@@ -15,6 +15,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   _version/index.rst
    base/index.rst
    provision/index.rst
    pyomnisci/index.rst

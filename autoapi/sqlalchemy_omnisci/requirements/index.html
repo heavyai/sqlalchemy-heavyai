@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sqlalchemy_omnisci.requirements &#8212; SQLAlchemy OmniSci</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -54,7 +54,10 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -93,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   General
  </span>
@@ -159,7 +162,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutorials
  </span>
@@ -438,138 +441,138 @@
 </tbody>
 </table>
 <dl class="py class">
-<dt id="sqlalchemy_omnisci.requirements.Requirements">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.requirements.</span></code><code class="sig-name descname"><span class="pre">Requirements</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sqlalchemy_omnisci.requirements.</span></span><span class="sig-name descname"><span class="pre">Requirements</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.testing.requirements.SuiteRequirements</span></code></p>
 <p>Define dialect restrictions for the tests.</p>
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.check_constraint_reflection">
-<code class="sig-name descname"><span class="pre">check_constraint_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.check_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.check_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.check_constraint_reflection">
+<span class="sig-name descname"><span class="pre">check_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.check_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.check_constraint_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.foreign_key_constraint_reflection">
-<code class="sig-name descname"><span class="pre">foreign_key_constraint_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.foreign_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.foreign_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.foreign_key_constraint_reflection">
+<span class="sig-name descname"><span class="pre">foreign_key_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.foreign_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.foreign_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.cross_schema_fk_reflection">
-<code class="sig-name descname"><span class="pre">cross_schema_fk_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.cross_schema_fk_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.cross_schema_fk_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.cross_schema_fk_reflection">
+<span class="sig-name descname"><span class="pre">cross_schema_fk_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.cross_schema_fk_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.cross_schema_fk_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.self_referential_foreign_keys">
-<code class="sig-name descname"><span class="pre">self_referential_foreign_keys</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.self_referential_foreign_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.self_referential_foreign_keys" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.self_referential_foreign_keys">
+<span class="sig-name descname"><span class="pre">self_referential_foreign_keys</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.self_referential_foreign_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.self_referential_foreign_keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.primary_key_constraint_reflection">
-<code class="sig-name descname"><span class="pre">primary_key_constraint_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.primary_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.primary_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.primary_key_constraint_reflection">
+<span class="sig-name descname"><span class="pre">primary_key_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.primary_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.primary_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.temp_table_reflect_indexes">
-<code class="sig-name descname"><span class="pre">temp_table_reflect_indexes</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.temp_table_reflect_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.temp_table_reflect_indexes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.temp_table_reflect_indexes">
+<span class="sig-name descname"><span class="pre">temp_table_reflect_indexes</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.temp_table_reflect_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.temp_table_reflect_indexes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.index_reflection">
-<code class="sig-name descname"><span class="pre">index_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.index_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.index_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.index_reflection">
+<span class="sig-name descname"><span class="pre">index_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.index_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.index_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.index_reflects_included_columns">
-<code class="sig-name descname"><span class="pre">index_reflects_included_columns</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.index_reflects_included_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.index_reflects_included_columns" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.index_reflects_included_columns">
+<span class="sig-name descname"><span class="pre">index_reflects_included_columns</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.index_reflects_included_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.index_reflects_included_columns" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.indexes_with_ascdesc">
-<code class="sig-name descname"><span class="pre">indexes_with_ascdesc</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.indexes_with_ascdesc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.indexes_with_ascdesc" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.indexes_with_ascdesc">
+<span class="sig-name descname"><span class="pre">indexes_with_ascdesc</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.indexes_with_ascdesc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.indexes_with_ascdesc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.indexes_with_expressions">
-<code class="sig-name descname"><span class="pre">indexes_with_expressions</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.indexes_with_expressions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.indexes_with_expressions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.indexes_with_expressions">
+<span class="sig-name descname"><span class="pre">indexes_with_expressions</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.indexes_with_expressions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.indexes_with_expressions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.unique_constraint_reflection">
-<code class="sig-name descname"><span class="pre">unique_constraint_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.unique_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.unique_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.unique_constraint_reflection">
+<span class="sig-name descname"><span class="pre">unique_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.unique_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.unique_constraint_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.independent_connections">
-<code class="sig-name descname"><span class="pre">independent_connections</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.independent_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.independent_connections" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.independent_connections">
+<span class="sig-name descname"><span class="pre">independent_connections</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.independent_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.independent_connections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.schemas">
-<code class="sig-name descname"><span class="pre">schemas</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.schemas" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.schemas">
+<span class="sig-name descname"><span class="pre">schemas</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.schemas" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">
-<code class="sig-name descname"><span class="pre">parens_in_union_contained_select_w_limit_offset</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.parens_in_union_contained_select_w_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_w_limit_offset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">
+<span class="sig-name descname"><span class="pre">parens_in_union_contained_select_w_limit_offset</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.parens_in_union_contained_select_w_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_w_limit_offset" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">
-<code class="sig-name descname"><span class="pre">parens_in_union_contained_select_wo_limit_offset</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.parens_in_union_contained_select_wo_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">
+<span class="sig-name descname"><span class="pre">parens_in_union_contained_select_wo_limit_offset</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.parens_in_union_contained_select_wo_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.order_by_col_from_union">
-<code class="sig-name descname"><span class="pre">order_by_col_from_union</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.order_by_col_from_union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.order_by_col_from_union" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.order_by_col_from_union">
+<span class="sig-name descname"><span class="pre">order_by_col_from_union</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.order_by_col_from_union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.order_by_col_from_union" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.autoincrement_insert">
-<code class="sig-name descname"><span class="pre">autoincrement_insert</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.autoincrement_insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.autoincrement_insert" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.autoincrement_insert">
+<span class="sig-name descname"><span class="pre">autoincrement_insert</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.autoincrement_insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.autoincrement_insert" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.autoincrement_without_sequence">
-<code class="sig-name descname"><span class="pre">autoincrement_without_sequence</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.autoincrement_without_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.autoincrement_without_sequence" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.autoincrement_without_sequence">
+<span class="sig-name descname"><span class="pre">autoincrement_without_sequence</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.autoincrement_without_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.autoincrement_without_sequence" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.insert_from_select">
-<code class="sig-name descname"><span class="pre">insert_from_select</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.insert_from_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.insert_from_select" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.insert_from_select">
+<span class="sig-name descname"><span class="pre">insert_from_select</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.insert_from_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.insert_from_select" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.regexp_match">
-<code class="sig-name descname"><span class="pre">regexp_match</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.regexp_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.regexp_match" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.regexp_match">
+<span class="sig-name descname"><span class="pre">regexp_match</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.regexp_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.regexp_match" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.regexp_replace">
-<code class="sig-name descname"><span class="pre">regexp_replace</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.regexp_replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.regexp_replace" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.regexp_replace">
+<span class="sig-name descname"><span class="pre">regexp_replace</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.regexp_replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.regexp_replace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.implicit_decimal_binds">
-<code class="sig-name descname"><span class="pre">implicit_decimal_binds</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.implicit_decimal_binds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.implicit_decimal_binds" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.implicit_decimal_binds">
+<span class="sig-name descname"><span class="pre">implicit_decimal_binds</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.implicit_decimal_binds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.implicit_decimal_binds" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.precision_generic_float_type">
-<code class="sig-name descname"><span class="pre">precision_generic_float_type</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.precision_generic_float_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.precision_generic_float_type" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.precision_generic_float_type">
+<span class="sig-name descname"><span class="pre">precision_generic_float_type</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.precision_generic_float_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.precision_generic_float_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.precision_numerics_general">
-<code class="sig-name descname"><span class="pre">precision_numerics_general</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.precision_numerics_general"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.precision_numerics_general" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.precision_numerics_general">
+<span class="sig-name descname"><span class="pre">precision_numerics_general</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.precision_numerics_general"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.precision_numerics_general" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.comment_reflection">
-<code class="sig-name descname"><span class="pre">comment_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.comment_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.comment_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.comment_reflection">
+<span class="sig-name descname"><span class="pre">comment_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.comment_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.comment_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="sqlalchemy_omnisci.requirements.Requirements.view_column_reflection">
-<code class="sig-name descname"><span class="pre">view_column_reflection</span></code><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.view_column_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.view_column_reflection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="sqlalchemy_omnisci.requirements.Requirements.view_column_reflection">
+<span class="sig-name descname"><span class="pre">view_column_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_omnisci/requirements.html#Requirements.view_column_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_omnisci.requirements.Requirements.view_column_reflection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -601,13 +604,8 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
 </div>
         
         </div>
@@ -628,8 +626,7 @@
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
