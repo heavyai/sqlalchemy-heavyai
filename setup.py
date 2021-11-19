@@ -14,8 +14,6 @@ requirements = [
     "pyomnisci>=0.27.0",
 ]
 
-setup_requirements = ["setuptools-scm"]
-
 test_requirements = ["pytest"]
 lint_requirements = [
     "black",
@@ -71,7 +69,6 @@ setup(
     keywords="sqlalchemy_omnisci",
     name="sqlalchemy-omnisci",
     packages=find_packages(include=["sqlalchemy_omnisci"]),
-    setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/omnisci/sqlalchemy-omnisci",
