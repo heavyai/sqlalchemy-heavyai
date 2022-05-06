@@ -23,9 +23,6 @@ clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and 
 clean-build: ## remove build artifacts
 	rm -fr build/
 	rm -fr dist/
-	rm -fr .eggs/
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
 
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
@@ -40,15 +37,15 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 sqlalchemy_omnisci tests
+	flake8 sqlalchemy_heavyai tests
 
 test: ## run tests quickly with the default Python
-	py.test
+	pytest
 
 
 # report available at htmlcov/index.html
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source sqlalchemy_omnisci -m pytest
+	coverage run --source sqlalchemy_heavyai -m pytest
 	coverage report -m
 	coverage html
 
@@ -58,10 +55,10 @@ docs: ## generate documentation
 	jupyter-book build docs/
 
 install: clean ## install the package to the active Python's site-packages
-	python setup.py install
+	python -m pip install .
 
 develop: clean ## install the package in development mode
-	pip install -e '.[dev]'
+	python -m pip install -e '.[dev]'
 	pre-commit install
 
 # apache superset
@@ -71,22 +68,22 @@ docker-superset-build:
 docker-superset-start: docker-superset-build
 	$(DOCKER) up -d --renew-anon-volumes --force-recreate superset
 	@sleep 5
-	$(DOCKER) exec superset bash /opt/sqlalchemy-omnisci/docker/setup-superset.sh
+	$(DOCKER) exec superset bash /opt/sqlalchemy-heavyai/docker/setup-superset.sh
 	$(DOCKER) logs -f superset
 
 docker-superset-bash:
 	$(DOCKER) exec superset bash
 
-# omnisci
-docker-omnisci-build:
-	$(DOCKER) pull omniscidb
+# heavydb
+docker-heavydb-build:
+	$(DOCKER) pull heavydb
 
-docker-omnisci-start:
-	$(DOCKER) up -d omniscidb
-	$(DOCKER) logs -f --tail=100 omniscidb
+docker-heavydb-start:
+	$(DOCKER) up -d heavydb
+	$(DOCKER) logs -f --tail=100 heavydb
 
-docker-omnisci-bash:
-	$(DOCKER) exec omniscidb bash
+docker-heavydb-bash:
+	$(DOCKER) exec heavydb bash
 
 
 # tests

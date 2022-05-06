@@ -18,8 +18,8 @@ superset load_examples
 superset init
 
 # install sqlalchemy
-sudo -E pip install -e /opt/sqlalchemy-omnisci
+sudo -E pip install -e /opt/sqlalchemy-heavyai
 
 # copy sqlalchemy engine to db_engine_spces folder
-cp /opt/sqlalchemy-omnisci/docker/superset-omnisci.py \
-  /app/superset/db_engine_specs/omnisci.py
+cp /opt/sqlalchemy-heavyai/docker/superset-heavyai.py \
+  /app/superset/db_engine_specs/heavyai.py

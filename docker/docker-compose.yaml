@@ -1,14 +1,14 @@
-version: '3'
+version: '3.9'
 services:
 
-  omniscidb:
-    image: omnisci/core-os-cpu:v5.6.4
-    hostname: omniscidb
+  heavydb:
+    image: heavyai/core-os-cpu:v5.6.4
+    hostname: heavydb
     ports:
       - 6274:6274
       - 6278:6278
     volumes:
-      - ./omnisci.conf:/omnisci-storage/omnisci.conf
+      - ./heavydb.conf:/var/lib/heavyai/heavy.conf:ro
 
   superset:
     # docs: https://hub.docker.com/r/apache/superset
@@ -23,13 +23,13 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
-      - ..:/opt/sqlalchemy-omnisci
+      - ..:/opt/sqlalchemy-heavyai
     command: |
       flask run -p 8080 --with-threads --reload --debugger --host=0.0.0.0
 
   waiter:
     image: jwilder/dockerize
     command: |
-      dockerize -wait tcp://omniscidb:6274
+      dockerize -wait tcp://heavydb:6274
         -wait-retry-interval 5s
         -timeout 1m

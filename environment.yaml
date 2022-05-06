@@ -1,4 +1,4 @@
-name: sqla-omnisci
+name: sqla-heavyai
 channels:
   - conda-forge
 dependencies:

@@ -3,7 +3,7 @@ root: intro
 parts:
 - caption: General
   chapters:
-  - file: contributing
+  - file: ../CONTRIBUTING
   - file: api.rst
 - caption: Tutorials
   chapters:

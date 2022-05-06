@@ -18,7 +18,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -28,7 +28,7 @@ jobs:
         mamba-version: "*"
         environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: sqla-omnisci
+        activate-environment: sqla-heavyai
         use-mamba: true
         miniforge-variant: Mambaforge
 

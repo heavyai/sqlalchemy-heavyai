@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
+Contributions are welcome, and they are greatly appreciated! Every little bits
 helps, and credit will always be given.
 
 You can contribute in many ways:
@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/omnisci/sqlalchemy-omnisci/issues.
+Report bugs at https://github.com/heavyai/sqlalchemy-heavyai/issues.
 
 If you are reporting a bug, please include:
 
@@ -29,13 +29,13 @@ and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
 
-SQLAlchemy OmniSci could always use more documentation, whether as part of the
-official **SQLAlchemy OmniSci** docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+SQLAlchemy HeavyAI could always use more documentation, whether as part of the
+official **SQLAlchemy HeavyAI** docs, in docstrings, or even on the web in blog
+posts, articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/omnisci/sqlalchemy-omnisci/issues.
+The best way to send feedback is to file an issue at https://github.com/heavyai/sqlalchemy-heavyai/issues.
 
 If you are proposing a feature:
 
@@ -46,18 +46,18 @@ If you are proposing a feature:
 
 ### Get Started!
 
-Ready to contribute? Here's how to set up `sqlalchemy-omnisci` for local development.
+Ready to contribute? Here's how to set up `sqlalchemy-heavyai` for local development.
 
-1. Fork the `sqlalchemy-omnisci` repo on GitHub.
+1. Fork the `sqlalchemy-heavyai` repo on GitHub.
 2. Clone your fork locally::
 ```sh
-    $ git clone git@github.com:your_name_here/sqlalchemy-omnisci.git
+    $ git clone git@github.com:your_name_here/sqlalchemy-heavyai.git
 ```
 1. Create a conda environment and set up your fork for local development::
 ```sh
-    $ cd sqlalchemy-omnisci/
+    $ cd sqlalchemy-heavyai/
     $ conda env create --file environment.yaml
-    $ conda activate sqla-omnisci
+    $ conda activate sqla-heavyai
     $ make develop
 ```
 4. Create a branch for local development::
@@ -114,14 +114,14 @@ uses `sqlalchemy.testing.suite`, a convinient way to re-use the
 about that, check it out in its
 [official documentation](https://github.com/sqlalchemy/sqlalchemy/blob/master/README.unittests.rst)
 
-For the tests here, it is important to have **OmniSci** server running.
+For the tests here, it is important to have **HeavyDB** server running.
 It will create a new database for tests called `sqla_testing`.
 
 A common workflow for unit testing could be described as follows:
 
 ```sh
 # in a terminal (let's call it terminal 1)
-make docker-omnisci-start
+make docker-heavyai-start
 ```
 
 ```sh
@@ -140,11 +140,14 @@ the tests.
 ### Apache Superset connector
 
 Additionally, this repository provides a connector module for
-**OmniSci** on **Apache Superset**, available at `/docker/superset-omnisci.py`.
+**HeavyAI** on **Apache Superset**, available at `/docker/superset-heavyai.py`.
 
-If you are doing the process manually, copy `/docker/superset-omnisci.py`
+If you are doing the process manually, copy `/docker/superset-heavyai.py`
 into the engine folder inside the **Apache Superset** directory
-(e.g. `superset/db_engine_specs/`) and rename it to `omnisci.py`. For more information, check `/docker/setup-superset.sh` out to see the steps used to prepare the **Apache Superset** with the **OmniSci** connector for tests on docker.
+(e.g. `superset/db_engine_specs/`) and rename it to `heavyai.py`. For more
+information, check `/docker/setup-superset.sh` out to see the steps used to
+prepare the **Apache Superset** with the **OmniSci** connector for tests on
+docker.
 
 If you want to use the docker container provided here, run:
 
@@ -153,7 +156,7 @@ $ make docker-superset-start
 ```
 
 This command should build the image for the container and will prepare
-everything needed to run the **Apache Superset** with the **OmniSci** connector.
+everything needed to run the **Apache Superset** with the **HeavyAI** connector.
 
 To try it, open your web browser and enter the following
 **URL**: `localhost:8080`.
@@ -162,14 +165,15 @@ To try it, open your web browser and enter the following
 **Apache Superset** version recommended is `1.1.0`.
 
 To connect the **Apache Superset** instance to your
-**OmniSci** server, assuming you are running both using their respective `make` targets
-(`make docker-superset-start` and `make docker-omnisci-start`),
+**HeavyDB** server, assuming you are running both using their respective
+`make` targets
+(`make docker-superset-start` and `make docker-heavyai-start`),
 do:
 
 - click on `Data/Databases` menu.
 - in the **Databases** page, click on the `+ DATABASE` button.
 - in the **Add database** popup window, add a new database
-with the following **URI**: `omnisci://admin:HyperInteractive@omniscidb:6274/omnisci?protocol=binary`.
+with the following **URI**: `heavydb://admin:HyperInteractive@heavyai:6274/heavyai?protocol=binary`.
 
 For debugging purpose, you can connect to the **Apache Superset** container using:
 

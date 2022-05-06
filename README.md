@@ -1,9 +1,7 @@
-# SQLAlchemy OmniSci
-
-OmniSci SQLAlchemy Driver
+# HeavyAI SQLAlchemy Driver
 
 The code here was initially developed and published at
-https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
+https://community.heavy.ai/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
 
 This SQLAlchemy dialect is still in **beta** version.
 

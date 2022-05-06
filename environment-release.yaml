@@ -1,8 +1,0 @@
-name: ibis-omniscidb-release
-channels:
-- conda-forge
-dependencies:
-- python <3.9
-- twine
-- build
-- wheel
