@@ -146,7 +146,7 @@ If you are doing the process manually, copy `/docker/superset-heavyai.py`
 into the engine folder inside the **Apache Superset** directory
 (e.g. `superset/db_engine_specs/`) and rename it to `heavyai.py`. For more
 information, check `/docker/setup-superset.sh` out to see the steps used to
-prepare the **Apache Superset** with the **OmniSci** connector for tests on
+prepare the **Apache Superset** with the **HeavyAI** connector for tests on
 docker.
 
 If you want to use the docker container provided here, run:

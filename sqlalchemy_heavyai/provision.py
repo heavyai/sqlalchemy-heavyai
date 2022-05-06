@@ -2,6 +2,6 @@
 from sqlalchemy.testing.provision import temp_table_keyword_args
 
 
-@temp_table_keyword_args.for_db("omnisci")
-def _omnisci_temp_table_keyword_args(cfg, eng):
+@temp_table_keyword_args.for_db("heavyai")
+def _heavyai_temp_table_keyword_args(cfg, eng):
     return {}

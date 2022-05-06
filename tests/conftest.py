@@ -2,10 +2,8 @@
 import copy
 import os
 import uuid
-import warnings
 
 import pytest
-import sqlalchemy
 from sqlalchemy import (
     BigInteger,
     Boolean,
@@ -20,10 +18,10 @@ from sqlalchemy import (
 )
 from sqlalchemy.sql import column, table
 
-from sqlalchemy_omnisci import URL
+from sqlalchemy_heavyai import URL
 
 URI_TEMPLATE = (
-    "omnisci://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
+    "heavydb://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
 )
 
 DATABASE_TESTING = "sqla_testing"
@@ -40,7 +38,7 @@ DEFAULT_PARAMETERS = {
 SETUP_PARAMETERS = {
     "user": "admin",
     "password": "HyperInteractive",
-    "database": "omnisci",
+    "database": "heavyai",
     "protocol": "binary",
     "host": "localhost",
     "port": "6274",
@@ -168,7 +166,7 @@ def pytest_sessionstart(session):
     engine, _ = get_engine(db_params=SETUP_PARAMETERS)
     try:
         engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
-    except:
+    except:  # noqa
         ...
     engine.execute(f"CREATE DATABASE {DATABASE_TESTING};")
     testing.plugin.pytestplugin.pytest_sessionstart(session)

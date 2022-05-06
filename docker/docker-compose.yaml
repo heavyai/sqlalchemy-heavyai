@@ -2,7 +2,7 @@ version: '3.9'
 services:
 
   heavydb:
-    image: heavyai/core-os-cpu:v5.6.4
+    image: heavyai/core-os-cpu
     hostname: heavydb
     ports:
       - 6274:6274

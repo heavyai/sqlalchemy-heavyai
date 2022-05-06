@@ -1,5 +1,5 @@
 # scm versioning
-sqlalchemy_omnisci/_version.py
+sqlalchemy_heavyai/_version.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,4 +1,4 @@
-"""Util functions used by OmniSci Dialect."""
+"""Util functions used by HeavyAI Dialect."""
 from urllib.parse import quote_plus
 
 
@@ -16,7 +16,7 @@ def _url(**db_parameters):
 
     specified_parameters = []
 
-    ret = "omnisci://{user}:{password}@{host}:{port}/".format(
+    ret = "heavydb://{user}:{password}@{host}:{port}/".format(
         user=db_parameters["user"],
         password=quote_plus(db_parameters["password"]),
         host=db_parameters["host"],
