@@ -11,17 +11,16 @@ for line in sys.stdin:
 	match = re.match(r'^([a-zA-Z_-]+):.*?## (.*)$$', line)
 	if match:
 		target, help = match.groups()
-		print("%-20s %s" % (target, help))
+		print(f"{target:<25} {help}")
 endef
 export PRINT_HELP_PYSCRIPT
 
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
+clean: clean-build clean-pyc clean-test clean-docs ## remove all build, test, coverage, docs and Python artifacts
 
 clean-build: ## remove build artifacts
-	rm -fr build/
 	rm -fr dist/
 
 clean-pyc: ## remove Python file artifacts
@@ -31,17 +30,12 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -fr {} +
 
 clean-test: ## remove test and coverage artifacts
-	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
-lint: ## check style with flake8
-	flake8 sqlalchemy_heavyai tests
-
-test: ## run tests quickly with the default Python
-	pytest
-
+clean-docs:  ## remove docs
+	rm -rf docs/_build/*
 
 # report available at htmlcov/index.html
 coverage: ## check code coverage quickly with the default Python
@@ -49,8 +43,7 @@ coverage: ## check code coverage quickly with the default Python
 	coverage report -m
 	coverage html
 
-docs: ## generate documentation
-	rm -rf docs/_build/*
+docs: clean-docs ## generate documentation
 	python docs/patch.py
 	jupyter-book build docs/
 
@@ -61,11 +54,12 @@ develop: clean ## install the package in development mode
 	python -m pip install -e '.[dev]'
 	pre-commit install
 
-# apache superset
-docker-superset-build:
+# Apache superset
+
+docker-superset-build: ## apache superset
 	$(DOCKER) build superset
 
-docker-superset-start: docker-superset-build
+docker-superset-start: docker-superset-build ## start apache superset
 	$(DOCKER) up -d --renew-anon-volumes --force-recreate superset
 	@sleep 5
 	$(DOCKER) exec superset bash /opt/sqlalchemy-heavyai/docker/setup-superset.sh
@@ -74,19 +68,19 @@ docker-superset-start: docker-superset-build
 docker-superset-bash:
 	$(DOCKER) exec superset bash
 
-# heavydb
-docker-heavydb-build:
+# HeavyDB
+
+docker-heavydb-build: ## pull heavydb
 	$(DOCKER) pull heavydb
 
-docker-heavydb-start:
+docker-heavydb-start: ## start heavydb
 	$(DOCKER) up -d heavydb
 	$(DOCKER) logs -f --tail=100 heavydb
 
 docker-heavydb-bash:
 	$(DOCKER) exec heavydb bash
 
+# Tests
 
-# tests
-
-run-tests:
+run-tests: ## run tests
 	pytest -vv -s ${TEST_PARAMS} tests/
