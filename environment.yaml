@@ -8,6 +8,8 @@ dependencies:
   - heavyai
   # dev
   - pre-commit
+  # tests
+  - werkzeug
   - pytest
   # docs
   - sphinx
