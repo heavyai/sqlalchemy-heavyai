@@ -710,7 +710,7 @@ colspecs: dict = {}
 class HeavyAIDialect(default.DefaultDialect):
     """HeavyAI Dialect."""
 
-    name = "heavyai"
+    name = "heavydb"
     max_identifier_length = 32768
 
     #    encoding = UTF8

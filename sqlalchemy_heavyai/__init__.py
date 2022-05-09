@@ -7,4 +7,4 @@ from .heavyai import HeavyAIDialect_heavyai  # noqa: F401
 from .util import _url as URL  # noqa: F401
 from .version import _version as __version__  # noqa: F401
 
-registry.register("heavyai", "sqlalchemy_heavyai", "HeavyAIDialect_heavyai")
+registry.register("heavydb", "sqlalchemy_heavyai", "HeavyAIDialect_heavyai")

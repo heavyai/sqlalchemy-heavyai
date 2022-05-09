@@ -6,7 +6,7 @@ from sqlalchemy.testing import AssertsCompiledSQL, fixtures
 
 
 class _TestCompilerHeavyai(fixtures.TestBase, AssertsCompiledSQL):
-    __dialect__ = "heavyai"
+    __dialect__ = "heavydb"
 
 
 class TestCompilerSelect(_TestCompilerHeavyai):
@@ -25,7 +25,7 @@ class TestCompilerSelect(_TestCompilerHeavyai):
                 "FROM table_datatype "
                 "WHERE table_datatype._int = %(int_1)s"
             ),
-            dialect="heavyai",
+            dialect="heavydb",
         )
 
     @pytest.mark.parametrize(
@@ -53,7 +53,7 @@ class TestCompilerSelect(_TestCompilerHeavyai):
                 f"SELECT {sql_func}(table_datatype._int) AS {sql_func}_1 "
                 "FROM table_datatype"
             ),
-            dialect="heavyai",
+            dialect="heavydb",
         )
 
     def test_quoted_name_label(self):
@@ -100,7 +100,7 @@ class TestCompilerDelete(_TestCompilerHeavyai):
         self.assert_compile(
             stmt,
             "DELETE FROM table1 WHERE table1.id = %(id_1)s",
-            dialect="heavyai",
+            dialect="heavydb",
         )
 
 
@@ -114,5 +114,5 @@ class TestCompilerUpdate(_TestCompilerHeavyai):
             stmt,
             "UPDATE table1 SET name=%(name)s "
             "WHERE table1.name = %(name_1)s",
-            dialect="heavyai",
+            dialect="heavydb",
         )
