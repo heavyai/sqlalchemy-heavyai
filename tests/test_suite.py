@@ -38,6 +38,14 @@ from sqlalchemy.testing.suite import (
 )
 
 
+pytest.mark.skip(_UnicodeTextTest)
+pytest.mark.skip(_UnicodeVarcharTest)
+pytest.mark.skip(_ComponentReflectionTest)
+pytest.mark.skip(_JoinTest)
+pytest.mark.skip(_FetchLimitOffsetTest)
+pytest.mark.skip(_HasIndexTest)
+
+
 class ExpandingBoundInTest(_ExpandingBoundInTest):
     """Skip tests for ExpandingBoundInTest."""
 
@@ -74,26 +82,6 @@ class ExpandingBoundInTest(_ExpandingBoundInTest):
         return
 
 
-class FetchLimitOffsetTest(_FetchLimitOffsetTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
-
-
-class HasIndexTest(_HasIndexTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
-
-
 class IsOrIsNotDistinctFromTest(_IsOrIsNotDistinctFromTest):
     """Skip test."""
 
@@ -106,16 +94,6 @@ class IsOrIsNotDistinctFromTest(_IsOrIsNotDistinctFromTest):
     def test_is_or_is_not_distinct_from(self, *args, **kwargs):
         """Skip test."""
         return
-
-
-class JoinTest(_JoinTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
 
 
 class QuotedNameArgumentTest(_QuotedNameArgumentTest):
@@ -415,27 +393,6 @@ class OrderByLabelTest(_OrderByLabelTest):
         return
 
 
-class UnicodeTextTest(_UnicodeTextTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            """Skip all tests."""
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
-
-
-class UnicodeVarcharTest(_UnicodeVarcharTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
-
-
 class CastTypeDecoratorTest(_CastTypeDecoratorTest):
     """Skip test."""
 
@@ -443,16 +400,6 @@ class CastTypeDecoratorTest(_CastTypeDecoratorTest):
     def test_special_type(self, *args, **kwargs):
         """Skip test."""
         return
-
-
-class ComponentReflectionTest(_ComponentReflectionTest):
-    """Skip test."""
-
-    def __init__(self, *args, **kwargs):
-        """Skip all tests."""
-        for attr in dir(self):
-            if attr.startswith("test"):
-                setattr(self, attr, pytest.mark.skip()(lambda v: v))
 
 
 class CompoundSelectTest(_CompoundSelectTest):
