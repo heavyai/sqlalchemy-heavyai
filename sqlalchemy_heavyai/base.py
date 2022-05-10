@@ -721,6 +721,8 @@ class HeavyAIDialect(default.DefaultDialect):
     # all str types must be converted in Unicode
     convert_unicode = True
 
+    supports_statement_cache = True
+
     # Indicate whether the DB-API can receive SQL statements as Python
     #  unicode strings
     supports_unicode_statements = True

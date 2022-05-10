@@ -6,3 +6,4 @@ class HeavyAIDialect_heavyai(HeavyAIDialect):
     """HeavyAIDialect for heavyai."""
 
     driver = "heavydb"
+    supports_statement_cache = True
