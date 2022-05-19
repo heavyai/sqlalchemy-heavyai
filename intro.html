@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SQLAlchemy OmniSci &#8212; SQLAlchemy OmniSci</title>
+    <title>SQLAlchemy HeavyAI &#8212; SQLAlchemy HeavyAI</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,22 +38,24 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="next" title="API Documentation" href="api.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -82,7 +84,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SQLAlchemy OmniSci</h1>
+      <h1 class="site-logo" id="site-title">SQLAlchemy HeavyAI</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -93,7 +95,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   SQLAlchemy OmniSci
+   SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -103,11 +105,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="api.html">
    API Documentation
@@ -119,8 +116,8 @@
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.html">
-     sqlalchemy_omnisci
+    <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.html">
+     sqlalchemy_heavyai
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -129,33 +126,33 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.base.html">
-       sqlalchemy_omnisci.base
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.base.html">
+       sqlalchemy_heavyai.base
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.provision.html">
-       sqlalchemy_omnisci.provision
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.heavyai.html">
+       sqlalchemy_heavyai.heavyai
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.pyomnisci.html">
-       sqlalchemy_omnisci.pyomnisci
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.provision.html">
+       sqlalchemy_heavyai.provision
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.requirements.html">
-       sqlalchemy_omnisci.requirements
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.requirements.html">
+       sqlalchemy_heavyai.requirements
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.util.html">
-       sqlalchemy_omnisci.util
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.util.html">
+       sqlalchemy_heavyai.util
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.version.html">
-       sqlalchemy_omnisci.version
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.version.html">
+       sqlalchemy_heavyai.version
       </a>
      </li>
     </ul>
@@ -171,7 +168,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="tutorials/Introduction.html">
-   Getting started with SQLAlchemy OmniSci
+   Getting started with SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -220,7 +217,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -231,11 +228,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/heavyai/sqlalchemy-heavyai"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/heavyai/sqlalchemy-heavyai/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -254,7 +251,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -291,29 +288,69 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQLAlchemy HeavyAI</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stable-release">
+     Stable release
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from-sources">
+     From sources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sqlalchemy-omnisci">
-<h1>SQLAlchemy OmniSci<a class="headerlink" href="#sqlalchemy-omnisci" title="Permalink to this headline">¶</a></h1>
-<p>OmniSci SQLAlchemy Driver</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="sqlalchemy-heavyai">
+<h1>SQLAlchemy HeavyAI<a class="headerlink" href="#sqlalchemy-heavyai" title="Permalink to this headline">¶</a></h1>
+<p>HeavyAI SQLAlchemy Driver</p>
 <p>The code here was initially developed and published at
-<a class="reference external" href="https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633">https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633</a></p>
+<a class="reference external" href="https://community.heavy.ai/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633">https://community.heavy.ai/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633</a></p>
 <p>This SQLAlchemy dialect is still in <strong>beta</strong> version.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="stable-release">
 <h3>Stable release<a class="headerlink" href="#stable-release" title="Permalink to this headline">¶</a></h3>
 <hr class="docutils" />
-<p>To install SQLAlchemy OmniSci, run this command in your terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install sqlalchemy-omnisci
+<p>To install SQLAlchemy HeavyAI, run this command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install sqlalchemy-heavyai
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install sqlalchemy-omnisci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install sqlalchemy-heavyai
 </pre></div>
 </div>
-<p>These are the preferred methods to install SQLAlchemy OmniSci,
+<p>These are the preferred methods to install SQLAlchemy HeavyAI,
 as it will always install the most recent stable release.</p>
 <p>If you don’t have conda installed, check its
 <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">documenation page</a>.</p>
@@ -324,34 +361,34 @@ can guide you through the process.</p>
 </div>
 <div class="section" id="from-sources">
 <h3>From sources<a class="headerlink" href="#from-sources" title="Permalink to this headline">¶</a></h3>
-<p>The sources for SQLAlchemy OmniSci can be downloaded from the <a class="reference external" href="https://github.com/omnisci/sqlalchemy-omnisci">Github
+<p>The sources for SQLAlchemy HeavyAI can be downloaded from the <a class="reference external" href="https://github.com/heavyai/sqlalchemy-heavyai">Github
 repo</a>.</p>
 <p>You can either clone the public repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone git://github.com/omnisci/sqlalchemy-omnisci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone git://github.com/heavyai/sqlalchemy-heavyai
 </pre></div>
 </div>
 <p>Or download the
-<a class="reference external" href="https://github.com/omnisci/sqlalchemy-omnisci/tarball/master">tarball</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl  -OL https://github.com/omnisci/sqlalchemy-omnisci/tarball/master
+<a class="reference external" href="https://github.com/heavyai/sqlalchemy-heavyai/tarball/master">tarball</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl  -OL https://github.com/heavyai/sqlalchemy-heavyai/tarball/master
 </pre></div>
 </div>
 <p>Once you have a copy of the source, you can install it with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pip install .
 </pre></div>
 </div>
 <p>For information about development, check the
-{contributing page}<code class="docutils literal notranslate"><span class="pre">./contributing</span></code></p>
+{contributing page}<code class="docutils literal notranslate"><span class="pre">../CONTRIBUTING</span></code></p>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>To use SQLAlchemy OmniSci to connect to a local OmniSci server:</p>
+<p>To use SQLAlchemy HeavyAI to connect to a local HeavyDB server:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 
-<span class="c1"># uri: omnisci://&lt;user&gt;:&lt;pass&gt;@&lt;host&gt;:&lt;port&gt;/&lt;db&gt;?protocol=&lt;protocol&gt;</span>
+<span class="c1"># uri: heavydb://&lt;user&gt;:&lt;pass&gt;@&lt;host&gt;:&lt;port&gt;/&lt;db&gt;?protocol=&lt;protocol&gt;</span>
 <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
-    <span class="s2">&quot;omnisci://admin:HyperInteractive@&quot;</span>
-    <span class="s2">&quot;localhost:6274/omnisci?protocol=binary&quot;</span>
+    <span class="s2">&quot;heavydb://admin:HyperInteractive@&quot;</span>
+    <span class="s2">&quot;localhost:6274/heavyai?protocol=binary&quot;</span>
 <span class="p">)</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -386,30 +423,28 @@ repo</a>.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="contributing.html" title="next page">
+    <a class='right-next' id="next-link" href="api.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributing</p>
+        <p class="prev-next-title">API Documentation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OmniSci Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By HeavyAI Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

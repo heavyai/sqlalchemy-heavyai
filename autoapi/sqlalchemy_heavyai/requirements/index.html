@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sqlalchemy_heavyai.requirements &#8212; SQLAlchemy HeavyAI</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SQLAlchemy HeavyAI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   SQLAlchemy HeavyAI
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../api.html">
+   API Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.html">
+     sqlalchemy_heavyai
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.base.html">
+       sqlalchemy_heavyai.base
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.heavyai.html">
+       sqlalchemy_heavyai.heavyai
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.provision.html">
+       sqlalchemy_heavyai.provision
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.requirements.html">
+       sqlalchemy_heavyai.requirements
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.util.html">
+       sqlalchemy_heavyai.util
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../_autosummary/sqlalchemy_heavyai.version.html">
+       sqlalchemy_heavyai.version
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../tutorials/Introduction.html">
+   Getting started with SQLAlchemy HeavyAI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/autoapi/sqlalchemy_heavyai/requirements/index.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/heavyai/sqlalchemy-heavyai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/heavyai/sqlalchemy-heavyai/issues/new?title=Issue%20on%20page%20%2Fautoapi/sqlalchemy_heavyai/requirements/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements">
+       Requirements
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.check_constraint_reflection">
+         check_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.foreign_key_constraint_reflection">
+         foreign_key_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.cross_schema_fk_reflection">
+         cross_schema_fk_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.self_referential_foreign_keys">
+         self_referential_foreign_keys
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.primary_key_constraint_reflection">
+         primary_key_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.temp_table_reflect_indexes">
+         temp_table_reflect_indexes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflection">
+         index_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflects_included_columns">
+         index_reflects_included_columns
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_ascdesc">
+         indexes_with_ascdesc
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_expressions">
+         indexes_with_expressions
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.unique_constraint_reflection">
+         unique_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.independent_connections">
+         independent_connections
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.schemas">
+         schemas
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">
+         parens_in_union_contained_select_w_limit_offset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">
+         parens_in_union_contained_select_wo_limit_offset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.order_by_col_from_union">
+         order_by_col_from_union
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_insert">
+         autoincrement_insert
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_without_sequence">
+         autoincrement_without_sequence
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.insert_from_select">
+         insert_from_select
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_match">
+         regexp_match
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_replace">
+         regexp_replace
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.implicit_decimal_binds">
+         implicit_decimal_binds
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.precision_generic_float_type">
+         precision_generic_float_type
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.precision_numerics_general">
+         precision_numerics_general
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.comment_reflection">
+         comment_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.view_column_reflection">
+         view_column_reflection
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>sqlalchemy_heavyai.requirements</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements">
+       Requirements
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.check_constraint_reflection">
+         check_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.foreign_key_constraint_reflection">
+         foreign_key_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.cross_schema_fk_reflection">
+         cross_schema_fk_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.self_referential_foreign_keys">
+         self_referential_foreign_keys
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.primary_key_constraint_reflection">
+         primary_key_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.temp_table_reflect_indexes">
+         temp_table_reflect_indexes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflection">
+         index_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflects_included_columns">
+         index_reflects_included_columns
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_ascdesc">
+         indexes_with_ascdesc
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_expressions">
+         indexes_with_expressions
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.unique_constraint_reflection">
+         unique_constraint_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.independent_connections">
+         independent_connections
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.schemas">
+         schemas
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">
+         parens_in_union_contained_select_w_limit_offset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">
+         parens_in_union_contained_select_wo_limit_offset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.order_by_col_from_union">
+         order_by_col_from_union
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_insert">
+         autoincrement_insert
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_without_sequence">
+         autoincrement_without_sequence
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.insert_from_select">
+         insert_from_select
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_match">
+         regexp_match
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_replace">
+         regexp_replace
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.implicit_decimal_binds">
+         implicit_decimal_binds
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.precision_generic_float_type">
+         precision_generic_float_type
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.precision_numerics_general">
+         precision_numerics_general
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.comment_reflection">
+         comment_reflection
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sqlalchemy_heavyai.requirements.Requirements.view_column_reflection">
+         view_column_reflection
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="module-sqlalchemy_heavyai.requirements">
+<span id="sqlalchemy-heavyai-requirements"></span><h1><a class="reference internal" href="#module-sqlalchemy_heavyai.requirements" title="sqlalchemy_heavyai.requirements"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlalchemy_heavyai.requirements</span></code></a><a class="headerlink" href="#module-sqlalchemy_heavyai.requirements" title="Permalink to this headline">¶</a></h1>
+<p>Requirements/Restrictions for the Dialect tests.</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sqlalchemy_heavyai.requirements.Requirements" title="sqlalchemy_heavyai.requirements.Requirements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Requirements</span></code></a></p></td>
+<td><p>Define dialect restrictions for the tests.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sqlalchemy_heavyai.requirements.</span></span><span class="sig-name descname"><span class="pre">Requirements</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sqlalchemy.testing.requirements.SuiteRequirements</span></code></p>
+<p>Define dialect restrictions for the tests.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.check_constraint_reflection">
+<span class="sig-name descname"><span class="pre">check_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.check_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.check_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.foreign_key_constraint_reflection">
+<span class="sig-name descname"><span class="pre">foreign_key_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.foreign_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.foreign_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.cross_schema_fk_reflection">
+<span class="sig-name descname"><span class="pre">cross_schema_fk_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.cross_schema_fk_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.cross_schema_fk_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.self_referential_foreign_keys">
+<span class="sig-name descname"><span class="pre">self_referential_foreign_keys</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.self_referential_foreign_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.self_referential_foreign_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.primary_key_constraint_reflection">
+<span class="sig-name descname"><span class="pre">primary_key_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.primary_key_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.primary_key_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.temp_table_reflect_indexes">
+<span class="sig-name descname"><span class="pre">temp_table_reflect_indexes</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.temp_table_reflect_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.temp_table_reflect_indexes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.index_reflection">
+<span class="sig-name descname"><span class="pre">index_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.index_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.index_reflects_included_columns">
+<span class="sig-name descname"><span class="pre">index_reflects_included_columns</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.index_reflects_included_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.index_reflects_included_columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.indexes_with_ascdesc">
+<span class="sig-name descname"><span class="pre">indexes_with_ascdesc</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.indexes_with_ascdesc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_ascdesc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.indexes_with_expressions">
+<span class="sig-name descname"><span class="pre">indexes_with_expressions</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.indexes_with_expressions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.indexes_with_expressions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.unique_constraint_reflection">
+<span class="sig-name descname"><span class="pre">unique_constraint_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.unique_constraint_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.unique_constraint_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.independent_connections">
+<span class="sig-name descname"><span class="pre">independent_connections</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.independent_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.independent_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.schemas">
+<span class="sig-name descname"><span class="pre">schemas</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.schemas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">
+<span class="sig-name descname"><span class="pre">parens_in_union_contained_select_w_limit_offset</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.parens_in_union_contained_select_w_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_w_limit_offset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">
+<span class="sig-name descname"><span class="pre">parens_in_union_contained_select_wo_limit_offset</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.parens_in_union_contained_select_wo_limit_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.order_by_col_from_union">
+<span class="sig-name descname"><span class="pre">order_by_col_from_union</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.order_by_col_from_union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.order_by_col_from_union" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.autoincrement_insert">
+<span class="sig-name descname"><span class="pre">autoincrement_insert</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.autoincrement_insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.autoincrement_without_sequence">
+<span class="sig-name descname"><span class="pre">autoincrement_without_sequence</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.autoincrement_without_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.autoincrement_without_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.insert_from_select">
+<span class="sig-name descname"><span class="pre">insert_from_select</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.insert_from_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.insert_from_select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.regexp_match">
+<span class="sig-name descname"><span class="pre">regexp_match</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.regexp_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_match" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.regexp_replace">
+<span class="sig-name descname"><span class="pre">regexp_replace</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.regexp_replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.regexp_replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.implicit_decimal_binds">
+<span class="sig-name descname"><span class="pre">implicit_decimal_binds</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.implicit_decimal_binds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.implicit_decimal_binds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.precision_generic_float_type">
+<span class="sig-name descname"><span class="pre">precision_generic_float_type</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.precision_generic_float_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.precision_generic_float_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.precision_numerics_general">
+<span class="sig-name descname"><span class="pre">precision_numerics_general</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.precision_numerics_general"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.precision_numerics_general" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.comment_reflection">
+<span class="sig-name descname"><span class="pre">comment_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.comment_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.comment_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqlalchemy_heavyai.requirements.Requirements.view_column_reflection">
+<span class="sig-name descname"><span class="pre">view_column_reflection</span></span><a class="reference internal" href="../../../_modules/sqlalchemy_heavyai/requirements.html#Requirements.view_column_reflection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlalchemy_heavyai.requirements.Requirements.view_column_reflection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./autoapi/sqlalchemy_heavyai/requirements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By HeavyAI Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; SQLAlchemy OmniSci</title>
+    <title>Index &#8212; SQLAlchemy HeavyAI</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,12 +38,21 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -74,7 +83,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SQLAlchemy OmniSci</h1>
+      <h1 class="site-logo" id="site-title">SQLAlchemy HeavyAI</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -85,7 +94,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   SQLAlchemy OmniSci
+   SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -95,11 +104,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="api.html">
    API Documentation
@@ -111,8 +115,8 @@
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.html">
-     sqlalchemy_omnisci
+    <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.html">
+     sqlalchemy_heavyai
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -121,33 +125,33 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.base.html">
-       sqlalchemy_omnisci.base
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.base.html">
+       sqlalchemy_heavyai.base
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.provision.html">
-       sqlalchemy_omnisci.provision
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.heavyai.html">
+       sqlalchemy_heavyai.heavyai
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.pyomnisci.html">
-       sqlalchemy_omnisci.pyomnisci
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.provision.html">
+       sqlalchemy_heavyai.provision
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.requirements.html">
-       sqlalchemy_omnisci.requirements
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.requirements.html">
+       sqlalchemy_heavyai.requirements
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.util.html">
-       sqlalchemy_omnisci.util
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.util.html">
+       sqlalchemy_heavyai.util
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="_autosummary/sqlalchemy_omnisci.version.html">
-       sqlalchemy_omnisci.version
+      <a class="reference internal" href="_autosummary/sqlalchemy_heavyai.version.html">
+       sqlalchemy_heavyai.version
       </a>
      </li>
     </ul>
@@ -163,7 +167,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="tutorials/Introduction.html">
-   Getting started with SQLAlchemy OmniSci
+   Getting started with SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -206,11 +210,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/heavyai/sqlalchemy-heavyai"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/heavyai/sqlalchemy-heavyai/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -229,14 +233,24 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
 
@@ -268,33 +282,33 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.__version__">__version__ (in module sqlalchemy_omnisci)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.__version__">__version__ (in module sqlalchemy_heavyai)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.ARRAY.__visit_name__">__visit_name__ (sqlalchemy_omnisci.ARRAY attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.ARRAY.__visit_name__">__visit_name__ (sqlalchemy_heavyai.ARRAY attribute)</a>
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.ARRAY.__visit_name__">(sqlalchemy_omnisci.base.ARRAY attribute)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.ARRAY.__visit_name__">(sqlalchemy_heavyai.base.ARRAY attribute)</a>
 </li>
-        <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.BOOLEAN.__visit_name__">(sqlalchemy_omnisci.base.BOOLEAN attribute)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.BOOLEAN.__visit_name__">(sqlalchemy_heavyai.base.BOOLEAN attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect._check_unicode_returns">_check_unicode_returns() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect._check_unicode_returns">_check_unicode_returns() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect._denormalize_quote_join">_denormalize_quote_join() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect._denormalize_quote_join">_denormalize_quote_join() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect._dialect_specific_select_one">_dialect_specific_select_one (sqlalchemy_omnisci.base.OmniSciDialect property)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect._dialect_specific_select_one">_dialect_specific_select_one (sqlalchemy_heavyai.base.HeavyAIDialect property)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect._map_name_to_idx">_map_name_to_idx() (sqlalchemy_omnisci.base.OmniSciDialect static method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/provision/index.html#sqlalchemy_heavyai.provision._heavyai_temp_table_keyword_args">_heavyai_temp_table_keyword_args() (in module sqlalchemy_heavyai.provision)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/provision/index.html#sqlalchemy_omnisci.provision._omnisci_temp_table_keyword_args">_omnisci_temp_table_keyword_args() (in module sqlalchemy_omnisci.provision)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect._map_name_to_idx">_map_name_to_idx() (sqlalchemy_heavyai.base.HeavyAIDialect static method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer._quote_free_identifiers">_quote_free_identifiers() (sqlalchemy_omnisci.base.OmniSciIdentifierPreparer method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIIdentifierPreparer._quote_free_identifiers">_quote_free_identifiers() (sqlalchemy_heavyai.base.HeavyAIIdentifierPreparer method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/util/index.html#sqlalchemy_omnisci.util._url">_url() (in module sqlalchemy_omnisci.util)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/util/index.html#sqlalchemy_heavyai.util._url">_url() (in module sqlalchemy_heavyai.util)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/version/index.html#sqlalchemy_omnisci.version._version">_version (in module sqlalchemy_omnisci.version)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/version/index.html#sqlalchemy_heavyai.version._version">_version (in module sqlalchemy_heavyai.version)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -302,19 +316,19 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.ARRAY">ARRAY (class in sqlalchemy_omnisci)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.ARRAY">ARRAY (class in sqlalchemy_heavyai)</a>
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.ARRAY">(class in sqlalchemy_omnisci.base)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.ARRAY">(class in sqlalchemy_heavyai.base)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.AUTOCOMMIT_REGEXP">AUTOCOMMIT_REGEXP (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.AUTOCOMMIT_REGEXP">AUTOCOMMIT_REGEXP (in module sqlalchemy_heavyai.base)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.autoincrement_insert">autoincrement_insert (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.autoincrement_insert">autoincrement_insert (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.autoincrement_without_sequence">autoincrement_without_sequence (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.autoincrement_without_sequence">autoincrement_without_sequence (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -322,13 +336,13 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.Boolean.bind_processor">bind_processor() (sqlalchemy_omnisci.base.Boolean method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.Boolean.bind_processor">bind_processor() (sqlalchemy_heavyai.base.Boolean method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.BOOLEAN">BOOLEAN (class in sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.BOOLEAN">BOOLEAN (class in sqlalchemy_heavyai.base)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.Boolean">Boolean (class in sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.Boolean">Boolean (class in sqlalchemy_heavyai.base)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -336,29 +350,29 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.check_constraint_reflection">check_constraint_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.check_constraint_reflection">check_constraint_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.colspecs">colspecs (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.colspecs">colspecs (in module sqlalchemy_heavyai.base)</a>
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.colspecs">(sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.colspecs">(sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.comment_reflection">comment_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.comment_reflection">comment_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.COMPOUND_KEYWORDS">COMPOUND_KEYWORDS (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.COMPOUND_KEYWORDS">COMPOUND_KEYWORDS (in module sqlalchemy_heavyai.base)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.compound_keywords">compound_keywords (sqlalchemy_omnisci.base.OmniSciCompiler attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.compound_keywords">compound_keywords (sqlalchemy_heavyai.base.HeavyAICompiler attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.construct_arguments">construct_arguments (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.construct_arguments">construct_arguments (in module sqlalchemy_heavyai.base)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.convert_unicode">convert_unicode (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.convert_unicode">convert_unicode (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.create_connect_args">create_connect_args() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.create_connect_args">create_connect_args() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.cross_schema_fk_reflection">cross_schema_fk_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.cross_schema_fk_reflection">cross_schema_fk_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -366,28 +380,28 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.dbapi">dbapi() (sqlalchemy_omnisci.base.OmniSciDialect class method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.dbapi">dbapi() (sqlalchemy_heavyai.base.HeavyAIDialect class method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.ddl_compiler">ddl_compiler (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.ddl_compiler">ddl_compiler (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.default_paramstyle">default_paramstyle (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.default_paramstyle">default_paramstyle (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.denormalize_column_name">denormalize_column_name() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.denormalize_column_name">denormalize_column_name() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.denormalize_name">denormalize_name() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.denormalize_name">denormalize_name() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.description_encoding">description_encoding (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.description_encoding">description_encoding (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.dialect">dialect (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.dialect">dialect (in module sqlalchemy_heavyai.base)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.do_rollback">do_rollback() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.do_rollback">do_rollback() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.OmniSciDialect_pyomnisci.driver">driver (sqlalchemy_omnisci.OmniSciDialect_pyomnisci attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/heavyai/index.html#sqlalchemy_heavyai.heavyai.HeavyAIDialect_heavyai.driver">driver (sqlalchemy_heavyai.heavyai.HeavyAIDialect_heavyai attribute)</a>
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/pyomnisci/index.html#sqlalchemy_omnisci.pyomnisci.OmniSciDialect_pyomnisci.driver">(sqlalchemy_omnisci.pyomnisci.OmniSciDialect_pyomnisci attribute)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.HeavyAIDialect_heavyai.driver">(sqlalchemy_heavyai.HeavyAIDialect_heavyai attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -396,7 +410,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.execution_ctx_cls">execution_ctx_cls (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.execution_ctx_cls">execution_ctx_cls (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -404,7 +418,7 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.foreign_key_constraint_reflection">foreign_key_constraint_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.foreign_key_constraint_reflection">foreign_key_constraint_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -412,31 +426,31 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.get_column_specification">get_column_specification() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.get_column_specification">get_column_specification() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_columns">get_columns() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_columns">get_columns() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_foreign_keys">get_foreign_keys() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_foreign_keys">get_foreign_keys() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_indexes">get_indexes() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_indexes">get_indexes() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_pk_constraint">get_pk_constraint() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_pk_constraint">get_pk_constraint() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_primary_keys">get_primary_keys() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_primary_keys">get_primary_keys() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_schema_names">get_schema_names() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_schema_names">get_schema_names() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_table_names">get_table_names() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_table_names">get_table_names() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_temp_table_names">get_temp_table_names() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_temp_table_names">get_temp_table_names() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_unique_constraint">get_unique_constraint() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_unique_constraint">get_unique_constraint() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_view_definition">get_view_definition() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_view_definition">get_view_definition() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.get_view_names">get_view_names() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.get_view_names">get_view_names() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -444,11 +458,29 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.has_sequence">has_sequence() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.has_sequence">has_sequence() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.has_table">has_table() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler">HeavyAICompiler (class in sqlalchemy_heavyai.base)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler">HeavyAIDDLCompiler (class in sqlalchemy_heavyai.base)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect">HeavyAIDialect (class in sqlalchemy_heavyai.base)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.has_table">has_table() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.HeavyAIDialect_heavyai">HeavyAIDialect_heavyai (class in sqlalchemy_heavyai)</a>
+
+      <ul>
+        <li><a href="autoapi/sqlalchemy_heavyai/heavyai/index.html#sqlalchemy_heavyai.heavyai.HeavyAIDialect_heavyai">(class in sqlalchemy_heavyai.heavyai)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIExecutionContext">HeavyAIExecutionContext (class in sqlalchemy_heavyai.base)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIIdentifierPreparer">HeavyAIIdentifierPreparer (class in sqlalchemy_heavyai.base)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAITypeCompiler">HeavyAITypeCompiler (class in sqlalchemy_heavyai.base)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -456,28 +488,28 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.implicit_decimal_binds">implicit_decimal_binds (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.implicit_decimal_binds">implicit_decimal_binds (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.independent_connections">independent_connections (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.independent_connections">independent_connections (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.index_reflection">index_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.index_reflection">index_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.index_reflects_included_columns">index_reflects_included_columns (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.index_reflects_included_columns">index_reflects_included_columns (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.indexes_with_ascdesc">indexes_with_ascdesc (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.indexes_with_ascdesc">indexes_with_ascdesc (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.indexes_with_expressions">indexes_with_expressions (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.indexes_with_expressions">indexes_with_expressions (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.insert_from_select">insert_from_select (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.insert_from_select">insert_from_select (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/util/index.html#sqlalchemy_omnisci.util.IS_STR">IS_STR() (in module sqlalchemy_omnisci.util)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/util/index.html#sqlalchemy_heavyai.util.IS_STR">IS_STR() (in module sqlalchemy_heavyai.util)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.ischema_names">ischema_names (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.ischema_names">ischema_names (in module sqlalchemy_heavyai.base)</a>
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.ischema_names">(sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.ischema_names">(sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -486,7 +518,7 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.limit_clause">limit_clause() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.limit_clause">limit_clause() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -494,27 +526,25 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.max_identifier_length">max_identifier_length (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.max_identifier_length">max_identifier_length (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
       <li>
     module
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.html#module-sqlalchemy_omnisci">sqlalchemy_omnisci</a>, <a href="autoapi/sqlalchemy_omnisci/index.html#module-sqlalchemy_omnisci">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.html#module-sqlalchemy_heavyai">sqlalchemy_heavyai</a>, <a href="autoapi/sqlalchemy_heavyai/index.html#module-sqlalchemy_heavyai">[1]</a>
 </li>
-        <li><a href="autoapi/sqlalchemy_omnisci/_version/index.html#module-sqlalchemy_omnisci._version">sqlalchemy_omnisci._version</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.base.html#module-sqlalchemy_heavyai.base">sqlalchemy_heavyai.base</a>, <a href="autoapi/sqlalchemy_heavyai/base/index.html#module-sqlalchemy_heavyai.base">[1]</a>
 </li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.base.html#module-sqlalchemy_omnisci.base">sqlalchemy_omnisci.base</a>, <a href="autoapi/sqlalchemy_omnisci/base/index.html#module-sqlalchemy_omnisci.base">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.heavyai.html#module-sqlalchemy_heavyai.heavyai">sqlalchemy_heavyai.heavyai</a>, <a href="autoapi/sqlalchemy_heavyai/heavyai/index.html#module-sqlalchemy_heavyai.heavyai">[1]</a>
 </li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.provision.html#module-sqlalchemy_omnisci.provision">sqlalchemy_omnisci.provision</a>, <a href="autoapi/sqlalchemy_omnisci/provision/index.html#module-sqlalchemy_omnisci.provision">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.provision.html#module-sqlalchemy_heavyai.provision">sqlalchemy_heavyai.provision</a>, <a href="autoapi/sqlalchemy_heavyai/provision/index.html#module-sqlalchemy_heavyai.provision">[1]</a>
 </li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.pyomnisci.html#module-sqlalchemy_omnisci.pyomnisci">sqlalchemy_omnisci.pyomnisci</a>, <a href="autoapi/sqlalchemy_omnisci/pyomnisci/index.html#module-sqlalchemy_omnisci.pyomnisci">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.requirements.html#module-sqlalchemy_heavyai.requirements">sqlalchemy_heavyai.requirements</a>, <a href="autoapi/sqlalchemy_heavyai/requirements/index.html#module-sqlalchemy_heavyai.requirements">[1]</a>
 </li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.requirements.html#module-sqlalchemy_omnisci.requirements">sqlalchemy_omnisci.requirements</a>, <a href="autoapi/sqlalchemy_omnisci/requirements/index.html#module-sqlalchemy_omnisci.requirements">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.util.html#module-sqlalchemy_heavyai.util">sqlalchemy_heavyai.util</a>, <a href="autoapi/sqlalchemy_heavyai/util/index.html#module-sqlalchemy_heavyai.util">[1]</a>
 </li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.util.html#module-sqlalchemy_omnisci.util">sqlalchemy_omnisci.util</a>, <a href="autoapi/sqlalchemy_omnisci/util/index.html#module-sqlalchemy_omnisci.util">[1]</a>
-</li>
-        <li><a href="_autosummary/sqlalchemy_omnisci.version.html#module-sqlalchemy_omnisci.version">sqlalchemy_omnisci.version</a>, <a href="autoapi/sqlalchemy_omnisci/version/index.html#module-sqlalchemy_omnisci.version">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.version.html#module-sqlalchemy_heavyai.version">sqlalchemy_heavyai.version</a>, <a href="autoapi/sqlalchemy_heavyai/version/index.html#module-sqlalchemy_heavyai.version">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -523,11 +553,11 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.name">name (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.name">name (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.normalize_name">normalize_name() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.normalize_name">normalize_name() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -535,27 +565,7 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler">OmniSciCompiler (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler">OmniSciDDLCompiler (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect">OmniSciDialect (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.OmniSciDialect_pyomnisci">OmniSciDialect_pyomnisci (class in sqlalchemy_omnisci)</a>
-
-      <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/pyomnisci/index.html#sqlalchemy_omnisci.pyomnisci.OmniSciDialect_pyomnisci">(class in sqlalchemy_omnisci.pyomnisci)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciExecutionContext">OmniSciExecutionContext (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer">OmniSciIdentifierPreparer (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciTypeCompiler">OmniSciTypeCompiler (class in sqlalchemy_omnisci.base)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.order_by_col_from_union">order_by_col_from_union (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.order_by_col_from_union">order_by_col_from_union (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -563,23 +573,23 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">parens_in_union_contained_select_w_limit_offset (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_w_limit_offset">parens_in_union_contained_select_w_limit_offset (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">parens_in_union_contained_select_wo_limit_offset (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.parens_in_union_contained_select_wo_limit_offset">parens_in_union_contained_select_wo_limit_offset (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.postfetch_lastrowid">postfetch_lastrowid (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.postfetch_lastrowid">postfetch_lastrowid (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciExecutionContext.pre_exec">pre_exec() (sqlalchemy_omnisci.base.OmniSciExecutionContext method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIExecutionContext.pre_exec">pre_exec() (sqlalchemy_heavyai.base.HeavyAIExecutionContext method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.precision_generic_float_type">precision_generic_float_type (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.precision_generic_float_type">precision_generic_float_type (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.precision_numerics_general">precision_numerics_general (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.precision_numerics_general">precision_numerics_general (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.preparer">preparer (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.preparer">preparer (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.primary_key_constraint_reflection">primary_key_constraint_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.primary_key_constraint_reflection">primary_key_constraint_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -587,21 +597,21 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.regexp_match">regexp_match (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.regexp_match">regexp_match (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.regexp_replace">regexp_replace (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.regexp_replace">regexp_replace (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements">Requirements (class in sqlalchemy_omnisci.requirements)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements">Requirements (class in sqlalchemy_heavyai.requirements)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.requires_name_normalize">requires_name_normalize (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.requires_name_normalize">requires_name_normalize (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.RESERVED_WORDS">RESERVED_WORDS (in module sqlalchemy_omnisci.base)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.RESERVED_WORDS">RESERVED_WORDS (in module sqlalchemy_heavyai.base)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciIdentifierPreparer.reserved_words">reserved_words (sqlalchemy_omnisci.base.OmniSciIdentifierPreparer attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIIdentifierPreparer.reserved_words">reserved_words (sqlalchemy_heavyai.base.HeavyAIIdentifierPreparer attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.returns_unicode_strings">returns_unicode_strings (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.returns_unicode_strings">returns_unicode_strings (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -609,99 +619,100 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.schemas">schemas (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.schemas">schemas (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.self_referential_foreign_keys">self_referential_foreign_keys (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.self_referential_foreign_keys">self_referential_foreign_keys (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.set_connection_execution_options">set_connection_execution_options() (sqlalchemy_omnisci.base.OmniSciDialect method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.set_connection_execution_options">set_connection_execution_options() (sqlalchemy_heavyai.base.HeavyAIDialect method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit">should_autocommit() (sqlalchemy_omnisci.base.OmniSciExecutionContext method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIExecutionContext.should_autocommit">should_autocommit() (sqlalchemy_heavyai.base.HeavyAIExecutionContext method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciExecutionContext.should_autocommit_text">should_autocommit_text() (sqlalchemy_omnisci.base.OmniSciExecutionContext method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIExecutionContext.should_autocommit_text">should_autocommit_text() (sqlalchemy_heavyai.base.HeavyAIExecutionContext method)</a>
 </li>
       <li>
-    sqlalchemy_omnisci
+    sqlalchemy_heavyai
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.html#module-sqlalchemy_omnisci">module</a>, <a href="autoapi/sqlalchemy_omnisci/index.html#module-sqlalchemy_omnisci">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.html#module-sqlalchemy_heavyai">module</a>, <a href="autoapi/sqlalchemy_heavyai/index.html#module-sqlalchemy_heavyai">[1]</a>
 </li>
       </ul></li>
       <li>
-    sqlalchemy_omnisci._version
+    sqlalchemy_heavyai.base
 
       <ul>
-        <li><a href="autoapi/sqlalchemy_omnisci/_version/index.html#module-sqlalchemy_omnisci._version">module</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.base.html#module-sqlalchemy_heavyai.base">module</a>, <a href="autoapi/sqlalchemy_heavyai/base/index.html#module-sqlalchemy_heavyai.base">[1]</a>
 </li>
       </ul></li>
       <li>
-    sqlalchemy_omnisci.base
+    sqlalchemy_heavyai.heavyai
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.base.html#module-sqlalchemy_omnisci.base">module</a>, <a href="autoapi/sqlalchemy_omnisci/base/index.html#module-sqlalchemy_omnisci.base">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.heavyai.html#module-sqlalchemy_heavyai.heavyai">module</a>, <a href="autoapi/sqlalchemy_heavyai/heavyai/index.html#module-sqlalchemy_heavyai.heavyai">[1]</a>
 </li>
       </ul></li>
       <li>
-    sqlalchemy_omnisci.provision
+    sqlalchemy_heavyai.provision
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.provision.html#module-sqlalchemy_omnisci.provision">module</a>, <a href="autoapi/sqlalchemy_omnisci/provision/index.html#module-sqlalchemy_omnisci.provision">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.provision.html#module-sqlalchemy_heavyai.provision">module</a>, <a href="autoapi/sqlalchemy_heavyai/provision/index.html#module-sqlalchemy_heavyai.provision">[1]</a>
 </li>
       </ul></li>
       <li>
-    sqlalchemy_omnisci.pyomnisci
+    sqlalchemy_heavyai.requirements
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.pyomnisci.html#module-sqlalchemy_omnisci.pyomnisci">module</a>, <a href="autoapi/sqlalchemy_omnisci/pyomnisci/index.html#module-sqlalchemy_omnisci.pyomnisci">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.requirements.html#module-sqlalchemy_heavyai.requirements">module</a>, <a href="autoapi/sqlalchemy_heavyai/requirements/index.html#module-sqlalchemy_heavyai.requirements">[1]</a>
 </li>
       </ul></li>
       <li>
-    sqlalchemy_omnisci.requirements
+    sqlalchemy_heavyai.util
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.requirements.html#module-sqlalchemy_omnisci.requirements">module</a>, <a href="autoapi/sqlalchemy_omnisci/requirements/index.html#module-sqlalchemy_omnisci.requirements">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.util.html#module-sqlalchemy_heavyai.util">module</a>, <a href="autoapi/sqlalchemy_heavyai/util/index.html#module-sqlalchemy_heavyai.util">[1]</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    sqlalchemy_omnisci.util
+    sqlalchemy_heavyai.version
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.util.html#module-sqlalchemy_omnisci.util">module</a>, <a href="autoapi/sqlalchemy_omnisci/util/index.html#module-sqlalchemy_omnisci.util">[1]</a>
+        <li><a href="_autosummary/sqlalchemy_heavyai.version.html#module-sqlalchemy_heavyai.version">module</a>, <a href="autoapi/sqlalchemy_heavyai/version/index.html#module-sqlalchemy_heavyai.version">[1]</a>
 </li>
       </ul></li>
-      <li>
-    sqlalchemy_omnisci.version
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.statement_compiler">statement_compiler (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_alter">supports_alter (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_default_metavalue">supports_default_metavalue (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_default_values">supports_default_values (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_empty_insert">supports_empty_insert (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_native_boolean">supports_native_boolean (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_native_decimal">supports_native_decimal (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_native_enum">supports_native_enum (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_sane_multi_rowcount">supports_sane_multi_rowcount (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_sane_rowcount">supports_sane_rowcount (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_sequences">supports_sequences (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
+</li>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_statement_cache">supports_statement_cache (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 
       <ul>
-        <li><a href="_autosummary/sqlalchemy_omnisci.version.html#module-sqlalchemy_omnisci.version">module</a>, <a href="autoapi/sqlalchemy_omnisci/version/index.html#module-sqlalchemy_omnisci.version">[1]</a>
+        <li><a href="autoapi/sqlalchemy_heavyai/heavyai/index.html#sqlalchemy_heavyai.heavyai.HeavyAIDialect_heavyai.supports_statement_cache">(sqlalchemy_heavyai.heavyai.HeavyAIDialect_heavyai attribute)</a>
+</li>
+        <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.HeavyAIDialect_heavyai.supports_statement_cache">(sqlalchemy_heavyai.HeavyAIDialect_heavyai attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.statement_compiler">statement_compiler (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_unicode_binds">supports_unicode_binds (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_alter">supports_alter (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_metavalue">supports_default_metavalue (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_default_values">supports_default_values (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_empty_insert">supports_empty_insert (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_boolean">supports_native_boolean (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_decimal">supports_native_decimal (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_native_enum">supports_native_enum (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_multi_rowcount">supports_sane_multi_rowcount (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_sane_rowcount">supports_sane_rowcount (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_sequences">supports_sequences (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_binds">supports_unicode_binds (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.supports_unicode_statements">supports_unicode_statements (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.supports_unicode_statements">supports_unicode_statements (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -709,11 +720,11 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.temp_table_reflect_indexes">temp_table_reflect_indexes (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.temp_table_reflect_indexes">temp_table_reflect_indexes (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDialect.type_compiler">type_compiler (sqlalchemy_omnisci.base.OmniSciDialect attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDialect.type_compiler">type_compiler (sqlalchemy_heavyai.base.HeavyAIDialect attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -721,11 +732,11 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.unique_constraint_reflection">unique_constraint_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.unique_constraint_reflection">unique_constraint_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/index.html#sqlalchemy_omnisci.URL">URL() (in module sqlalchemy_omnisci)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/index.html#sqlalchemy_heavyai.URL">URL() (in module sqlalchemy_heavyai)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -733,39 +744,35 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/_version/index.html#sqlalchemy_omnisci._version.version">version (in module sqlalchemy_omnisci._version)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/version/index.html#sqlalchemy_heavyai.version.VERSION">VERSION (in module sqlalchemy_heavyai.version)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/version/index.html#sqlalchemy_omnisci.version.VERSION">VERSION (in module sqlalchemy_omnisci.version)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/requirements/index.html#sqlalchemy_heavyai.requirements.Requirements.view_column_reflection">view_column_reflection (sqlalchemy_heavyai.requirements.Requirements attribute)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/_version/index.html#sqlalchemy_omnisci._version.version_tuple">version_tuple (in module sqlalchemy_omnisci._version)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAITypeCompiler.visit_ARRAY">visit_ARRAY() (sqlalchemy_heavyai.base.HeavyAITypeCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/requirements/index.html#sqlalchemy_omnisci.requirements.Requirements.view_column_reflection">view_column_reflection (sqlalchemy_omnisci.requirements.Requirements attribute)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.visit_cast">visit_cast() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_ARRAY">visit_ARRAY() (sqlalchemy_omnisci.base.OmniSciTypeCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.visit_compound_select">visit_compound_select() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.visit_cast">visit_cast() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.visit_create_index">visit_create_index() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.visit_compound_select">visit_compound_select() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_create_index">visit_create_index() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAITypeCompiler.visit_datetime">visit_datetime() (sqlalchemy_heavyai.base.HeavyAITypeCompiler method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_datetime">visit_datetime() (sqlalchemy_omnisci.base.OmniSciTypeCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.visit_false">visit_false() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.visit_false">visit_false() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.visit_foreign_key_constraint">visit_foreign_key_constraint() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_foreign_key_constraint">visit_foreign_key_constraint() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.visit_index">visit_index() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.visit_index">visit_index() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAITypeCompiler.visit_numeric">visit_numeric() (sqlalchemy_heavyai.base.HeavyAITypeCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciTypeCompiler.visit_numeric">visit_numeric() (sqlalchemy_omnisci.base.OmniSciTypeCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.visit_primary_key_constraint">visit_primary_key_constraint() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_primary_key_constraint">visit_primary_key_constraint() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAICompiler.visit_true">visit_true() (sqlalchemy_heavyai.base.HeavyAICompiler method)</a>
 </li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciCompiler.visit_true">visit_true() (sqlalchemy_omnisci.base.OmniSciCompiler method)</a>
-</li>
-      <li><a href="autoapi/sqlalchemy_omnisci/base/index.html#sqlalchemy_omnisci.base.OmniSciDDLCompiler.visit_unique_constraint">visit_unique_constraint() (sqlalchemy_omnisci.base.OmniSciDDLCompiler method)</a>
+      <li><a href="autoapi/sqlalchemy_heavyai/base/index.html#sqlalchemy_heavyai.base.HeavyAIDDLCompiler.visit_unique_constraint">visit_unique_constraint() (sqlalchemy_heavyai.base.HeavyAIDDLCompiler method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -774,23 +781,21 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OmniSci Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By HeavyAI Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

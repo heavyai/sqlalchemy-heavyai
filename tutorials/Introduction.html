@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Getting started with SQLAlchemy OmniSci &#8212; SQLAlchemy OmniSci</title>
+    <title>Getting started with SQLAlchemy HeavyAI &#8212; SQLAlchemy HeavyAI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,22 +38,24 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="sqlalchemy_omnisci.version" href="../_autosummary/sqlalchemy_omnisci.version.html" />
+    <link rel="prev" title="sqlalchemy_heavyai.version" href="../_autosummary/sqlalchemy_heavyai.version.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -82,7 +84,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SQLAlchemy OmniSci</h1>
+      <h1 class="site-logo" id="site-title">SQLAlchemy HeavyAI</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -93,7 +95,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   SQLAlchemy OmniSci
+   SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -103,11 +105,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../contributing.html">
-   Contributing
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../api.html">
    API Documentation
@@ -119,8 +116,8 @@
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.html">
-     sqlalchemy_omnisci
+    <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.html">
+     sqlalchemy_heavyai
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -129,33 +126,33 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.base.html">
-       sqlalchemy_omnisci.base
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.base.html">
+       sqlalchemy_heavyai.base
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.provision.html">
-       sqlalchemy_omnisci.provision
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.heavyai.html">
+       sqlalchemy_heavyai.heavyai
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.pyomnisci.html">
-       sqlalchemy_omnisci.pyomnisci
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.provision.html">
+       sqlalchemy_heavyai.provision
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.requirements.html">
-       sqlalchemy_omnisci.requirements
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.requirements.html">
+       sqlalchemy_heavyai.requirements
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.util.html">
-       sqlalchemy_omnisci.util
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.util.html">
+       sqlalchemy_heavyai.util
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../_autosummary/sqlalchemy_omnisci.version.html">
-       sqlalchemy_omnisci.version
+      <a class="reference internal" href="../_autosummary/sqlalchemy_heavyai.version.html">
+       sqlalchemy_heavyai.version
       </a>
      </li>
     </ul>
@@ -171,7 +168,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Getting started with SQLAlchemy OmniSci
+   Getting started with SQLAlchemy HeavyAI
   </a>
  </li>
 </ul>
@@ -220,7 +217,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -231,11 +228,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/heavyai/sqlalchemy-heavyai"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/omnisci/sqlalchemy-omnisci/issues/new?title=Issue%20on%20page%20%2Ftutorials/Introduction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/heavyai/sqlalchemy-heavyai/issues/new?title=Issue%20on%20page%20%2Ftutorials/Introduction.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -256,7 +253,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/omnisci/sqlalchemy-omnisci/master?urlpath=tree/docs/tutorials/Introduction.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/heavyai/sqlalchemy-heavyai/master?urlpath=tree/docs/tutorials/Introduction.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -271,7 +268,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -308,52 +305,92 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Getting started with SQLAlchemy HeavyAI</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering">
+     Filtering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-with-pandas">
+     Using with Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <p><img alt="OmniSci" src="https://assets-global.website-files.com/5deb974b5176872b2c106aba/5dee79635d7b1979b584c100_24px%20blue-p-500.png" /></p>
+  <img src="https://assets-global.website-files.com/620d42e86cb8ecb3f739e579/620d44bba9bc9541593ef7bc_website%20header.png" alt="HeavyAI" width="250"/>
 <p><big><big><h1>+</h1></big></big></p>
 <p><img alt="SQLAlchemy" src="https://www.sqlalchemy.org/img/sqla_logo.png" /></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="getting-started-with-sqlalchemy-omnisci">
-<h1>Getting started with SQLAlchemy OmniSci<a class="headerlink" href="#getting-started-with-sqlalchemy-omnisci" title="Permalink to this headline">¶</a></h1>
-<p><strong>OmniSciDB</strong> is the world’s fastest open source <strong>SQL</strong> engine,
-equally powerful at the heart of the OmniSci platform as it is accelerating
+<div class="tex2jax_ignore mathjax_ignore section" id="getting-started-with-sqlalchemy-heavyai">
+<h1>Getting started with SQLAlchemy HeavyAI<a class="headerlink" href="#getting-started-with-sqlalchemy-heavyai" title="Permalink to this headline">¶</a></h1>
+<p><strong>HeavyDB</strong> is the world’s fastest open source <strong>SQL</strong> engine,
+equally powerful at the heart of the HeavyAI platform as it is accelerating
 third-party analytic apps. It optimizes the memory and computes layers to deliver unprecedented
-performance. <strong>OmniSciDB</strong> was designed to keep hot data in <strong>GPU</strong> memory for the
+performance. <strong>HeavyDB</strong> was designed to keep hot data in <strong>GPU</strong> memory for the
 fastest access possible. Other <strong>GPU</strong> database systems have taken the approach
 of storing the data in <strong>CPU</strong> memory, only moving it to <strong>GPU</strong> at query time,
 trading the gains they receive from <strong>GPU</strong> parallelism with transfer overheads
 over the <strong>PCIe</strong> bus.</p>
-<p><strong>OmniSciDB</strong> avoids this transfer inefficiency by caching the most recently
+<p><strong>HeavyDB</strong> avoids this transfer inefficiency by caching the most recently
 touched data in High Bandwidth Memory on the <strong>GPU</strong>, which offers up to 10x
-the bandwidth of <strong>CPU DRAM</strong> and far lower latency. <strong>OmniSciDB</strong> is also
+the bandwidth of <strong>CPU DRAM</strong> and far lower latency. <strong>HeavyDB</strong> is also
 designed to exploit efficient inter-GPU communication infrastructure such as
 <strong>NVIDIA NVLink</strong> when available.</p>
-<p>For data manipulation, OmniSci provides <strong>pyomnisci</strong>/<strong>pyomniscidb</strong> but,
+<p>For data manipulation, HeavyAI provides <strong>heavyai</strong>/<strong>pyheavydb</strong> but,
 maybe you would like to use a more common and high level tool for your data workflow such as
 <a class="reference external" href="https://github.com/ibis-project/ibis">Ibis</a> or
 <a class="reference external" href="https://github.com/sqlalchemy/sqlalchemy">SQLAlchemy</a>. The great news is that
-OmniSci also provides a backend/dialect for both!</p>
-<p>If you want more information about <code class="docutils literal notranslate"><span class="pre">ibis-omniscidb</span></code> check its
-<a class="reference external" href="https://github.com/omnisci/ibis-omniscidb">repository</a></p>
-<p>This tutorial is about the first steps with <strong>SQLAlchemy OmniSci</strong>!</p>
+HeavyAI also provides a backend/dialect for both!</p>
+<p>If you want more information about <code class="docutils literal notranslate"><span class="pre">ibis-heavyai</span></code> check its
+<a class="reference external" href="https://github.com/heavyai/ibis-heavyai">repository</a></p>
+<p>This tutorial is about the first steps with <strong>SQLAlchemy HeavyAI</strong>!</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p><strong>sqlalchemy-omnisci</strong> is available on <strong>PyPI</strong> and <strong>conda-forge</strong> and you can
+<p><strong>sqlalchemy-heavyai</strong> is available on <strong>PyPI</strong> and <strong>conda-forge</strong> and you can
 install it using one of the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you are a conda user</span>
-$ conda install -y sqlalchemy-omnisci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you are a conda user (also work with mamba)</span>
+$ conda install -y sqlalchemy-heavyai
 </pre></div>
 </div>
 <p>or</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you are a pip user</span>
-$ pip install sqlalchemy-omnisci
+$ pip install sqlalchemy-heavyai
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">sqlalchemy-omnisci</span></code> is a <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> dialect, so you don’t need to import
-<code class="docutils literal notranslate"><span class="pre">sqlalchemy-omnisci</span></code> directly. Just import <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> and create a connection
+<p><code class="docutils literal notranslate"><span class="pre">sqlalchemy-heavyai</span></code> is a <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> dialect, so you don’t need to import
+<code class="docutils literal notranslate"><span class="pre">sqlalchemy-heavyai</span></code> directly. Just import <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> and create a connection
 using the following structure:</p>
-<p><code class="docutils literal notranslate"><span class="pre">omnisci://&lt;user&gt;:&lt;pass&gt;&#64;&lt;host&gt;:&lt;port&gt;/&lt;db&gt;?protocol=&lt;protocol&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">heavydb://&lt;user&gt;:&lt;pass&gt;&#64;&lt;host&gt;:&lt;port&gt;/&lt;db&gt;?protocol=&lt;protocol&gt;</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
@@ -365,7 +402,7 @@ using the following structure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.4.27&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.4.36&#39;
 </pre></div>
 </div>
 </div>
@@ -373,11 +410,413 @@ using the following structure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
-    <span class="s2">&quot;omnisci://demouser:HyperInteractive@&quot;</span>
-    <span class="s2">&quot;metis.mapd.com:443/mapd?protocol=https&quot;</span>
+    <span class="s2">&quot;heavydb://admin:HyperInteractive@localhost:6274/heavyai?protocol=binary&quot;</span>
 <span class="p">)</span>
 
 <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Could not connect to any of [(&#39;::1&#39;, 6274, 0, 0), (&#39;127.0.0.1&#39;, 6274)]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TTransportException</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/heavydb/connection.py:268,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, uri, user, password, host, port, dbname, protocol, sessionid, bin_cert_validate, bin_ca_certs, idpurl, idpformusernamefield, idpformpasswordfield, idpsslverify)</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">268</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="k">except</span> <span class="n">TTransportException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/thrift/transport/TTransport.py:155,</span> in <span class="ni">TBufferedTransport.open</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">155</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__trans</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/thrift/transport/TSocket.py:146,</span> in <span class="ni">TSocket.open</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">146</span> <span class="k">raise</span> <span class="n">TTransportException</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">TTransportException</span><span class="o">.</span><span class="n">NOT_OPEN</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="ne">TTransportException</span>: Could not connect to any of [(&#39;::1&#39;, 6274, 0, 0), (&#39;127.0.0.1&#39;, 6274)]
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3280,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3279</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3280</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3281</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:310,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="sd"> The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">310</span> <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:868,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">868</span>     <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:476,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">474</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">475</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">476</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span>     <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/compat.py:207,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:256,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span> <span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">256</span> <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:371,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">371</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:665,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">665</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/compat.py:207,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:661,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span> <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">661</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span> <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/create.py:590,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">590</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/default.py:597,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">597</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/heavyai/connection.py:725,</span> in <span class="ni">connect</span><span class="nt">(uri, user, password, host, port, dbname, protocol, sessionid, bin_cert_validate, bin_ca_certs, idpurl, idpformusernamefield, idpformpasswordfield, idpsslverify)</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span><span class="sd"> Create a new Connection.</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">723</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">725</span> <span class="k">return</span> <span class="n">Connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">protocol</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">sessionid</span><span class="o">=</span><span class="n">sessionid</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>     <span class="n">bin_cert_validate</span><span class="o">=</span><span class="n">bin_cert_validate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">bin_ca_certs</span><span class="o">=</span><span class="n">bin_ca_certs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">idpurl</span><span class="o">=</span><span class="n">idpurl</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">idpformusernamefield</span><span class="o">=</span><span class="n">idpformusernamefield</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">idpformpasswordfield</span><span class="o">=</span><span class="n">idpformpasswordfield</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">idpsslverify</span><span class="o">=</span><span class="n">idpsslverify</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span> <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/heavydb/connection.py:272,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, uri, user, password, host, port, dbname, protocol, sessionid, bin_cert_validate, bin_ca_certs, idpurl, idpformusernamefield, idpformpasswordfield, idpsslverify)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">err</span> <span class="o">=</span> <span class="n">OperationalError</span><span class="p">(</span><span class="s2">&quot;Could not connect to database&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">272</span>     <span class="k">raise</span> <span class="n">err</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span>: Could not connect to database
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">&quot;heavydb://admin:HyperInteractive@localhost:6274/heavyai?protocol=binary&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3234,</span> in <span class="ni">Engine.connect</span><span class="nt">(self, close_with_result)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3219</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3220</span>     <span class="sd">&quot;&quot;&quot;Return a new :class:`_engine.Connection` object.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3221</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3222</span><span class="sd">     The :class:`_engine.Connection` object is a facade that uses a DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3231</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3232</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3234</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connection_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="n">close_with_result</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:96,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, engine, connection, close_with_result, _branch_from, _execution_options, _dispatch, _has_events, _allow_revalidate)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_has_events</span> <span class="o">=</span> <span class="n">_branch_from</span><span class="o">.</span><span class="n">_has_events</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dbapi_connection</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="n">connection</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">else</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transaction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nested_transaction</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__savepoint_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3313,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self, _connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3291</span> <span class="k">def</span> <span class="nf">raw_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3292</span>     <span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3293</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3294</span><span class="sd">     The returned object is a proxied version of the DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3311</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3312</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3313</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_pool_connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">_connection</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3283,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3281</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3282</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3283</span>         <span class="n">Connection</span><span class="o">.</span><span class="n">_handle_dbapi_exception_noconnection</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3284</span>             <span class="n">e</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="bp">self</span>
+<span class="g g-Whitespace">   </span><span class="mi">3285</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3286</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3287</span>         <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3288</span>             <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">3289</span>         <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2117,</span> in <span class="ni">Connection._handle_dbapi_exception_noconnection</span><span class="nt">(cls, e, dialect, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2115</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">newraise</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2116</span> <span class="k">elif</span> <span class="n">should_wrap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2117</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2118</span>         <span class="n">sqlalchemy_exception</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">2119</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2120</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2121</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/compat.py:207,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3280,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3278</span> <span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialect</span>
+<span class="g g-Whitespace">   </span><span class="mi">3279</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3280</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3281</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3282</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:310,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="sd">     The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">310</span>     <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:868,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span> <span class="k">def</span> <span class="nf">_checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">threadconns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fairy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">868</span>         <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:476,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">474</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">475</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">476</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span>         <span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/compat.py:207,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc_overflow</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:256,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="k">def</span> <span class="nf">_create_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">256</span>     <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:371,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">371</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:665,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">665</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="c1"># in SQLAlchemy 1.4 the first_connect event is not used by</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="c1"># the engine, so this will usually not be set</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/util/compat.py:207,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/pool/base.py:661,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">661</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/create.py:590,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">590</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/sqlalchemy/engine/default.py:597,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">597</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/heavyai/connection.py:725,</span> in <span class="ni">connect</span><span class="nt">(uri, user, password, host, port, dbname, protocol, sessionid, bin_cert_validate, bin_ca_certs, idpurl, idpformusernamefield, idpformpasswordfield, idpsslverify)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">uri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">idpsslverify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span><span class="sd">     Create a new Connection.</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">723</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">725</span>     <span class="k">return</span> <span class="n">Connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>         <span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>         <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>         <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>         <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>         <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>         <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>         <span class="n">protocol</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>         <span class="n">sessionid</span><span class="o">=</span><span class="n">sessionid</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>         <span class="n">bin_cert_validate</span><span class="o">=</span><span class="n">bin_cert_validate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>         <span class="n">bin_ca_certs</span><span class="o">=</span><span class="n">bin_ca_certs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>         <span class="n">idpurl</span><span class="o">=</span><span class="n">idpurl</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>         <span class="n">idpformusernamefield</span><span class="o">=</span><span class="n">idpformusernamefield</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>         <span class="n">idpformpasswordfield</span><span class="o">=</span><span class="n">idpformpasswordfield</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>         <span class="n">idpsslverify</span><span class="o">=</span><span class="n">idpsslverify</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.10/site-packages/heavydb/connection.py:272,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, uri, user, password, host, port, dbname, protocol, sessionid, bin_cert_validate, bin_ca_certs, idpurl, idpformusernamefield, idpformpasswordfield, idpsslverify)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">NOT_OPEN</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">err</span> <span class="o">=</span> <span class="n">OperationalError</span><span class="p">(</span><span class="s2">&quot;Could not connect to database&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">272</span>     <span class="k">raise</span> <span class="n">err</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="k">raise</span>
+
+<span class="ne">OperationalError</span>: (heavydb.exceptions.OperationalError) Could not connect to database
+<span class="p">(</span><span class="n">Background</span> <span class="n">on</span> <span class="n">this</span> <span class="n">error</span> <span class="n">at</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sqlalche</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="n">e3q8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As an example, let’s work on the first table we can find in our database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_name</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SHOW TABLES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lidar
 </pre></div>
 </div>
 </div>
@@ -387,8 +826,8 @@ using the following structure:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">MetaData</span><span class="p">()</span>
 
-<span class="n">github</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
-    <span class="s1">&#39;github&#39;</span><span class="p">,</span> 
+<span class="n">lidar</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
     <span class="n">metadata</span><span class="p">,</span> 
     <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
     <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span>
@@ -400,12 +839,12 @@ using the following structure:</p>
 <p>And, inspecting the variable <code class="docutils literal notranslate"><span class="pre">github</span></code> it seems it is working!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">github</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lidar</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table(&#39;github&#39;, MetaData(), Column(&#39;type&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;public_&#39;, BOOLEAN(), table=&lt;github&gt;), Column(&#39;repo_id&#39;, BIGINT(), table=&lt;github&gt;), Column(&#39;repo_name&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;repo_url&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;actor_id&#39;, BIGINT(), table=&lt;github&gt;), Column(&#39;actor_login&#39;, BIGINT(), table=&lt;github&gt;), Column(&#39;actor_gravatar_id&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;actor_avatar_url&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;actor_url&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;org_id&#39;, BIGINT(), table=&lt;github&gt;), Column(&#39;org_login&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;org_gravatar_id&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;org_avatar_url&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;org_url&#39;, VARCHAR(length=52), table=&lt;github&gt;), Column(&#39;created_at&#39;, TIMESTAMP(), table=&lt;github&gt;), Column(&#39;id&#39;, VARCHAR(length=52), table=&lt;github&gt;), schema=None)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table(&#39;lidar&#39;, MetaData(), Column(&#39;x&#39;, FLOAT(), table=&lt;lidar&gt;), Column(&#39;y&#39;, FLOAT(), table=&lt;lidar&gt;), Column(&#39;z&#39;, FLOAT(), table=&lt;lidar&gt;), schema=None)
 </pre></div>
 </div>
 </div>
@@ -413,13 +852,13 @@ using the following structure:</p>
 <p>Now, let’s try a simple query using <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> API:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">github</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">compile</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SELECT github.type, github.public_, github.repo_id, github.repo_name, github.repo_url, github.actor_id, github.actor_login, github.actor_gravatar_id, github.actor_avatar_url, github.actor_url, github.org_id, github.org_login, github.org_gravatar_id, github.org_avatar_url, github.org_url, github.created_at, github.id \nFROM github\n LIMIT :param_1&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SELECT lidar.x, lidar.y, lidar.z \nFROM lidar\n LIMIT :param_1&#39;
 </pre></div>
 </div>
 </div>
@@ -432,7 +871,11 @@ using the following structure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;PushEvent&#39;, True, 28507874, &#39;ttmmghmm/ttmmghmm.github.com&#39;, &#39;https://api.github.com/repos/ttmmghmm/ttmmghmm.github.com&#39;, 10178018, None, None, &#39;https://avatars.githubusercontent.com/u/10178018?&#39;, &#39;https://api.github.com/users/ttmmghmm&#39;, None, None, None, None, None, datetime.datetime(2015, 1, 1, 15, 38, 37), &#39;2489668799&#39;)]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5x/5blbwvrs6l5_wct5ncsp5f_m0000gn/T/ipykernel_46209/272572304.py:1: SAWarning: Dialect heavydb:heavydb will not make use of SQL compilation caching as it does not set the &#39;supports_statement_cache&#39; attribute to ``True``.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Dialect maintainers should seek to set this attribute to True after appropriate development and testing for SQLAlchemy 1.4 caching support.   Alternatively, this attribute may be set to False which will disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+  results = con.execute(query).fetchall()
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-122.42375, 37.78875, 65.15439)]
 </pre></div>
 </div>
 </div>
@@ -465,45 +908,17 @@ using the following structure:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>public_</th>
-      <th>repo_id</th>
-      <th>repo_name</th>
-      <th>repo_url</th>
-      <th>actor_id</th>
-      <th>actor_login</th>
-      <th>actor_gravatar_id</th>
-      <th>actor_avatar_url</th>
-      <th>actor_url</th>
-      <th>org_id</th>
-      <th>org_login</th>
-      <th>org_gravatar_id</th>
-      <th>org_avatar_url</th>
-      <th>org_url</th>
-      <th>created_at</th>
-      <th>id</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>28507874</td>
-      <td>ttmmghmm/ttmmghmm.github.com</td>
-      <td>https://api.github.com/repos/ttmmghmm/ttmmghmm...</td>
-      <td>10178018</td>
-      <td>None</td>
-      <td>None</td>
-      <td>https://avatars.githubusercontent.com/u/10178018?</td>
-      <td>https://api.github.com/users/ttmmghmm</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2015-01-01 15:38:37</td>
-      <td>2489668799</td>
+      <td>-122.42375</td>
+      <td>37.78875</td>
+      <td>65.15439</td>
     </tr>
   </tbody>
 </table>
@@ -512,13 +927,13 @@ using the following structure:</p>
 <p>Also, if you are familiar with <strong>SQL</strong> you it directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM github LIMIT 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> LIMIT 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="n">results</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;PushEvent&#39;, 1, 28072770, &#39;Hitakashi/Hitbox-API&#39;, &#39;https://api.github.com/repos/Hitakashi/Hitbox-API&#39;, 425992, None, None, &#39;https://avatars.githubusercontent.com/u/425992?&#39;, &#39;https://api.github.com/users/Hitakashi&#39;, None, None, None, None, None, datetime.datetime(2015, 1, 1, 11, 10, 33), &#39;2489567069&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;IssueCommentEvent&#39;, 1, 16635032, &#39;start-jsk/rtmros_hironx&#39;, &#39;https://api.github.com/repos/start-jsk/rtmros_hironx&#39;, 1840401, 130, None, &#39;https://avatars.githubusercontent.com/u/1840401?&#39;, &#39;https://api.github.com/users/130s&#39;, 2988053, &#39;start-jsk&#39;, None, &#39;https://avatars.githubusercontent.com/u/2988053?&#39;, &#39;https://api.github.com/orgs/start-jsk&#39;, datetime.datetime(2015, 1, 1, 0, 30, 4), &#39;2489383075&#39;)]
 </pre></div>
 </div>
 </div>
@@ -537,8 +952,8 @@ that allows other <strong>SQL</strong> clauses, such as <code class="docutils li
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT github.type, github.public_, github.repo_id, github.repo_name, github.repo_url, github.actor_id, github.actor_login, github.actor_gravatar_id, github.actor_avatar_url, github.actor_url, github.org_id, github.org_login, github.org_gravatar_id, github.org_avatar_url, github.org_url, github.created_at, github.id 
-FROM github
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT lidar.x, lidar.y, lidar.z 
+FROM lidar
  LIMIT :param_1
 </pre></div>
 </div>
@@ -552,8 +967,8 @@ FROM github
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT github.type, github.public_, github.repo_id, github.repo_name, github.repo_url, github.actor_id, github.actor_login, github.actor_gravatar_id, github.actor_avatar_url, github.actor_url, github.org_id, github.org_login, github.org_gravatar_id, github.org_avatar_url, github.org_url, github.created_at, github.id 
-FROM github 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT lidar.x, lidar.y, lidar.z 
+FROM lidar 
  LIMIT 1
 </pre></div>
 </div>
@@ -563,7 +978,7 @@ FROM github
 <div class="section" id="using-with-pandas">
 <h3>Using with Pandas<a class="headerlink" href="#using-with-pandas" title="Permalink to this headline">¶</a></h3>
 <p>If you managed to read until here, probably you also have already heard about <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>,
-the most popular <strong>Data Frame</strong> library for <strong>Python</strong>. As <strong>sqlalchemy-omnisci</strong> is a <strong>sqlalchemy</strong> dialect,
+the most popular <strong>Data Frame</strong> library for <strong>Python</strong>. As <strong>sqlalchemy-heavyai</strong> is a <strong>sqlalchemy</strong> dialect,
 you also can use it directly with <strong>Pandas</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,45 +1005,17 @@ you also can use it directly with <strong>Pandas</strong>:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>public_</th>
-      <th>repo_id</th>
-      <th>repo_name</th>
-      <th>repo_url</th>
-      <th>actor_id</th>
-      <th>actor_login</th>
-      <th>actor_gravatar_id</th>
-      <th>actor_avatar_url</th>
-      <th>actor_url</th>
-      <th>org_id</th>
-      <th>org_login</th>
-      <th>org_gravatar_id</th>
-      <th>org_avatar_url</th>
-      <th>org_url</th>
-      <th>created_at</th>
-      <th>id</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>PullRequestEvent</td>
-      <td>True</td>
-      <td>24474138</td>
-      <td>ansible/ansible-modules-extras</td>
-      <td>https://api.github.com/repos/ansible/ansible-m...</td>
-      <td>6064408</td>
-      <td>None</td>
-      <td>None</td>
-      <td>https://avatars.githubusercontent.com/u/6064408?</td>
-      <td>https://api.github.com/users/schwartzmx</td>
-      <td>1507452</td>
-      <td>ansible</td>
-      <td>None</td>
-      <td>https://avatars.githubusercontent.com/u/1507452?</td>
-      <td>https://api.github.com/orgs/ansible</td>
-      <td>2015-01-01 01:43:26</td>
-      <td>2489412660</td>
+      <td>-122.42375</td>
+      <td>37.78875</td>
+      <td>65.15439</td>
     </tr>
   </tbody>
 </table>
@@ -637,7 +1024,7 @@ you also can use it directly with <strong>Pandas</strong>:</p>
 <p>Or, if you want to use <strong>SQL</strong> directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM github LIMIT 1&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> LIMIT 1&quot;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -661,45 +1048,17 @@ you also can use it directly with <strong>Pandas</strong>:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>public_</th>
-      <th>repo_id</th>
-      <th>repo_name</th>
-      <th>repo_url</th>
-      <th>actor_id</th>
-      <th>actor_login</th>
-      <th>actor_gravatar_id</th>
-      <th>actor_avatar_url</th>
-      <th>actor_url</th>
-      <th>org_id</th>
-      <th>org_login</th>
-      <th>org_gravatar_id</th>
-      <th>org_avatar_url</th>
-      <th>org_url</th>
-      <th>created_at</th>
-      <th>id</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>PushEvent</td>
-      <td>1</td>
-      <td>13599170</td>
-      <td>ile/ile.github.io</td>
-      <td>https://api.github.com/repos/ile/ile.github.io</td>
-      <td>433707</td>
-      <td>None</td>
-      <td>None</td>
-      <td>https://avatars.githubusercontent.com/u/433707?</td>
-      <td>https://api.github.com/users/ile</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2015-01-01 15:16:09</td>
-      <td>2489658549</td>
+      <td>-122.42375</td>
+      <td>37.78875</td>
+      <td>65.15439</td>
     </tr>
   </tbody>
 </table>
@@ -709,7 +1068,7 @@ you also can use it directly with <strong>Pandas</strong>:</p>
 </div>
 <div class="section" id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
-<p>This document aims to help users to start with <strong>SQLAlchemy Omnisci</strong> and it doesn’t provide an exhausted list of functions or
+<p>This document aims to help users to start with <strong>SQLAlchemy HeavyAI</strong> and it doesn’t provide an exhausted list of functions or
 possibilities.</p>
 <p>For more information about <strong>SQLAlchemy</strong>, check its <a class="reference external" href="https://docs.sqlalchemy.org/en/14/orm/tutorial.html">official tutorials</a>.</p>
 </div>
@@ -737,30 +1096,28 @@ possibilities.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../_autosummary/sqlalchemy_omnisci.version.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../_autosummary/sqlalchemy_heavyai.version.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">sqlalchemy_omnisci.version</p>
+            <p class="prev-next-title">sqlalchemy_heavyai.version</p>
         </div>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By OmniSci Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By HeavyAI Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

@@ -5,4 +5,4 @@ API Documentation
    :toctree: _autosummary
    :recursive:
 
-   sqlalchemy_omnisci
+   sqlalchemy_heavyai
