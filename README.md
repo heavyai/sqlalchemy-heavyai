@@ -1,9 +1,7 @@
-# SQLAlchemy OmniSci
-
-OmniSci SQLAlchemy Driver
+# HeavyAI SQLAlchemy Driver
 
 The code here was initially developed and published at
-https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
+https://community.heavy.ai/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
 
 This SQLAlchemy dialect is still in **beta** version.
 
@@ -13,7 +11,7 @@ This SQLAlchemy dialect is still in **beta** version.
 #### With Apache Superset
 
 Start an Apache Superset instance with all customization needed to run the
-examples and to run sqlachemy-omnisci.
+examples and to run sqlachemy-heavyai.
 
 More information: https://hub.docker.com/r/apache/superset
 

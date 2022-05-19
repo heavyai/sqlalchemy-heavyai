@@ -2,10 +2,8 @@
 import copy
 import os
 import uuid
-import warnings
 
 import pytest
-import sqlalchemy
 from sqlalchemy import (
     BigInteger,
     Boolean,
@@ -16,14 +14,20 @@ from sqlalchemy import (
     SmallInteger,
     String,
     create_engine,
-    testing,
 )
 from sqlalchemy.sql import column, table
+from sqlalchemy.testing.plugin.pytestplugin import *  # noqa: F401, E402, F403
+from sqlalchemy.testing.plugin.pytestplugin import (
+    pytest_sessionfinish as _pytest_sessionfinish,
+)
+from sqlalchemy.testing.plugin.pytestplugin import (
+    pytest_sessionstart as _pytest_sessionstart,
+)
 
-from sqlalchemy_omnisci import URL
+from sqlalchemy_heavyai import URL
 
 URI_TEMPLATE = (
-    "omnisci://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
+    "heavydb://{user}:{password}@{host}:{port}/{database}?protocol={protocol}"
 )
 
 DATABASE_TESTING = "sqla_testing"
@@ -40,7 +44,7 @@ DEFAULT_PARAMETERS = {
 SETUP_PARAMETERS = {
     "user": "admin",
     "password": "HyperInteractive",
-    "database": "omnisci",
+    "database": "heavyai",
     "protocol": "binary",
     "host": "localhost",
     "port": "6274",
@@ -157,28 +161,26 @@ def engine_testaccount(request):
 
 os.environ["SQLALCHEMY_WARN_20"] = "true"
 
-pytest.register_assert_rewrite("sqlalchemy.testing.assertions")
-
-# this happens after pytest.register_assert_rewrite to avoid pytest warning
-from sqlalchemy.testing.plugin.pytestplugin import *  # noqa: F401, E402, F403
-
 
 def pytest_sessionstart(session):
     """Run a hook for pytest sessionstart."""
     engine, _ = get_engine(db_params=SETUP_PARAMETERS)
     try:
         engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
-    except:
+    except:  # noqa
         ...
     engine.execute(f"CREATE DATABASE {DATABASE_TESTING};")
-    testing.plugin.pytestplugin.pytest_sessionstart(session)
+
+    session.config.option.dburi = [URI_TEMPLATE.format(**SETUP_PARAMETERS)]
+
+    _pytest_sessionstart(session)
 
 
 def pytest_sessionfinish(session, exitstatus):
     """Run a hook for pytest sessionfinish."""
     engine, _ = get_engine(db_params=SETUP_PARAMETERS)
     try:
-        testing.plugin.pytestplugin.pytest_sessionfinish(session)
+        _pytest_sessionfinish(session)
         engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
     except Exception:
         ...

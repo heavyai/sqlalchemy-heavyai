@@ -1,13 +1,66 @@
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=3.3,<4"]
+build-backend = "flit_core.buildapi"
 
-[tool.setuptools_scm]
-write_to = "sqlalchemy_omnisci/_version.py"
+[project]
+name = "sqlalchemy-heavyai"
+version = "1.0"
+requires-python = ">=3.7"
+authors = [{name = "Heavy.AI", email = "community@heavy.ai"}]
+description = "HeavyAI SQLAlchemy Driver"
+readme = "README.md"
+license = {file = "LICENSE.md"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "sqlalchemy",
+    "heavyai",
+    "importlib_metadata",  # drop for python >3.7
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "werkzeug",
+]
+
+doc = [
+    "sphinx",
+    "jupyter-book",
+    "sphinx-external-toc",
+    "sphinx-autoapi",
+    "sphinx-jupyterbook-latex",
+]
+
+dev = [
+    "sqlalchemy-heavyai[test]",
+    "sqlalchemy-heavyai[doc]",
+    "pre-commit",
+    "flit"
+]
+
+[project.urls]
+Home = "https://github.com/heavyai/sqlalchemy-heavyai"
+Source = "https://github.com/heavyai/sqlalchemy-heavyai"
+
+[project.entry-points."sqlalchemy.dialects"]
+heavydb = "sqlalchemy_heavyai.heavyai:HeavyAIDialect_heavyai"
+
+[tool.flit.module]
+name = "sqlalchemy_heavyai"
+
+[tool.flit.sdist]
+exclude = [
+    "docker/*", ".github/*", "*.yaml", ".*", "tests/*", "docs/*"
+]
 
 [tool.black]
 line-length = 79
-target-version = ["py36", "py37", "py38"]
+target-version = ["py37", "py38", "py39", "py310"]
 
 [tool.isort]
 ensure_newline_before_comments = true
@@ -20,8 +73,11 @@ skip = "docs/"
 [tool.mypy]
 ignore_missing_imports = true
 strict_optional = true
-files = "sqlalchemy_omnisci"
+files = "sqlalchemy_heavyai"
 
-[tool.pytest]
+[tool.pytest.ini_options]
+minversion = "6.0"
 addopts= "--tb native -v -r fxX -p no:warnings"
-python_files = "tests/*test_*.py"
+testpaths = [
+    "sqlalchemy_heavyai/tests",
+]

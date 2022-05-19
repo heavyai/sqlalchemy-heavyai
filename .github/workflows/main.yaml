@@ -10,6 +10,10 @@ on:
   pull_request:
     branches: [ main ]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   build:
 
@@ -24,7 +28,7 @@ jobs:
       PYTHON_VERSION: ${{ matrix.python-version }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -34,14 +38,14 @@ jobs:
         mamba-version: "*"
         environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: sqla-omnisci
+        activate-environment: sqla-heavyai
         use-mamba: true
         miniforge-variant: Mambaforge
 
-    - name: start omniscidb service
-      run: docker-compose --file docker/docker-compose.yaml up -d omniscidb
+    - name: start heavydb service
+      run: docker-compose --file docker/docker-compose.yaml up -d heavydb
 
-    - name: wait for omniscidb service
+    - name: wait for heavydb service
       run: docker-compose --file docker/docker-compose.yaml up waiter
 
     - name: install dependencies
@@ -65,7 +69,7 @@ jobs:
     steps:
 
     - name: checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v3
 
     - uses: conda-incubator/setup-miniconda@v2
       with:
@@ -73,7 +77,7 @@ jobs:
         mamba-version: "*"
         environment-file: environment.yaml
         channels: conda-forge
-        activate-environment: sqla-omnisci
+        activate-environment: sqla-heavyai
         use-mamba: true
         miniforge-variant: Mambaforge
 

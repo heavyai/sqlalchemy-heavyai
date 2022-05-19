@@ -1,5 +1,5 @@
 """
-OmniSci engine for Apache Superset.
+HeavyAI engine for Apache Superset.
 
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
@@ -28,11 +28,11 @@ if TYPE_CHECKING:
     from superset.models.core import Database  # noqa: F401
 
 
-class OmniSciEngineSpec(BaseEngineSpec):
-    """Apache Superset Engine for OmniSci."""
+class HeavyAIEngineSpec(BaseEngineSpec):
+    """Apache Superset Engine for HeavyAI."""
 
-    engine = "omnisci"
-    engine_name = "OmniSci"
+    engine = "heavyai"
+    engine_name = "HeavyAI"
 
     _time_grain_functions = {
         None: "{col}",
@@ -47,8 +47,8 @@ class OmniSciEngineSpec(BaseEngineSpec):
     }
 
     def __init__(self, *args, **kwargs):
-        """Instantiate OmniSciEngineSpec."""
-        print("using omnisci backend")
+        """Instantiate HeavyAIEngineSpec."""
+        print("using heavyai backend")
         print(args, kwargs)
         super().__init__(*args, **kwargs)
 

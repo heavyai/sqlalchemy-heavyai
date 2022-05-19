@@ -1,9 +1,9 @@
-# SQLAlchemy OmniSci
+# SQLAlchemy HeavyAI
 
-OmniSci SQLAlchemy Driver
+HeavyAI SQLAlchemy Driver
 
 The code here was initially developed and published at
-https://community.omnisci.com/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
+https://community.heavy.ai/t/apache-superset-and-sql-alchemy-usage-with-omniscidb/2633
 
 This SQLAlchemy dialect is still in **beta** version.
 
@@ -13,19 +13,19 @@ This SQLAlchemy dialect is still in **beta** version.
 ### Stable release
 --------------
 
-To install SQLAlchemy OmniSci, run this command in your terminal:
+To install SQLAlchemy HeavyAI, run this command in your terminal:
 
 ```bash
-$ conda install sqlalchemy-omnisci
+$ conda install sqlalchemy-heavyai
 ```
 
 or
 
 ```bash
-$ pip install sqlalchemy-omnisci
+$ pip install sqlalchemy-heavyai
 ```
 
-These are the preferred methods to install SQLAlchemy OmniSci,
+These are the preferred methods to install SQLAlchemy HeavyAI,
 as it will always install the most recent stable release.
 
 If you don't have conda installed, check its
@@ -38,42 +38,42 @@ can guide you through the process.
 
 ### From sources
 
-The sources for SQLAlchemy OmniSci can be downloaded from the [Github
-repo](https://github.com/omnisci/sqlalchemy-omnisci).
+The sources for SQLAlchemy HeavyAI can be downloaded from the [Github
+repo](https://github.com/heavyai/sqlalchemy-heavyai).
 
 You can either clone the public repository:
 
 ```bash
-$ git clone git://github.com/omnisci/sqlalchemy-omnisci
+$ git clone git://github.com/heavyai/sqlalchemy-heavyai
 ```
 
 Or download the
-[tarball](https://github.com/omnisci/sqlalchemy-omnisci/tarball/master):
+[tarball](https://github.com/heavyai/sqlalchemy-heavyai/tarball/master):
 
 ```bash
-$ curl  -OL https://github.com/omnisci/sqlalchemy-omnisci/tarball/master
+$ curl  -OL https://github.com/heavyai/sqlalchemy-heavyai/tarball/master
 ```
 
 Once you have a copy of the source, you can install it with:
 
 ```bash
-$ python setup.py install
+$ python -m pip install .
 ```
 
 For information about development, check the
-{contributing page}`./contributing`
+{contributing page}`../CONTRIBUTING`
 
 ## Usage
 
-To use SQLAlchemy OmniSci to connect to a local OmniSci server:
+To use SQLAlchemy HeavyAI to connect to a local HeavyDB server:
 
 ```python
 from sqlalchemy import create_engine
 
-# uri: omnisci://<user>:<pass>@<host>:<port>/<db>?protocol=<protocol>
+# uri: heavydb://<user>:<pass>@<host>:<port>/<db>?protocol=<protocol>
 engine = create_engine(
-    "omnisci://admin:HyperInteractive@"
-    "localhost:6274/omnisci?protocol=binary"
+    "heavydb://admin:HyperInteractive@"
+    "localhost:6274/heavyai?protocol=binary"
 )
 con = engine.connect()
 con.close()

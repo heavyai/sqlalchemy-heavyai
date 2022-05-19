@@ -1,5 +1,5 @@
 # scm versioning
-sqlalchemy_omnisci/_version.py
+sqlalchemy_heavyai/_version.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -98,6 +98,9 @@ ENV/
 
 # VSCODE
 .vscode
+
+# PyCharm
+.idea
 
 # Rope project settings
 .ropeproject

@@ -5,11 +5,11 @@ from sqlalchemy.sql import column, quoted_name, table
 from sqlalchemy.testing import AssertsCompiledSQL, fixtures
 
 
-class _TestCompilerOmniSci(fixtures.TestBase, AssertsCompiledSQL):
-    __dialect__ = "omnisci"
+class _TestCompilerHeavyai(fixtures.TestBase, AssertsCompiledSQL):
+    __dialect__ = "heavydb"
 
 
-class TestCompilerSelect(_TestCompilerOmniSci):
+class TestCompilerSelect(_TestCompilerHeavyai):
     """Test compiler for select statement."""
 
     def test_select_datatype_table(self, table_datatype):
@@ -25,7 +25,7 @@ class TestCompilerSelect(_TestCompilerOmniSci):
                 "FROM table_datatype "
                 "WHERE table_datatype._int = %(int_1)s"
             ),
-            dialect="omnisci",
+            dialect="heavydb",
         )
 
     @pytest.mark.parametrize(
@@ -53,7 +53,7 @@ class TestCompilerSelect(_TestCompilerOmniSci):
                 f"SELECT {sql_func}(table_datatype._int) AS {sql_func}_1 "
                 "FROM table_datatype"
             ),
-            dialect="omnisci",
+            dialect="heavydb",
         )
 
     def test_quoted_name_label(self):
@@ -91,20 +91,20 @@ class TestCompilerSelect(_TestCompilerOmniSci):
             assert str(compiled_result) == t["output"]
 
 
-class TestCompilerDelete(_TestCompilerOmniSci):
+class TestCompilerDelete(_TestCompilerHeavyai):
     """Compilation test for delete statement."""
 
     def test_table_delete(self, table1):
-        """Test compilatino for delete statement."""
+        """Test compilation for delete statement."""
         stmt = table1.delete().where(table1.c.id == 1)
         self.assert_compile(
             stmt,
             "DELETE FROM table1 WHERE table1.id = %(id_1)s",
-            dialect="omnisci",
+            dialect="heavydb",
         )
 
 
-class TestCompilerUpdate(_TestCompilerOmniSci):
+class TestCompilerUpdate(_TestCompilerHeavyai):
     """Compilation test for update statement."""
 
     def test_table_update(self, table1):
@@ -114,5 +114,5 @@ class TestCompilerUpdate(_TestCompilerOmniSci):
             stmt,
             "UPDATE table1 SET name=%(name)s "
             "WHERE table1.name = %(name_1)s",
-            dialect="omnisci",
+            dialect="heavydb",
         )

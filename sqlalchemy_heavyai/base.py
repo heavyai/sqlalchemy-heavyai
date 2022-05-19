@@ -1,4 +1,4 @@
-"""The base module for the OmniSci engine."""
+"""The base module for the HeavyAI engine."""
 import re
 
 import sqlalchemy.types as sqltypes
@@ -502,7 +502,7 @@ ischema_names = {
     "MULTIPOLYGON": VARCHAR,
 }
 
-# OmniSci DML:
+# HeavyAI DML:
 # - INSERT
 AUTOCOMMIT_REGEXP = re.compile(r"\s*(?:INSERT)", re.I | re.UNICODE)
 
@@ -512,13 +512,13 @@ COMPOUND_KEYWORDS = {
 }
 
 
-class OmniSciIdentifierPreparer(compiler.IdentifierPreparer):
-    """OmniSci Identifier Preparer."""
+class HeavyAIIdentifierPreparer(compiler.IdentifierPreparer):
+    """HeavyAI Identifier Preparer."""
 
     reserved_words = set([x.lower() for x in RESERVED_WORDS])
 
     def __init__(self, dialect, **kw):
-        """Create an instance for OmniSciIdentifierPreparer."""
+        """Create an instance for HeavyAIIdentifierPreparer."""
         quote = '"'
 
         super().__init__(dialect, initial_quote=quote, escape_quote=quote)
@@ -528,8 +528,8 @@ class OmniSciIdentifierPreparer(compiler.IdentifierPreparer):
         return tuple([self.quote(i) for i in ids if i is not None])
 
 
-class OmniSciCompiler(compiler.SQLCompiler):
-    """SQLCompiler for OmniSci."""
+class HeavyAICompiler(compiler.SQLCompiler):
+    """SQLCompiler for HeavyAI."""
 
     compound_keywords = COMPOUND_KEYWORDS
 
@@ -551,7 +551,7 @@ class OmniSciCompiler(compiler.SQLCompiler):
             raise NotImplementedError(
                 (
                     "Casting to {} not implemented. See "
-                    "See https://docs.omnisci.com/sql/data-manipulation-dml/"
+                    "See https://docs.heavy.ai/sql/data-manipulation-dml"
                     "sql-capabilities#type-cast-support"
                 ).format(cast_target)
             )
@@ -561,7 +561,7 @@ class OmniSciCompiler(compiler.SQLCompiler):
     def visit_index(self, *args, **kwargs):
         """Override the default INDEX.
 
-        OmniSci doesn't implement INDEX yet.
+        HeavyDB doesn't implement INDEX yet.
         """
         return
 
@@ -588,8 +588,8 @@ class OmniSciCompiler(compiler.SQLCompiler):
         return text
 
 
-class OmniSciExecutionContext(default.DefaultExecutionContext):
-    """OmniSci Execution Context."""
+class HeavyAIExecutionContext(default.DefaultExecutionContext):
+    """HeavyAI Execution Context."""
 
     def pre_exec(self):
         """Define the pre-execution step."""
@@ -631,8 +631,8 @@ class OmniSciExecutionContext(default.DefaultExecutionContext):
             return autocommit and not self.isddl
 
 
-class OmniSciDDLCompiler(compiler.DDLCompiler):
-    """OmniSciDDL Compiler."""
+class HeavyAIDDLCompiler(compiler.DDLCompiler):
+    """HeavyAIDDL Compiler."""
 
     def denormalize_column_name(self, name):
         """Denormalize the given column name."""
@@ -662,34 +662,34 @@ class OmniSciDDLCompiler(compiler.DDLCompiler):
     def visit_primary_key_constraint(self, constraint, **kw):
         """Override the primary key constraint implementation.
 
-        NOTE: OmniSciDB doesn't implement primary key
+        NOTE: HeavyDB doesn't implement primary key
         """
         return
 
     def visit_foreign_key_constraint(self, constraint, **kw):
         """Override the foreign key constraint implementation.
 
-        NOTE: OmniSciDB doesn't implement foreign key
+        NOTE: HeavyDB doesn't implement foreign key
         """
         return
 
     def visit_unique_constraint(self, constraint, **kw):
         """Override the unique key constraint implementation.
 
-        NOTE: OmniSciDB doesn't implement unique key
+        NOTE: HeavyDB doesn't implement unique key
         """
         return
 
     def visit_create_index(self, *args, **kwargs):
         """Override the index constraint implementation.
 
-        NOTE: OmniSciDB doesn't implement index
+        NOTE: HeavyDB doesn't implement index
         """
         return
 
 
-class OmniSciTypeCompiler(compiler.GenericTypeCompiler):
-    """OmniSci Type Compiler."""
+class HeavyAITypeCompiler(compiler.GenericTypeCompiler):
+    """HeavyAI Type Compiler."""
 
     def visit_ARRAY(selfself, type, **kw):
         """Define the ARRAY compilation."""
@@ -707,10 +707,10 @@ class OmniSciTypeCompiler(compiler.GenericTypeCompiler):
 colspecs: dict = {}
 
 
-class OmniSciDialect(default.DefaultDialect):
-    """OmniSci Dialect."""
+class HeavyAIDialect(default.DefaultDialect):
+    """HeavyAI Dialect."""
 
-    name = "omnisci"
+    name = "heavydb"
     max_identifier_length = 32768
 
     #    encoding = UTF8
@@ -720,6 +720,8 @@ class OmniSciDialect(default.DefaultDialect):
 
     # all str types must be converted in Unicode
     convert_unicode = True
+
+    supports_statement_cache = True
 
     # Indicate whether the DB-API can receive SQL statements as Python
     #  unicode strings
@@ -762,11 +764,11 @@ class OmniSciDialect(default.DefaultDialect):
     supports_default_values = False
     supports_default_metavalue = False
 
-    preparer = OmniSciIdentifierPreparer
-    ddl_compiler = OmniSciDDLCompiler
-    type_compiler = OmniSciTypeCompiler
-    statement_compiler = OmniSciCompiler
-    execution_ctx_cls = OmniSciExecutionContext
+    preparer = HeavyAIIdentifierPreparer
+    ddl_compiler = HeavyAIDDLCompiler
+    type_compiler = HeavyAITypeCompiler
+    statement_compiler = HeavyAICompiler
+    execution_ctx_cls = HeavyAIExecutionContext
 
     # indicates symbol names are
     # UPPERCASEd if they are case insensitive
@@ -776,15 +778,15 @@ class OmniSciDialect(default.DefaultDialect):
     requires_name_normalize = True
 
     def __init__(self, pool=NullPool, **kwargs):
-        """Create an instance for the OmniSci Dialect."""
+        """Create an instance for the HeavyAI Dialect."""
         default.DefaultDialect.__init__(self, **kwargs)
 
     @classmethod
     def dbapi(cls):
         """Return the database api."""
-        import pyomnisci
+        import heavyai
 
-        return pyomnisci
+        return heavyai
 
     def set_connection_execution_options(self, connection, opts):
         """Set connection execution options."""
@@ -800,7 +802,7 @@ class OmniSciDialect(default.DefaultDialect):
     def do_rollback(self, connection):
         """Override the rollback method.
 
-        Note: OmniSci hasn't transaction implemented so it cannot rollback
+        Note: HeavyDB hasn't transaction implemented so it cannot rollback
         changes.
         """
         return
@@ -818,7 +820,7 @@ class OmniSciDialect(default.DefaultDialect):
     def has_sequence(self, connection, sequence_name, schema=None):
         """Check if the sequence exists.
 
-        Note: OmniSci hasnt sequence objects.
+        Note: HeavyDB hasnt sequence objects.
         """
         return
 
@@ -863,7 +865,7 @@ class OmniSciDialect(default.DefaultDialect):
     def get_indexes(self, connection, table_name, schema=None, **kw):
         """Get all indexes.
 
-        Note: index is not supported by OmniSci.
+        Note: index is not supported by HeavyDB.
         """
         return []
 
@@ -872,7 +874,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Override function that return the list of primary keys.
 
-        Note: primary keys aren't supported by OmniSci.
+        Note: primary keys aren't supported by HeavyDB.
         """
         return []
 
@@ -881,7 +883,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Override function that return the list of constraints.
 
-        Note: constraints aren't supported by OmniSci.
+        Note: constraints aren't supported by HeavyDB.
         """
         return []
 
@@ -890,7 +892,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Override function that return the list of unique keys.
 
-        Note: unique keys arent supported by OmniSci.
+        Note: unique keys arent supported by HeavyDB.
         """
         return []
 
@@ -899,7 +901,7 @@ class OmniSciDialect(default.DefaultDialect):
         """
         Override function that return the list of foreign keys.
 
-        Note: foreign keys arent supported by OmniSci.
+        Note: foreign keys arent supported by HeavyDB.
         """
         return []
 
@@ -1006,7 +1008,7 @@ class OmniSciDialect(default.DefaultDialect):
         return []
 
 
-dialect = OmniSciDialect
+dialect = HeavyAIDialect
 
 
 construct_arguments = [(Table, {"clusterby": None})]
