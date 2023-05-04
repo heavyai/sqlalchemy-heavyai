@@ -99,8 +99,14 @@ jobs:
     # - name: show environment
     #   run: conda list
 
+    # - name: Develop sqlalchemy-heavyai
+    #   shell: bash -l {0}
+    #   run: |
+    #     mamba run -n sqla-heavyai python setup.py develop
+
     - name: run tests
-      run: make run-tests
+      shell: bash -l {0}
+      run: mamba run -n sqla-heavyai make run-tests
 
   lint:
     name: Lint
