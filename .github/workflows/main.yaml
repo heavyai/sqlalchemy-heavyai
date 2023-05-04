@@ -41,22 +41,23 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    # - uses: conda-incubator/setup-miniconda@v2
-    #   with:
-    #     miniconda-version: "latest"
-    #     mamba-version: "*"
-    #     environment-file: environment.yaml
-    #     channels: conda-forge
-    #     activate-environment: sqla-heavyai
-    #     use-mamba: true
-    #     miniforge-variant: Mambaforge
+    - name: Create SQLAlchemy-heavyai test environment v${{ matrix.python-version }}
+      shell: bash -l {0}
+      run: |
+        cat environment.yaml > test.yaml
+        echo "  - sqlalchemy=${{ matrix.sqlalchemy-version }}" >> test.yaml
+        echo "  - python=${{ matrix.python-version }}" >> test.yaml
+        mamba env create --file=test.yaml -n sqla-heavyai
 
     - uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: ${{ matrix.python-version }}
-        channel-priority: strict
-        channels: conda-forge
         miniconda-version: "latest"
+        mamba-version: "*"
+        environment-file: test.yaml
+        channels: conda-forge
+        activate-environment: sqla-heavyai
+        use-mamba: true
+        miniforge-variant: Mambaforge
 
     - name: Install mamba
       shell: bash -l {0}
@@ -68,23 +69,15 @@ jobs:
       run: |
         conda env config vars set MAMBA_NO_BANNER=1
 
-    - name: Create SQLAlchemy-heavyai test environment v${{ matrix.python-version }}
-      shell: bash -l {0}
-      run: |
-        cat environment.yaml > test.yaml
-        echo "  - sqlalchemy=${{ matrix.sqlalchemy-version }}" >> test.yaml
-        echo "  - python=${{ matrix.python-version }}" >> test.yaml
-        mamba env create --file=test.yaml -n sqla-heavyai
-
     - name: sqlalchemy-heavyai conda config
       shell: bash -l {0}
       run: |
-        mamba run -n sqla-heavyai conda config --show
+        conda config --show
 
     - name: sqlalchemy-heavyai conda list
       shell: bash -l {0}
       run: |
-        mamba run -n sqla-heavyai conda list
+        conda list
 
     - name: start heavydb service
       run: docker-compose --file docker/docker-compose.yaml up -d heavydb
@@ -106,7 +99,8 @@ jobs:
 
     - name: run tests
       shell: bash -l {0}
-      run: mamba run -n sqla-heavyai make run-tests
+      run: |
+        make run-tests
 
   lint:
     name: Lint
