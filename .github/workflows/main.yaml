@@ -47,7 +47,6 @@ jobs:
         cat environment.yaml > test.yaml
         echo "  - sqlalchemy=${{ matrix.sqlalchemy-version }}" >> test.yaml
         echo "  - python=${{ matrix.python-version }}" >> test.yaml
-        mamba env create --file=test.yaml -n sqla-heavyai
 
     - uses: conda-incubator/setup-miniconda@v2
       with:
