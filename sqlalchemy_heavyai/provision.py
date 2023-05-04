@@ -2,6 +2,6 @@
 from sqlalchemy.testing.provision import temp_table_keyword_args
 
 
-@temp_table_keyword_args.for_db("heavyai")
+@temp_table_keyword_args.for_db("heavydb")
 def _heavyai_temp_table_keyword_args(cfg, eng):
-    return {}
+    return {"prefixes": ["TEMPORARY"]}

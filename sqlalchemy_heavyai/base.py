@@ -569,13 +569,14 @@ class HeavyAICompiler(compiler.SQLCompiler):
         self, cs, asfrom=False, compound_index=None, **kwargs
     ):
         """Override the default COMPOUND SELECT."""
+        # UNION without ALL is not supported
         if cs.keyword not in self.compound_keywords:
             raise NotImplementedError(
                 "Given CompoundSelect {} not found.".format(cs.keyword)
             )
 
         super().visit_compound_select(
-            cs, asfrom=False, compound_index=None, **kwargs
+            cs, asfrom=asfrom, compound_index=compound_index, **kwargs
         )
 
     def limit_clause(self, select, **kw):
@@ -743,7 +744,7 @@ class HeavyAIDialect(default.DefaultDialect):
     supports_sane_multi_rowcount = False
 
     # NUMERIC type returns decimal.Decimal
-    supports_native_decimal = True
+    supports_native_decimal = False
 
     # The dialect supports a native boolean construct.
     # This will prevent types.Boolean from generating a CHECK
@@ -763,6 +764,8 @@ class HeavyAIDialect(default.DefaultDialect):
     supports_empty_insert = False
     supports_default_values = False
     supports_default_metavalue = False
+
+    supports_schemas = False
 
     preparer = HeavyAIIdentifierPreparer
     ddl_compiler = HeavyAIDDLCompiler
@@ -799,6 +802,13 @@ class HeavyAIDialect(default.DefaultDialect):
     def _dialect_specific_select_one(self):
         return "SELECT 1"
 
+    def do_execute(self, cursor, statement, parameters, context=None):
+        if isinstance(parameters, tuple) and parameters == ():
+            # odd corner case where heavydb::_parser.py::_bind_parameters
+            # wrongly tries to expand a tuple as a dictionary
+            parameters = {}
+        cursor.execute(statement, parameters)
+
     def do_rollback(self, connection):
         """Override the rollback method.
 
@@ -813,7 +823,7 @@ class HeavyAIDialect(default.DefaultDialect):
         opts.update(url.query)
         return ([], opts)
 
-    def has_table(self, connection, table_name, schema=None):
+    def has_table(self, connection, table_name, schema=None, **kw):
         """Check if the table exists."""
         return table_name in self.get_table_names(connection, schema)
 
@@ -908,7 +918,8 @@ class HeavyAIDialect(default.DefaultDialect):
     @reflection.cache
     def get_columns(self, connection, table_name, schema=None, **kw):
         """Get all column info given the table info."""
-        conn_api = connection.connect()
+        # conn_api = connection.connect()
+        conn_api = connection
         columns_details = conn_api.connection.get_table_details(table_name)
         conn_api.close()
 

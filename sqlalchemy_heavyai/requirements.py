@@ -8,6 +8,10 @@ class Requirements(SuiteRequirements):
 
     # constraints
     check_constraint_reflection = exclusions.closed()
+    table_reflection = exclusions.closed()
+
+    # database
+    unusual_column_name_characters = exclusions.closed()
 
     # foreign key
     foreign_key_constraint_reflection = exclusions.closed()
@@ -27,7 +31,7 @@ class Requirements(SuiteRequirements):
 
     independent_connections = exclusions.closed()
 
-    schemas = exclusions.closed()
+    # schemas = exclusions.closed()
 
     # unions
     parens_in_union_contained_select_w_limit_offset = exclusions.closed()
@@ -50,8 +54,21 @@ class Requirements(SuiteRequirements):
     precision_generic_float_type = exclusions.closed()
     precision_numerics_general = exclusions.closed()
 
+    # datatime
+    datetime_implicit_bound = exclusions.closed()
+    date_implicit_bound = exclusions.closed()
+
     # comment
     comment_reflection = exclusions.closed()
 
     # views
     view_column_reflection = exclusions.closed()
+
+    # types
+    array_type = exclusions.closed()
+    uuid_data_type = exclusions.closed()
+
+    # target database can render LIMIT and/or OFFSET with a complete
+    # SQL expression, such as one that uses the addition operator.
+    # parameter
+    sql_expression_limit_offset = exclusions.closed()

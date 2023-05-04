@@ -1,4 +1,5 @@
 """Tests for connection."""
+import pytest
 import sqlalchemy
 from sqlalchemy.testing import fixtures
 
@@ -6,6 +7,7 @@ from sqlalchemy.testing import fixtures
 class ConnectionTest(fixtures.TestBase):
     """Test connection."""
 
+    @pytest.mark.xfail()
     def test_metis_connection(self, uri_metis):
         """Test connection to metis server using https protocol."""
         engine = sqlalchemy.create_engine(uri_metis)

@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - python >=3.8
-  - sqlalchemy <2
+  - sqlalchemy
   - heavyai
   # dev
   - pre-commit
