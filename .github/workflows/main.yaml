@@ -74,7 +74,7 @@ jobs:
         cat environment.yaml > test.yaml
         echo "  - sqlalchemy=${{ matrix.sqlalchemy-version }}" >> test.yaml
         echo "  - python=${{ matrix.python-version }}" >> test.yaml
-        mamba env create --file=test.yaml -n rbc
+        mamba env create --file=test.yaml -n sqla-heavyai
 
     - name: sqlalchemy-heavyai conda config
       shell: bash -l {0}
