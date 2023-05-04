@@ -86,6 +86,9 @@ jobs:
 
     - name: run tests
       shell: bash -l {0}
+      env:
+        EXPECTED_PYTHON_VERSION: ${{ matrix.python-version }}
+        EXPECTED_SQLALCHEMY_VERSION: ${{ matrix.sqlalchemy-version }}
       run: |
         make run-tests
 
