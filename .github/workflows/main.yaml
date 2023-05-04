@@ -72,7 +72,7 @@ jobs:
       shell: bash -l {0}
       run: |
         cat environment.yaml > test.yaml
-        echo "  - numba=${{ matrix.sqlalchemy-version }}" >> test.yaml
+        echo "  - sqlalchemy=${{ matrix.sqlalchemy-version }}" >> test.yaml
         echo "  - python=${{ matrix.python-version }}" >> test.yaml
         mamba env create --file=test.yaml -n rbc
 
