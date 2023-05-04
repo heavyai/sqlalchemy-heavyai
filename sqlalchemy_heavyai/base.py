@@ -803,6 +803,7 @@ class HeavyAIDialect(default.DefaultDialect):
         return "SELECT 1"
 
     def do_execute(self, cursor, statement, parameters, context=None):
+        """Override the "do_execute" method."""
         if isinstance(parameters, tuple) and parameters == ():
             # odd corner case where heavydb::_parser.py::_bind_parameters
             # wrongly tries to expand a tuple as a dictionary

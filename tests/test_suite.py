@@ -7,10 +7,6 @@ import pytest
 import sqlalchemy
 from packaging.version import Version
 
-
-is_sqlalchemy_v2 = Version(sqlalchemy.__version__).major == 2
-
-
 from sqlalchemy.testing.suite import *  # noqa: F403, F401
 from sqlalchemy.testing.suite import (
     BinaryTest as _BinaryTest,
@@ -39,6 +35,8 @@ from sqlalchemy.testing.suite import (
     UnicodeVarcharTest as _UnicodeVarcharTest,
 )
 
+
+is_sqlalchemy_v2 = Version(sqlalchemy.__version__).major == 2
 
 if is_sqlalchemy_v2:
     from sqlalchemy.testing.suite import (
