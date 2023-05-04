@@ -31,8 +31,6 @@ class Requirements(SuiteRequirements):
 
     independent_connections = exclusions.closed()
 
-    # schemas = exclusions.closed()
-
     # unions
     parens_in_union_contained_select_w_limit_offset = exclusions.closed()
     parens_in_union_contained_select_wo_limit_offset = exclusions.closed()
