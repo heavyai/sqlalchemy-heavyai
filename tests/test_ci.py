@@ -38,4 +38,4 @@ class TestCI(fixtures.TestBase):
                 f" cannot test sqlalchemy version (current={current})"
             )
         expected = Version(expected)
-        assert expected == current
+        self.compare_versions(expected, current)
