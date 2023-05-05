@@ -1,9 +1,9 @@
 """The base module for the HeavyAI engine."""
 import re
 
+import sqlalchemy
 import sqlalchemy.types as sqltypes
-
-# from sqlalchemy import exc as sa_exc
+from packaging.version import Version
 from sqlalchemy import util as sa_util
 from sqlalchemy.engine import default, reflection
 from sqlalchemy.pool import NullPool
@@ -26,6 +26,9 @@ from sqlalchemy.types import (
     VARCHAR,
 )
 from sqlalchemy.types import Boolean as BooleanBase
+
+is_sqlalchemy_v2 = Version(sqlalchemy.__version__).major == 2
+
 
 RESERVED_WORDS = frozenset(
     [
@@ -784,12 +787,23 @@ class HeavyAIDialect(default.DefaultDialect):
         """Create an instance for the HeavyAI Dialect."""
         default.DefaultDialect.__init__(self, **kwargs)
 
-    @classmethod
-    def dbapi(cls):
-        """Return the database api."""
-        import heavyai
+    if is_sqlalchemy_v2:
 
-        return heavyai
+        @classmethod
+        def import_dbapi(cls):
+            """Return the database api."""
+            import heavyai
+
+            return heavyai
+
+    else:
+
+        @classmethod
+        def dbapi(cls):
+            """Return the database api."""
+            import heavyai
+
+            return heavyai
 
     def set_connection_execution_options(self, connection, opts):
         """Set connection execution options."""

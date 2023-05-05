@@ -4,8 +4,6 @@ Re-use the sqlalchemy test suite.
 # isort:skip_file
 """
 import pytest
-import sqlalchemy
-from packaging.version import Version
 
 from sqlalchemy.testing.suite import *  # noqa: F403, F401
 from sqlalchemy.testing.suite import (
@@ -35,8 +33,8 @@ from sqlalchemy.testing.suite import (
     UnicodeVarcharTest as _UnicodeVarcharTest,
 )
 
+from sqlalchemy_heavyai.base import is_sqlalchemy_v2
 
-is_sqlalchemy_v2 = Version(sqlalchemy.__version__).major == 2
 
 if is_sqlalchemy_v2:
     from sqlalchemy.testing.suite import (
