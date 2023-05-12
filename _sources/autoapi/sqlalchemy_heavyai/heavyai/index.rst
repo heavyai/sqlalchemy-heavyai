@@ -29,12 +29,12 @@ Classes
    HeavyAIDialect for heavyai.
 
    .. py:attribute:: driver
-      :annotation: = heavydb
+      :value: 'heavydb'
 
       
 
    .. py:attribute:: supports_statement_cache
-      :annotation: = True
+      :value: True
 
       
 

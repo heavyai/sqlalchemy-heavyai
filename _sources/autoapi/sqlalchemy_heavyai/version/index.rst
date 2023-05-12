@@ -18,12 +18,10 @@ Module Contents
 ---------------
 
 .. py:data:: _version
-   
 
    
 
 .. py:data:: VERSION
-   
 
    
 

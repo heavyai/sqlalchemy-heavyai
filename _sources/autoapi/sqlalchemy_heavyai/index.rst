@@ -60,7 +60,7 @@ Attributes
    Custom array SQL type.
 
    .. py:attribute:: __visit_name__
-      :annotation: = ARRAY
+      :value: 'ARRAY'
 
       
 
@@ -72,12 +72,12 @@ Attributes
    HeavyAIDialect for heavyai.
 
    .. py:attribute:: driver
-      :annotation: = heavydb
+      :value: 'heavydb'
 
       
 
    .. py:attribute:: supports_statement_cache
-      :annotation: = True
+      :value: True
 
       
 
@@ -88,7 +88,6 @@ Attributes
 
 
 .. py:data:: __version__
-   
 
    
 
