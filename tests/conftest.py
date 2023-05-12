@@ -14,6 +14,7 @@ from sqlalchemy import (
     SmallInteger,
     String,
     create_engine,
+    text,
 )
 from sqlalchemy.sql import column, table
 from sqlalchemy.testing.plugin.pytestplugin import *  # noqa: F401, E402, F403
@@ -165,11 +166,12 @@ os.environ["SQLALCHEMY_WARN_20"] = "true"
 def pytest_sessionstart(session):
     """Run a hook for pytest sessionstart."""
     engine, _ = get_engine(db_params=SETUP_PARAMETERS)
+    connection = engine.connect()
     try:
-        engine.execute(f"DROP DATABASE {DATABASE_TESTING};")
+        connection.execute(text(f"DROP DATABASE {DATABASE_TESTING};"))
     except:  # noqa
         ...
-    engine.execute(f"CREATE DATABASE {DATABASE_TESTING};")
+    connection.execute(text(f"CREATE DATABASE {DATABASE_TESTING};"))
 
     session.config.option.dburi = [URI_TEMPLATE.format(**SETUP_PARAMETERS)]
 
