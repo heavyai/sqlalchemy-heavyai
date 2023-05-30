@@ -54,14 +54,14 @@ File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages
 [0;32m--> 145[0m     [38;5;28mself[39m[38;5;241m.[39m_dbapi_connection [38;5;241m=[39m [43mengine[49m[38;5;241;43m.[39;49m[43mraw_connection[49m[43m([49m[43m)[49m
 [1;32m    146[0m [38;5;28;01mexcept[39;00m dialect[38;5;241m.[39mloaded_dbapi[38;5;241m.[39mError [38;5;28;01mas[39;00m err:
 
-File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3288[0m, in [0;36mEngine.raw_connection[0;34m(self)[0m
-[1;32m   3267[0m [38;5;250m[39m[38;5;124;03m"""Return a "raw" DBAPI connection from the connection pool.[39;00m
-[1;32m   3268[0m 
-[1;32m   3269[0m [38;5;124;03mThe returned object is a proxied version of the DBAPI[39;00m
+File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3293[0m, in [0;36mEngine.raw_connection[0;34m(self)[0m
+[1;32m   3272[0m [38;5;250m[39m[38;5;124;03m"""Return a "raw" DBAPI connection from the connection pool.[39;00m
+[1;32m   3273[0m 
+[1;32m   3274[0m [38;5;124;03mThe returned object is a proxied version of the DBAPI[39;00m
 [0;32m   (...)[0m
-[1;32m   3286[0m 
-[1;32m   3287[0m [38;5;124;03m"""[39;00m
-[0;32m-> 3288[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpool[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
+[1;32m   3291[0m 
+[1;32m   3292[0m [38;5;124;03m"""[39;00m
+[0;32m-> 3293[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpool[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
 
 File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/pool/base.py:452[0m, in [0;36mPool.connect[0;34m(self)[0m
 [1;32m    445[0m [38;5;250m[39m[38;5;124;03m"""Return a DBAPI connection from the pool.[39;00m
@@ -164,21 +164,21 @@ File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages
 The above exception was the direct cause of the following exception:
 
 [0;31mOperationalError[0m                          Traceback (most recent call last)
-Cell [0;32mIn[2], line 5[0m
+Cell [0;32mIn[3], line 5[0m
 [1;32m      1[0m engine [38;5;241m=[39m create_engine(
 [1;32m      2[0m     [38;5;124m"[39m[38;5;124mheavydb://admin:HyperInteractive@localhost:6274/heavyai?protocol=binary[39m[38;5;124m"[39m
 [1;32m      3[0m )
 [0;32m----> 5[0m con [38;5;241m=[39m [43mengine[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
 
-File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3264[0m, in [0;36mEngine.connect[0;34m(self)[0m
-[1;32m   3241[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m Connection:
-[1;32m   3242[0m [38;5;250m    [39m[38;5;124;03m"""Return a new :class:`_engine.Connection` object.[39;00m
-[1;32m   3243[0m 
-[1;32m   3244[0m [38;5;124;03m    The :class:`_engine.Connection` acts as a Python context manager, so[39;00m
+File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3269[0m, in [0;36mEngine.connect[0;34m(self)[0m
+[1;32m   3246[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m Connection:
+[1;32m   3247[0m [38;5;250m    [39m[38;5;124;03m"""Return a new :class:`_engine.Connection` object.[39;00m
+[1;32m   3248[0m 
+[1;32m   3249[0m [38;5;124;03m    The :class:`_engine.Connection` acts as a Python context manager, so[39;00m
 [0;32m   (...)[0m
-[1;32m   3261[0m 
-[1;32m   3262[0m [38;5;124;03m    """[39;00m
-[0;32m-> 3264[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_connection_cls[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m   3266[0m 
+[1;32m   3267[0m [38;5;124;03m    """[39;00m
+[0;32m-> 3269[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_connection_cls[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
 
 File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:147[0m, in [0;36mConnection.__init__[0;34m(self, engine, connection, _has_events, _allow_revalidate, _allow_autobegin)[0m
 [1;32m    145[0m         [38;5;28mself[39m[38;5;241m.[39m_dbapi_connection [38;5;241m=[39m engine[38;5;241m.[39mraw_connection()
@@ -189,12 +189,12 @@ File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages
 [1;32m    150[0m         [38;5;28;01mraise[39;00m
 [1;32m    151[0m [38;5;28;01melse[39;00m:
 
-File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:2426[0m, in [0;36mConnection._handle_dbapi_exception_noconnection[0;34m(cls, e, dialect, engine, is_disconnect, invalidate_pool_on_disconnect, is_pre_ping)[0m
-[1;32m   2424[0m [38;5;28;01melif[39;00m should_wrap:
-[1;32m   2425[0m     [38;5;28;01massert[39;00m sqlalchemy_exception [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[0;32m-> 2426[0m     [38;5;28;01mraise[39;00m sqlalchemy_exception[38;5;241m.[39mwith_traceback(exc_info[[38;5;241m2[39m]) [38;5;28;01mfrom[39;00m [38;5;21;01me[39;00m
-[1;32m   2427[0m [38;5;28;01melse[39;00m:
-[1;32m   2428[0m     [38;5;28;01massert[39;00m exc_info[[38;5;241m1[39m] [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:2431[0m, in [0;36mConnection._handle_dbapi_exception_noconnection[0;34m(cls, e, dialect, engine, is_disconnect, invalidate_pool_on_disconnect, is_pre_ping)[0m
+[1;32m   2429[0m [38;5;28;01melif[39;00m should_wrap:
+[1;32m   2430[0m     [38;5;28;01massert[39;00m sqlalchemy_exception [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m-> 2431[0m     [38;5;28;01mraise[39;00m sqlalchemy_exception[38;5;241m.[39mwith_traceback(exc_info[[38;5;241m2[39m]) [38;5;28;01mfrom[39;00m [38;5;21;01me[39;00m
+[1;32m   2432[0m [38;5;28;01melse[39;00m:
+[1;32m   2433[0m     [38;5;28;01massert[39;00m exc_info[[38;5;241m1[39m] [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
 
 File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:145[0m, in [0;36mConnection.__init__[0;34m(self, engine, connection, _has_events, _allow_revalidate, _allow_autobegin)[0m
 [1;32m    143[0m [38;5;28;01mif[39;00m connection [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
@@ -205,15 +205,15 @@ File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages
 [1;32m    148[0m             err, dialect, engine
 [1;32m    149[0m         )
 
-File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3288[0m, in [0;36mEngine.raw_connection[0;34m(self)[0m
-[1;32m   3266[0m [38;5;28;01mdef[39;00m [38;5;21mraw_connection[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m PoolProxiedConnection:
-[1;32m   3267[0m [38;5;250m    [39m[38;5;124;03m"""Return a "raw" DBAPI connection from the connection pool.[39;00m
-[1;32m   3268[0m 
-[1;32m   3269[0m [38;5;124;03m    The returned object is a proxied version of the DBAPI[39;00m
+File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3293[0m, in [0;36mEngine.raw_connection[0;34m(self)[0m
+[1;32m   3271[0m [38;5;28;01mdef[39;00m [38;5;21mraw_connection[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m PoolProxiedConnection:
+[1;32m   3272[0m [38;5;250m    [39m[38;5;124;03m"""Return a "raw" DBAPI connection from the connection pool.[39;00m
+[1;32m   3273[0m 
+[1;32m   3274[0m [38;5;124;03m    The returned object is a proxied version of the DBAPI[39;00m
 [0;32m   (...)[0m
-[1;32m   3286[0m 
-[1;32m   3287[0m [38;5;124;03m    """[39;00m
-[0;32m-> 3288[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpool[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
+[1;32m   3291[0m 
+[1;32m   3292[0m [38;5;124;03m    """[39;00m
+[0;32m-> 3293[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpool[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
 
 File [0;32m/usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/pool/base.py:452[0m, in [0;36mPool.connect[0;34m(self)[0m
 [1;32m    444[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m PoolProxiedConnection:

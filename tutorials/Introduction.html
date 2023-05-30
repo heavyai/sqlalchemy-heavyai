@@ -438,7 +438,14 @@ using the following structure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.0.13&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.0.15&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy_heavyai</span>
 </pre></div>
 </div>
 </div>
@@ -482,14 +489,14 @@ using the following structure:</p>
 <span class="ne">--&gt; </span><span class="mi">145</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dbapi_connection</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">loaded_dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3288,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3267</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3268</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3269</span><span class="sd"> The returned object is a proxied version of the DBAPI</span>
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3293,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3272</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3273</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3274</span><span class="sd"> The returned object is a proxied version of the DBAPI</span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3286</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3287</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">3288</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3291</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3292</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3293</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
 <span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/pool/base.py:452,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">445</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
@@ -592,21 +599,21 @@ using the following structure:</p>
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">&quot;heavydb://admin:HyperInteractive@localhost:6274/heavyai?protocol=binary&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3264,</span> in <span class="ni">Engine.connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3241</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Connection</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3242</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a new :class:`_engine.Connection` object.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3243</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3244</span><span class="sd">     The :class:`_engine.Connection` acts as a Python context manager, so</span>
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3269,</span> in <span class="ni">Engine.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3246</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Connection</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3247</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a new :class:`_engine.Connection` object.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3248</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3249</span><span class="sd">     The :class:`_engine.Connection` acts as a Python context manager, so</span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3261</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3262</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">3264</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connection_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3266</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3267</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3269</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connection_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:147,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, engine, connection, _has_events, _allow_revalidate, _allow_autobegin)</span>
 <span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_dbapi_connection</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">()</span>
@@ -617,12 +624,12 @@ using the following structure:</p>
 <span class="g g-Whitespace">    </span><span class="mi">150</span>         <span class="k">raise</span>
 <span class="g g-Whitespace">    </span><span class="mi">151</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:2426,</span> in <span class="ni">Connection._handle_dbapi_exception_noconnection</span><span class="nt">(cls, e, dialect, engine, is_disconnect, invalidate_pool_on_disconnect, is_pre_ping)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2424</span> <span class="k">elif</span> <span class="n">should_wrap</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2425</span>     <span class="k">assert</span> <span class="n">sqlalchemy_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">2426</span>     <span class="k">raise</span> <span class="n">sqlalchemy_exception</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">   </span><span class="mi">2427</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2428</span>     <span class="k">assert</span> <span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:2431,</span> in <span class="ni">Connection._handle_dbapi_exception_noconnection</span><span class="nt">(cls, e, dialect, engine, is_disconnect, invalidate_pool_on_disconnect, is_pre_ping)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2429</span> <span class="k">elif</span> <span class="n">should_wrap</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2430</span>     <span class="k">assert</span> <span class="n">sqlalchemy_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">2431</span>     <span class="k">raise</span> <span class="n">sqlalchemy_exception</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2433</span>     <span class="k">assert</span> <span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
 <span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:145,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, engine, connection, _has_events, _allow_revalidate, _allow_autobegin)</span>
 <span class="g g-Whitespace">    </span><span class="mi">143</span> <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -633,15 +640,15 @@ using the following structure:</p>
 <span class="g g-Whitespace">    </span><span class="mi">148</span>             <span class="n">err</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">engine</span>
 <span class="g g-Whitespace">    </span><span class="mi">149</span>         <span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3288,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3266</span> <span class="k">def</span> <span class="nf">raw_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PoolProxiedConnection</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3267</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3268</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3269</span><span class="sd">     The returned object is a proxied version of the DBAPI</span>
+<span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/engine/base.py:3293,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3271</span> <span class="k">def</span> <span class="nf">raw_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PoolProxiedConnection</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3272</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3273</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3274</span><span class="sd">     The returned object is a proxied version of the DBAPI</span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3286</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3287</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">3288</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3291</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3292</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3293</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
 <span class="nn">File /usr/share/miniconda3/envs/sqla-heavyai/lib/python3.11/site-packages/sqlalchemy/pool/base.py:452,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">444</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PoolProxiedConnection</span><span class="p">:</span>
@@ -783,33 +790,32 @@ using the following structure:</p>
 <p>As an example, let’s work on the first table we can find in our database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_name</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SHOW TABLES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">text</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;SHOW TABLES&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lidar
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>heavyai_us_states
 </pre></div>
 </div>
 </div>
 </div>
-<p>For this first tutorial, we are going to use a table called <code class="docutils literal notranslate"><span class="pre">github</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">MetaData</span><span class="p">()</span>
 
 <span class="n">lidar</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
-    <span class="n">metadata</span><span class="p">,</span> 
-    <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="p">,</span>
     <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>And, inspecting the variable <code class="docutils literal notranslate"><span class="pre">github</span></code> it seems it is working!</p>
+<p>And, inspecting the variable <code class="docutils literal notranslate"><span class="pre">lidar</span></code> it seems it is working!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lidar</span>
@@ -817,7 +823,7 @@ using the following structure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table(&#39;lidar&#39;, MetaData(), Column(&#39;x&#39;, FLOAT(), table=&lt;lidar&gt;), Column(&#39;y&#39;, FLOAT(), table=&lt;lidar&gt;), Column(&#39;z&#39;, FLOAT(), table=&lt;lidar&gt;), schema=None)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table(&#39;heavyai_us_states&#39;, MetaData(), Column(&#39;id&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;abbr&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;name&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;geom&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), schema=None)
 </pre></div>
 </div>
 </div>
@@ -825,13 +831,13 @@ using the following structure:</p>
 <p>Now, let’s try a simple query using <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> API:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">lidar</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">compile</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SELECT lidar.x, lidar.y, lidar.z \nFROM lidar\n LIMIT :param_1&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SELECT heavyai_us_states.id, heavyai_us_states.abbr, heavyai_us_states.name, heavyai_us_states.geom \nFROM heavyai_us_states\n LIMIT :param_1&#39;
 </pre></div>
 </div>
 </div>
@@ -844,11 +850,7 @@ using the following structure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5x/5blbwvrs6l5_wct5ncsp5f_m0000gn/T/ipykernel_46209/272572304.py:1: SAWarning: Dialect heavydb:heavydb will not make use of SQL compilation caching as it does not set the &#39;supports_statement_cache&#39; attribute to ``True``.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Dialect maintainers should seek to set this attribute to True after appropriate development and testing for SQLAlchemy 1.4 caching support.   Alternatively, this attribute may be set to False which will disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
-  results = con.execute(query).fetchall()
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-122.42375, 37.78875, 65.15439)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;01&#39;, &#39;AL&#39;, &#39;Alabama&#39;, &#39;MULTIPOLYGON (((-87.3592959471789 35.0011799880309,-88.2027449869564 34.9957029591294,-88.098682988481 34.8916409606541,-88.2410839797189 33.79625299 ... (864 characters truncated) ... 19798943,-85.1849509706651 32.8596959695498,-85.43141295455 34.1248689843923,-85.6066749457301 34.9847489851456,-87.3592959471789 35.0011799880309)))&#39;)]
 </pre></div>
 </div>
 </div>
@@ -857,7 +859,6 @@ using the following structure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -881,17 +882,19 @@ using the following structure:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
+      <th>id</th>
+      <th>abbr</th>
+      <th>name</th>
+      <th>geom</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>-122.42375</td>
-      <td>37.78875</td>
-      <td>65.15439</td>
+      <td>01</td>
+      <td>AL</td>
+      <td>Alabama</td>
+      <td>MULTIPOLYGON (((-87.3592959471789 35.001179988...</td>
     </tr>
   </tbody>
 </table>
@@ -900,13 +903,13 @@ using the following structure:</p>
 <p>Also, if you are familiar with <strong>SQL</strong> you it directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> LIMIT 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> LIMIT 1&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="n">results</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;IssueCommentEvent&#39;, 1, 16635032, &#39;start-jsk/rtmros_hironx&#39;, &#39;https://api.github.com/repos/start-jsk/rtmros_hironx&#39;, 1840401, 130, None, &#39;https://avatars.githubusercontent.com/u/1840401?&#39;, &#39;https://api.github.com/users/130s&#39;, 2988053, &#39;start-jsk&#39;, None, &#39;https://avatars.githubusercontent.com/u/2988053?&#39;, &#39;https://api.github.com/orgs/start-jsk&#39;, datetime.datetime(2015, 1, 1, 0, 30, 4), &#39;2489383075&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;01&#39;, &#39;AL&#39;, &#39;Alabama&#39;, &#39;MULTIPOLYGON (((-87.3592959471789 35.0011799880309,-88.2027449869564 34.9957029591294,-88.098682988481 34.8916409606541,-88.2410839797189 33.79625299 ... (864 characters truncated) ... 19798943,-85.1849509706651 32.8596959695498,-85.43141295455 34.1248689843923,-85.6066749457301 34.9847489851456,-87.3592959471789 35.0011799880309)))&#39;)]
 </pre></div>
 </div>
 </div>
@@ -917,6 +920,33 @@ using the following structure:</p>
 to execute a SQL <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> you can use <code class="docutils literal notranslate"><span class="pre">sqalchemy.select</span></code> that returns an object
 that allows other <strong>SQL</strong> clauses, such as <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">where</span></code>, etc.</p>
 <p>Let’s try to filter our dataset with the first 10 records with <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">PushEvent</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lidar</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">abbr</span> <span class="o">==</span> <span class="s2">&quot;AL&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lidar</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="p">,</span>
+    <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span>
+<span class="p">)</span>
+<span class="n">lidar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table(&#39;heavyai_us_states&#39;, MetaData(), Column(&#39;id&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;abbr&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;name&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), Column(&#39;geom&#39;, VARCHAR(length=52), table=&lt;heavyai_us_states&gt;), schema=None)
+</pre></div>
+</div>
+</div>
+</div>
 <p>And it will be translated to <strong>SQL</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -925,8 +955,9 @@ that allows other <strong>SQL</strong> clauses, such as <code class="docutils li
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT lidar.x, lidar.y, lidar.z 
-FROM lidar
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT * 
+FROM heavyai_us_states 
+WHERE heavyai_us_states.abbr = :abbr_1
  LIMIT :param_1
 </pre></div>
 </div>
@@ -940,9 +971,10 @@ FROM lidar
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT lidar.x, lidar.y, lidar.z 
-FROM lidar 
- LIMIT 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SELECT * 
+FROM heavyai_us_states 
+WHERE heavyai_us_states.abbr = &#39;AL&#39; 
+ LIMIT 10
 </pre></div>
 </div>
 </div>
@@ -978,17 +1010,19 @@ you also can use it directly with <strong>Pandas</strong>:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
+      <th>id</th>
+      <th>abbr</th>
+      <th>name</th>
+      <th>geom</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>-122.42375</td>
-      <td>37.78875</td>
-      <td>65.15439</td>
+      <td>01</td>
+      <td>AL</td>
+      <td>Alabama</td>
+      <td>MULTIPOLYGON (((-87.3592959471789 35.001179988...</td>
     </tr>
   </tbody>
 </table>
@@ -1021,17 +1055,19 @@ you also can use it directly with <strong>Pandas</strong>:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
+      <th>id</th>
+      <th>abbr</th>
+      <th>name</th>
+      <th>geom</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>-122.42375</td>
-      <td>37.78875</td>
-      <td>65.15439</td>
+      <td>01</td>
+      <td>AL</td>
+      <td>Alabama</td>
+      <td>MULTIPOLYGON (((-87.3592959471789 35.001179988...</td>
     </tr>
   </tbody>
 </table>
