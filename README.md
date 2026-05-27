@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> As of 05/27/2026 this project has been deprecated. **sqlalchemy-heavyai** is not maintained anymore.
+>
+>
+
+
 # HeavyAI SQLAlchemy Driver
 
 The code here was initially developed and published at
